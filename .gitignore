@@ -6,4 +6,7 @@ Java/Spring/boot/spring-boot-demo-yaml/.classpath
 Java/Spring/boot/spring-boot-demo-yaml/.project
 Java/Spring/boot/spring-boot-demo-yaml/.settings/*
 Java/Spring/boot/spring-boot-demo-yaml/target/
-
+Java/Spring/boot/spring-boot-demo-liquibase/.classpath
+Java/Spring/boot/spring-boot-demo-liquibase/.settings/*
+Java/Spring/boot/spring-boot-demo-liquibase/.project
+Java/Spring/boot/spring-boot-demo-liquibase/target
