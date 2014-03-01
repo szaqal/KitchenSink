@@ -10,3 +10,9 @@ Java/Spring/boot/spring-boot-demo-liquibase/.classpath
 Java/Spring/boot/spring-boot-demo-liquibase/.settings/*
 Java/Spring/boot/spring-boot-demo-liquibase/.project
 Java/Spring/boot/spring-boot-demo-liquibase/target
+Java/Spring/boot/spring-boot-demo-liquibase/.gitignore
+Java/Jooq/jooq-demo/.settings
+Java/Jooq/jooq-demo/.classpath
+Java/Jooq/jooq-demo/.project
+Java/Jooq/jooq-demo/target/*
+Java/Jooq/jooq-demo/.gitignore
