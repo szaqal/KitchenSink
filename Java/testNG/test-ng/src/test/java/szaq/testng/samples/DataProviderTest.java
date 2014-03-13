@@ -19,7 +19,7 @@ public class DataProviderTest {
 
     @Test(dataProvider = "test1", groups = {"willRun"})
     public void verifyData1(String n1, Integer n2) {
-        System.out.println(n1 + " " + n2);
+        System.out.println(getClass() + " " +n1 + " " + n2);
     }
 
 }
