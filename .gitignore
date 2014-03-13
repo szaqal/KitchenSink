@@ -23,3 +23,8 @@ Java/Jooq/jooq-demo-spring/.settings/*
 Java/Jooq/jooq-demo-spring/target/*
 Java/Jooq/jooq-demo-spring/.gitignore
 Java/Jooq/jooq-demo-spring/src/main/java/szaq/jooq/demo/gen
+Java/testNG/test-ng/target/*
+Java/Spring/boot/spring-boot-demo/.idea/*
+Java/Spring/boot/spring-boot-demo/spring-boot-demo.iml
+Java/testNG/test-ng/.idea/*
+Java/testNG/test-ng/*.iml

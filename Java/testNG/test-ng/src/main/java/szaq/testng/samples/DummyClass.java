@@ -6,7 +6,7 @@ package szaq.testng.samples;
 public class DummyClass {
 
 
-    public String g etText() {
+    public String getText() {
         return "dummy";
     }
 }
