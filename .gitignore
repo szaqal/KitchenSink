@@ -31,3 +31,4 @@ Java/testNG/test-ng/*.iml
 Java/Mockito/mockito-tests/.idea/
 Java/Mockito/mockito-tests/*.iml
 Java/Mockito/mockito-tests/target/*
+Guava/szaqalguava/target/*
