@@ -28,3 +28,6 @@ Java/Spring/boot/spring-boot-demo/.idea/*
 Java/Spring/boot/spring-boot-demo/spring-boot-demo.iml
 Java/testNG/test-ng/.idea/*
 Java/testNG/test-ng/*.iml
+Java/Mockito/mockito-tests/.idea/
+Java/Mockito/mockito-tests/*.iml
+Java/Mockito/mockito-tests/target/*
