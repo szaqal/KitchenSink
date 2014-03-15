@@ -36,3 +36,5 @@ Java/Jersey/jersey-sample/target/*
 Java/Jersey/jersey-sample/*.iml
 Java/Jersey/jersey-sample/.idea/
 Java/Guava/szaqalguava/target/*
+Java/Guava/szaqalguava/.idea/*
+Java/Guava/szaqalguava/*.iml
