@@ -32,3 +32,7 @@ Java/Mockito/mockito-tests/.idea/
 Java/Mockito/mockito-tests/*.iml
 Java/Mockito/mockito-tests/target/*
 Guava/szaqalguava/target/*
+Java/Jersey/jersey-sample/target/*
+Java/Jersey/jersey-sample/*.iml
+Java/Jersey/jersey-sample/.idea/
+Java/Guava/szaqalguava/target/*
