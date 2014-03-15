@@ -12,7 +12,7 @@ import javax.xml.ws.Response;
  * Created by pmalczyk on 3/15/14.
  */
 @Provider
-@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+@Produces({ MediaType.APPLICATION_XML })
 public class ResponseResolver implements ContextResolver<JAXBContext> {
     private JAXBContext ctx;
 
