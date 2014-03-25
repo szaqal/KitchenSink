@@ -23,3 +23,25 @@
  x  y  z 
  1  2 60 
 Levels: 1 2 60
+
+
+#EMPTY ELEMENTS
+
+> x<-c(1,2,NA,3);
+> x
+[1]  1  2 NA  3
+> ex <- complete.cases(x)
+> ex
+[1]  TRUE  TRUE FALSE  TRUE
+> x[ex]
+[1] 1 2 3
+
+#OPERATIONS
+> x<-seq(1:20);
+> y<-seq(1:20);
+> x+y
+ [1]  2  4  6  8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40
+> x*y
+ [1]   1   4   9  16  25  36  49  64  81 100 121 144 169 196 225 256 289 324 361 400
+
+
