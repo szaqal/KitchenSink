@@ -7,6 +7,8 @@ import javax.ws.rs.core.Response;
 
 /**
  * Created by pmalczyk on 3/15/14.
+ *
+ * http://localhost:8080/rest/serialized/xml
  */
 @Path("/responses/xml")
 public class XmlResponseResource {

@@ -7,6 +7,8 @@ import javax.ws.rs.Produces;
 
 /**
  * Created by pmalczyk on 3/15/14.
+ *
+ * http://localhost:8080/rest/query/sdd
  */
 @Path("/query/{querycontent}")
 public class QueryParamResources {

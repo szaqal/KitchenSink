@@ -10,6 +10,7 @@ import javax.ws.rs.core.MediaType;
 
 /**
  * Created by pmalczyk on 3/15/14.
+ * http://localhost:8080/rest/serialized/json
  */
 @Path("/serialized/json")
 public class SerializationResourceJson {
