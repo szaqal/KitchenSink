@@ -1,0 +1,5 @@
+package basics
+
+class PartialApplicationTest {
+
+}

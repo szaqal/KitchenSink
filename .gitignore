@@ -38,3 +38,8 @@ Java/Jersey/jersey-sample/.idea/
 Java/Guava/szaqalguava/target/*
 Java/Guava/szaqalguava/.idea/*
 Java/Guava/szaqalguava/*.iml
+Scala/00/target/*
+Scala/00/project/*
+Scala/01/target/*
+Scala/01/project/project/target/*
+Scala/01/project/target/*

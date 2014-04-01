@@ -1,0 +1,5 @@
+package basics
+
+object PartialApplication {
+
+}
