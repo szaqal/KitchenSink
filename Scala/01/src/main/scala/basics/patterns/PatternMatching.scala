@@ -26,4 +26,14 @@ object PatternMatching {
       case _ => "other"
     }
   }
+  
+  
+  //Invalid fix later
+  def doMatchingFunction(value: (Any=>Any)) : String =  {
+    value match {
+      case _:(String=>String) => "String to String"
+      case _:(Int=>String) => "Int to String"
+      case _ => "other"
+    }
+  }
 }

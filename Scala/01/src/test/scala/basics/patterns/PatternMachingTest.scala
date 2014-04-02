@@ -20,4 +20,6 @@ class PatternMachingTest extends FunSuite {
     assert(PatternMatching.doMatchingCaseClass(MatchedClass(2)) === "2")
     assert(PatternMatching.doMatchingCaseClass(MatchedClass(32)) === "other")
   }
+  
+  
 }
