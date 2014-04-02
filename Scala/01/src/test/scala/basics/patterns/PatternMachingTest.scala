@@ -20,6 +20,9 @@ class PatternMachingTest extends FunSuite {
     assert(PatternMatching.doMatchingCaseClass(MatchedClass(2)) === "2")
     assert(PatternMatching.doMatchingCaseClass(MatchedClass(32)) === "other")
   }
-  
-  
+
+  test("Patter match4") {
+    assert(PatternMatching.doMatchingFunction((x: String) => 5) == "String to Int");
+  }
+
 }
