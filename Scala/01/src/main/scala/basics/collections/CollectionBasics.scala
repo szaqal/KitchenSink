@@ -13,4 +13,6 @@ object CollectionBasics {
   def doFind() = List(1, 2, 3, 4, 5, 6).find(_ < 2);
   
   def doFlatten() = List(List(1,2,3,List(4,5,6)), List(7,8,9)).flatten
+  
+  def doConcat(a:List[Int], b:List[Int]) = a:::b
 }
