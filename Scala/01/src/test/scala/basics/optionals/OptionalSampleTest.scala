@@ -7,6 +7,7 @@ class OptionalSampleTest extends FunSuite {
   test("OptionalSome") {
     assert(OptionalSample.sampleSome("aaa").get === "aaa");
   }
+  
 
   test("OptionalNone") {
     assert(OptionalSample.sampleNone("xxx").orElse(Some("zzz")).get === "zzz")
