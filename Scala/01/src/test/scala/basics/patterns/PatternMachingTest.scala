@@ -25,4 +25,9 @@ class PatternMachingTest extends FunSuite {
     assert(PatternMatching.doMatchingFunction((x: String) => 5) == "String to Int");
   }
 
+  test("Patter match5") {
+    assert(PatternMatching.doListMatch(List(1, 2, 3)) == "Not found");
+    assert(PatternMatching.doListMatch(List(1, 0, 1, 3)) == "Found");
+  }
+
 }

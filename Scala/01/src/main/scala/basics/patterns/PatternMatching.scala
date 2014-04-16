@@ -33,5 +33,12 @@ object PatternMatching {
       case _ => "other"
     }
   }
+  
+  def doListMatch(value:List[_]): String = {
+    value match {
+      case List(_,0,1,_) => "Found"
+      case _ => "Not found"
+    }
+  } 
 
 }
