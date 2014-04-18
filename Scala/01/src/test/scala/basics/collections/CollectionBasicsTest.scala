@@ -6,7 +6,6 @@ class CollectionBasicsTest extends FunSuite {
 
   test("ZipTest") {
     val result = CollectionBasics.doZip()(1)
-    print(result)
     assert(result._1 === 2)
     assert(result._2 === ("b", "B"))
   }
