@@ -101,7 +101,26 @@ public class ExecutorsTest extends AbstractBenchmark {
                 break;
             }
         }
+    }
 
+
+    @BenchmarkOptions(benchmarkRounds = 10)
+    @Test
+    public void testIncrementDecrementMultipleThreadSemaphore() {
+
+        ExecutorService executorService = Executors.newFixedThreadPool(4);
+        Future<?> incrementResult1 = executorService.submit(new IncrementingRunnable(4));
+        Future<?> decrementResult1 = executorService.submit(new DecrementingRunnable(4));
+        Future<?> incrementResult2 = executorService.submit(new IncrementingRunnable(4));
+        Future<?> decrementResult2 = executorService.submit(new DecrementingRunnable(4));
+
+        while(true) {
+
+            if(incrementResult1.isDone() && decrementResult1.isDone() && incrementResult2.isDone() && decrementResult2.isDone()) {
+                Assert.assertEquals(0, SharedResource.getValue());
+                break;
+            }
+        }
     }
 
 

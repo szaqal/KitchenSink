@@ -1,9 +1,13 @@
 package szaq.concurrent.dummyincrementdecrement;
 
+import java.util.concurrent.Semaphore;
+
 /**
  * Created by pmalczyk on 4/19/14.
  */
 public class SharedResource {
+
+    private static Semaphore semaphore = new Semaphore(1);
 
     private static int counter = 0;
 
@@ -56,6 +60,26 @@ public class SharedResource {
 
     public static void threadLocalDecrement() {
         counterThreadLocal.set(counterThreadLocal.get()-1);
+    }
+
+    public static void semaphoreIncrement() {
+        try {
+            semaphore.acquire();
+            increment();
+            semaphore.release();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void semaphoreDecrement() {
+        try {
+            semaphore.acquire();
+            decrement();
+            semaphore.release();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }

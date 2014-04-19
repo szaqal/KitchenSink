@@ -28,7 +28,9 @@ public class IncrementingRunnable implements Runnable {
                 SharedResource.halfLockIncrement();
             }  else if (security ==3){
                 SharedResource.threadLocalIncrement();
-            } else {
+            } else if (security ==4){
+                SharedResource.semaphoreIncrement();
+            }  else {
                 SharedResource.increment();
             }
         }

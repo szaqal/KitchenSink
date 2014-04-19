@@ -29,7 +29,9 @@ public class DecrementingRunnable implements Runnable {
                 SharedResource.halfLockDecrement();
             } else if (security ==3){
                 SharedResource.threadLocalDecrement();
-            } else {
+            } else if (security ==4){
+                SharedResource.semaphoreDecrement();
+            }else {
                 SharedResource.decrement();
             }
         }
