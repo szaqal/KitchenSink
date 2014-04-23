@@ -47,4 +47,11 @@ Scala/01/.cache
 Scala/01/.classpath
 Scala/01/.project
 sbt_custom_variables/target/*
-Scala/sbt_custom_variables/project/target/
+Scala/sbt_custom_variables/project/target/*
+Scala/implicit_conversion/project/target/*
+Scala/implicit_conversion/.cache
+Scala/implicit_conversion/.classpath
+Scala/implicit_conversion/.project
+Scala/implicit_conversion/project/project/*
+Scala/implicit_conversion/target/*
+Scala/sbt_custom_variables/target/*
