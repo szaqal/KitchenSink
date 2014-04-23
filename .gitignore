@@ -46,3 +46,5 @@ Scala/01/project/target/*
 Scala/01/.cache
 Scala/01/.classpath
 Scala/01/.project
+sbt_custom_variables/target/*
+Scala/sbt_custom_variables/project/target/
