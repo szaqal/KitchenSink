@@ -15,5 +15,9 @@ class CurryingTest extends FunSuite {
   test("Currying test3") {
     assert(Currying.add2(3) == 8);
   }
+  
+  test("ConcatTest4") {
+    	assert(Currying.addMultiple1(2) == 10);
+  }
 
 }
