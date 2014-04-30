@@ -55,3 +55,9 @@ Scala/implicit_conversion/.project
 Scala/implicit_conversion/project/project/*
 Scala/implicit_conversion/target/*
 Scala/sbt_custom_variables/target/*
+Alg/Simple/Factorial/target/*
+Alg/Simple/Factorial/project/*
+Alg/Simple/Factorial/.classpath
+Alg/Simple/Factorial/.project
+Alg/Simple/Factorial/.worksheet/*
+Alg/Simple/Factorial/.cache/*
