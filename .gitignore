@@ -67,4 +67,11 @@ Alg/Simple/Fibonacci/.classpath
 Alg/Simple/Fibonacci/.project
 Alg/Simple/Fibonacci/.worksheet/*
 Alg/Simple/Fibonacci/.cache/*
-Alg/Simple/Fibonacci/.cache/*
+Alg/Simple/Fibonacci/.cache
+
+Alg/Simple/Sorting/target/*
+Alg/Simple/Sorting/project/*
+Alg/Simple/Sorting/.classpath
+Alg/Simple/Sorting/.project
+Alg/Simple/Sorting/.worksheet/*
+Alg/Simple/Sorting/.cache
