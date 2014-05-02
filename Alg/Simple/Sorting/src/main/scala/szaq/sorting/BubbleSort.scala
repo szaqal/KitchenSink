@@ -22,11 +22,28 @@ object BubbleSort {
         sortRecursive(List(input.tail.head, input.head) ::: input.tail.tail)
       } else {
         val sortResult = sortRecursive(input.tail)
-        if (sortResult.head < input.head) sortRecursive(List(sortResult.head, input.head) ::: sortResult.tail) else List(input.head) ::: sortResult
+        if (input.head > sortResult.head) sortRecursive(List(sortResult.head, input.head) ::: sortResult.tail) else List(input.head) ::: sortResult
       }
     } else {
       input
     }
   }
+
+  def sortRecursiveOrder(input: List[Int], x: (Int, Int) => Boolean): List[Int] = {
+    if (input != Nil && input.tail != Nil) {
+      if (x(input.head, input.tail.head)) {
+        sortRecursiveOrder(List(input.tail.head, input.head) ::: input.tail.tail, x)
+      } else {
+        val sortResult = sortRecursiveOrder(input.tail, x)
+        if (x(input.head, sortResult.head)) sortRecursiveOrder(List(sortResult.head, input.head) ::: sortResult.tail, x) else List(input.head) ::: sortResult
+      }
+    } else {
+      input
+    }
+  }
+
+  def sortRecursiveAsc(input: List[Int]): List[Int] = sortRecursiveOrder(input, (x: Int, y: Int) => x > y)
+
+  def sortRecursiveDesc(input: List[Int]): List[Int] = sortRecursiveOrder(input, (x: Int, y: Int) => x < y)
 
 }
