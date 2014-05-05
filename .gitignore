@@ -75,3 +75,10 @@ Alg/Simple/Sorting/.classpath
 Alg/Simple/Sorting/.project
 Alg/Simple/Sorting/.worksheet/*
 Alg/Simple/Sorting/.cache
+
+Scala/misc_problems/target/*
+Scala/misc_problems/project/*
+Scala/misc_problems/.classpath
+Scala/misc_problems/.project
+Scala/misc_problems/.worksheet/*
+Scala/misc_problems/.cache
