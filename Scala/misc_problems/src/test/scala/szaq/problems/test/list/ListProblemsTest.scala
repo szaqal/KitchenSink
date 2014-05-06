@@ -133,4 +133,12 @@ class ListProblemsTest extends FunSuite {
   test("encodeAndPack") {
     assert(ListProblems.packAndEncode(List(1, 1, 2, 1, 3)) === List((2, 1), (1, 2), (1, 1), (1, 3)))
   }
+
+  test("duplicateElemes") {
+    assert(ListProblems.duplicateElements(List(1, 1, 2, 3, 3, 3)) === List(1, 1, 1, 1, 2, 2, 3, 3, 3, 3, 3, 3))
+  }
+
+  test("duplicateElemes2") {
+    assert(ListProblems.duplicateElements2(List(1, 1, 2, 3, 3, 3)) === List(1, 1, 1, 1, 2, 2, 3, 3, 3, 3, 3, 3))
+  }
 }

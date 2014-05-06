@@ -84,4 +84,12 @@ object ListProblems {
     arg flatMap { e => List.make(e._1, e._2) }
   }
 
+  def duplicateElements[T](arg: List[T]): List[T] = {
+    encode(arg) flatMap { e => List.make((e._1) * 2, e._2) }
+  }
+
+  def duplicateElements2[T](arg: List[T]): List[T] = {
+    arg flatMap { e => List(e, e) }
+  }
+
 }
