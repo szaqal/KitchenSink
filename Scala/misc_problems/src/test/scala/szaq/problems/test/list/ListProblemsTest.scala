@@ -98,7 +98,7 @@ class ListProblemsTest extends FunSuite {
   // ----
 
   test("rev1") {
-    assert(ListProblems.reverse(List(1, 2, 3)) === List(3,2,1));
+    assert(ListProblems.reverse(List(1, 2, 3)) === List(3, 2, 1));
   }
 
   test("rev2") {
@@ -107,5 +107,30 @@ class ListProblemsTest extends FunSuite {
 
   test("rev3") {
     assert(ListProblems.reverse(List()) === List())
+  }
+
+  // ----
+
+  test("flatten") {
+    assert(ListProblems.flatten(List(List(3), 2, List(1))) === List(3, 2, 1))
+  }
+
+  // ----
+  test("duplicates") {
+    assert(ListProblems.dropDuplicated(List(1, 1, 1, 2, 3, 3)) === List(1, 2, 3))
+  }
+
+  test("pack") {
+    assert(ListProblems.pack(List(1, 1, 2, 1, 3)) === List(List(1, 1), List(2), List(1), List(3)))
+  }
+
+  // ----
+
+  test("encode") {
+    assert(ListProblems.encode(List(1, 1, 2, 1, 3)) === List((2, 1), (1, 2), (1, 1), (1, 3)))
+  }
+
+  test("encodeAndPack") {
+    assert(ListProblems.packAndEncode(List(1, 1, 2, 1, 3)) === List((2, 1), (1, 2), (1, 1), (1, 3)))
   }
 }
