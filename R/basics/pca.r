@@ -1,0 +1,8 @@
+z<-read.table(file="/tmp/data.txt")
+data<-data.matrix(z[,1:4])
+dataeig.eig<-eigen(t(data) %*% data)
+mu <- sqrt(dataeig.eig$values)
+datasvd<-svd(data)
+datads<-sum(data*data)
+result1<-round(sqrt(mu[1])*dataeig.eig$vectors[,1],4)
+result2<-round((datasvd$d[1]^2/datads) * 100,4)
