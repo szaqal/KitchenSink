@@ -1,0 +1,3 @@
+#Prompt
+load(file.choose())
+

@@ -23,3 +23,15 @@ Levels: a b c d
 [1] 1 2 3 4
 > frame$col3
 [1]  TRUE  TRUE FALSE  TRUE
+
+
+> factor(letters)
+ [1] a b c d e f g h i j k l m n o p q r s t u v w x y z
+Levels: a b c d e f g h i j k l m n o p q r s t u v w x y z
+
+factor(rep(letters, 2))
+ [1] a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e f g h i j k l m n o p q r s t u v w x y
+[52] z
+Levels: a b c d e f g h i j k l m n o p q r s t u v w x y z
+
+
