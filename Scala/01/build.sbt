@@ -5,14 +5,13 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-	"org.scalatest" % "scalatest_2.10" % "2.1.0" % "test",
-	"com.typesafe.akka" %  "akka-actor_2.10" % "2.4-SNAPSHOT",
-	"com.yuvimasory" % "jerkson_2.10" % "0.6.1",
-	"org.specs2" % "specs2_2.10" % "2.3.11"            
+	"org.scalatest" % "scalatest_2.11" % "2.2.0" % "test",
+	 "com.typesafe.akka" % "akka-actor_2.11" % "2.3.4",
+	"org.specs2" % "specs2_2.11" % "2.3.13"        
 )
 
 name := "basics"
 
 version := "1.0"
 
-scalaVersion := "2.10.3"
+scalaVersion := "2.11.2"

@@ -7,7 +7,7 @@ import basics.functions.ConvertFunction
 class ConvertFunctionTest extends FunSuite {
 
   def exec(): String = {
-    val fun: Int => String = ConvertFunction()
+    val fun: Int => String = new ConvertFunction()
     fun(3)
   }
   
