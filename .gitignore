@@ -83,3 +83,9 @@ Scala/misc_problems/.project
 Scala/misc_problems/.worksheet/*
 Scala/misc_problems/.cache
 **/.Rhistory
+**/.cache
+**/.classpath
+**/.project
+**/.settings/
+**/target
+bin/*
