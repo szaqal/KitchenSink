@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+	<logger name="ch.qos.logback" level="ERROR" />
+	<logger name="org.apache" level="WARN" />
+	<logger name="org.springframework" level="INFO" />
+	<logger name="ch.qos.logback" level="ERROR" />
+</included>

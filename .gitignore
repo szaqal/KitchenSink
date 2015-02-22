@@ -90,3 +90,5 @@ Scala/misc_problems/.cache
 **/target
 bin/*
 **/*.cache
+**/.metadata
+**target
