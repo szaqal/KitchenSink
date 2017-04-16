@@ -9,8 +9,14 @@ object DbApplication extends App {
 
   DBs.setupAll()
 
+  GlobalSettings.loggingSQLAndTime = new LoggingSQLAndTimeSettings(
+    enabled = true,
+    singleLineMode = true,
+    logLevel = 'DEBUG
+  )
+
   val messages: List[IncomingMessage] = DB readOnly { implicit session ⇒
-    sql"select * from IncomingMessage order by id desc limit 1000".map(rs ⇒ IncomingMessage(
+    sql"select * from IncomingMessage order by id desc limit 10".map(rs ⇒ IncomingMessage(
       rs.int("id"),
       rs.date("created"),
       rs.string("message")
