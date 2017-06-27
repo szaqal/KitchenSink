@@ -92,3 +92,4 @@ bin/*
 **/*.cache
 **/.metadata
 **target
+**/*.idea
