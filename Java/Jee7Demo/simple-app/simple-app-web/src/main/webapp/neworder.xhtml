@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h1>Tunes</h1>
+
+
+
+		<h:form id="reg">
+			<h2>New Order</h2>
+			<h:panelGrid columns="3" columnClasses="titleCell">
+				<h:outputLabel for="customer" value="Customer:" />
+				<h:selectOneMenu value="#{orderController.customerId}">
+					<f:selectItems value="#{customerController.customers}" var="c" itemLabel="#{c.firstName} #{c.lastName}" itemValue="#{c.id}" />
+				</h:selectOneMenu>
+				<h:message for="customer" errorClass="invalid" />
+
+				<h:outputLabel for="tune" value="Tune:" />
+				<h:selectOneMenu value="#{orderController.tuneId}">
+					<f:selectItems value="#{tunesController.tunes}" var="c" itemLabel="#{c.artist} #{c.title}" itemValue="#{c.id}" />
+				</h:selectOneMenu>
+				<h:message for="tune" errorClass="invalid" />
+			</h:panelGrid>
+
+			<p>
+				<h:panelGrid columns="2">
+					<h:commandButton id="register" action="#{orderController.addOrder}"
+						value="Add" styleClass="register" />
+					<h:messages styleClass="messages" errorClass="invalid"
+						infoClass="valid" warnClass="warning" globalOnly="true" />
+				</h:panelGrid>
+			</p>
+		</h:form>
+	</ui:define>
+</ui:composition>

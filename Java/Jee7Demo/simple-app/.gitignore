@@ -1,0 +1,14 @@
+simple-app-web/.classpath
+simple-app-web/.gitignore
+simple-app-web/.project
+simple-app-web/.settings/
+simple-app-ear/.project
+simple-app-ear/.settings/
+simple-app-ejb/.classpath
+simple-app-ejb/.gitignore
+simple-app-ejb/.project
+simple-app-ejb/.settings/
+.project
+.settings/
+simple-app-ear/.gitignore
+target/

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h1>Customers</h1>
+
+
+		<h2>Customers</h2>
+		<h:panelGroup rendered="#{empty customers}">
+			<em>No registered Customers.</em>
+		</h:panelGroup>
+		<h:form>
+		<h:dataTable var="_member" value="#{customers}"
+			rendered="#{not empty customers}" styleClass="simpletablestyle">
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+                #{_member.id}
+            </h:column>
+			<h:column>
+				<f:facet name="header">First Name</f:facet>
+                #{_member.firstName}
+            </h:column>
+			<h:column>
+				<f:facet name="header">Last Name</f:facet>
+                #{_member.lastName}
+            </h:column>
+			<h:column>
+				<f:facet name="header">Email</f:facet>
+                #{_member.email}
+            </h:column>
+		</h:dataTable>
+		<a href="#{request.contextPath}/newcustomer.jsf">New Customer</a>
+		</h:form>
+	</ui:define>"
+
+
+</ui:composition>

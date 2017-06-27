@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	                    http://www.springframework.org/schema/beans/spring-beans.xsd
+	                    http://www.springframework.org/schema/security
+	                    http://www.springframework.org/schema/security/spring-security.xsd">
+
+
+	<security:http realm="Example" use-expressions="true" entry-point-ref="userTokenAuthenticationEntryPoint">
+		<security:intercept-url pattern="/secured/**" access="hasRole('ROLE_USER')" />
+		<security:custom-filter ref="userTokenFilter" after="SECURITY_CONTEXT_FILTER" />
+		<security:custom-filter ref="clearSessionFilter" after="LAST"/>
+		<security:anonymous enabled="false"/>
+	</security:http>
+
+	<security:authentication-manager alias="authenticationManager">
+		<security:authentication-provider ref="userTokenAuthenticationProvider" />
+	</security:authentication-manager>
+	
+
+	<bean id="userTokenAuthenticationProvider" class="szaqal.security.UserTokenAuthenticationProvider" />
+	<bean id="userTokenAuthenticationEntryPoint" class="szaqal.security.UserTokenEntrypoint" />
+	<bean id="clearSessionFilter" class="szaqal.security.ClearSessionFilter"/>
+
+	<bean id="userTokenFilter" class="szaqal.security.UserTokenFilter">
+		<property name="authenticationManager" ref="authenticationManager" />
+	</bean>
+
+</beans>	                        

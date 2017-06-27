@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+	<changeSet id="migration#1" author="Pawel Malczyk" runInTransaction="true">
+		<preConditions>
+			<not>
+				<tableExists tableName="tunes" />
+			</not>
+		</preConditions>
+		<createTable tableName="tunes">
+			<column name="id" autoIncrement="true" type="bigint">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="artist" type="varchar(100)" />
+			<column name="title" type="varchar(100)" />
+			<column name="genre" type="varchar(100)" />
+			<column name="price" type="double" />
+		</createTable>
+		<addNotNullConstraint columnName="artist" tableName="tunes" columnDataType="varchar(100)"/>
+		<addNotNullConstraint columnName="title" tableName="tunes" columnDataType="varchar(100)"/>
+		<addNotNullConstraint columnName="genre" tableName="tunes" columnDataType="varchar(100)"/>
+		<addNotNullConstraint columnName="price" tableName="tunes" columnDataType="double"/>
+		
+		<rollback>
+			<dropTable tableName="tunes" />
+		</rollback>
+	</changeSet>
+	
+	<changeSet id="migration#2" author="Pawel Malczyk" runInTransaction="true">
+		<preConditions>
+			<not>
+				<tableExists tableName="customers" />
+			</not>
+		</preConditions>		
+		
+		<createTable tableName="customers">
+			<column name="id" autoIncrement="true" type="bigint">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="first_name" type="varchar(100)" />
+			<column name="last_name" type="varchar(100)" />
+			<column name="email" type="varchar(100)" />
+		</createTable>
+		
+		<addNotNullConstraint columnName="first_name" tableName="customers" columnDataType="varchar(100)"/>
+		<addNotNullConstraint columnName="last_name" tableName="customers" columnDataType="varchar(100)"/>
+		<addNotNullConstraint columnName="email" tableName="customers" columnDataType="varchar(100)"/>
+		
+		
+		<rollback>
+			<dropTable tableName="customers" />
+		</rollback>
+	</changeSet>
+	
+	<changeSet id="migration#3" author="Pawel Malczyk" runInTransaction="true">
+		<preConditions>
+			<not>
+				<tableExists tableName="tune_orders" />
+			</not>
+		</preConditions>		
+		
+		<createTable tableName="tune_orders">
+			<column name="id" autoIncrement="true" type="bigint">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="customer_id" type="bigint" />
+			<column name="tune_id" type="bigint" />
+		</createTable>
+		
+		
+		<addForeignKeyConstraint baseColumnNames="customer_id"
+            baseTableName="tune_orders"
+            constraintName="fk_customers"
+            referencedColumnNames="id"
+            referencedTableName="customers"
+            onDelete="NO ACTION" onUpdate="NO ACTION"/> 
+    
+    	<addForeignKeyConstraint baseColumnNames="tune_id"
+            baseTableName="tune_orders"
+            constraintName="fk_tunes"
+            referencedColumnNames="id"
+            referencedTableName="tunes" 
+            onDelete="NO ACTION" onUpdate="NO ACTION"/>         
+		
+		<rollback>
+			<dropTable tableName="tune_orders" />
+		</rollback>
+	</changeSet>
+	
+	<changeSet id="migration#4" author="Pawel Malczyk">
+		<sqlFile path="test_data.sql"/>
+	</changeSet>
+	
+	<changeSet id="migration#5" author="Pawel Malczyk">
+		<preConditions>
+				<tableExists tableName="tune_orders" />
+		</preConditions>		
+		<sql>ALTER TABLE tune_orders ADD COLUMN order_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP</sql>
+		<rollback>
+			<sql>ALTER TABLE tune_order DROP COLUMN order_date</sql>
+		</rollback>
+	</changeSet>
+
+</databaseChangeLog>

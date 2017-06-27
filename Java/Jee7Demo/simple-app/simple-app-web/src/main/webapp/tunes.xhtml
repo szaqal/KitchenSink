@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h1>Tunes</h1>
+
+
+		<h2>Tunes</h2>
+		<h:panelGroup rendered="#{empty tunes}">
+			<em>No Tunes.</em>
+		</h:panelGroup>
+		<h:form>
+		
+		<h:dataTable var="_tune" value="#{tunes}"
+			rendered="#{not empty tunes}" styleClass="simpletablestyle">
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+                #{_tune.id}
+            </h:column>
+			<h:column>
+				<f:facet name="header">Artist</f:facet>
+                #{_tune.artist}
+            </h:column>
+			<h:column>
+				<f:facet name="header">Ttile</f:facet>
+                #{_tune.title}
+            </h:column>
+			<h:column>
+				<f:facet name="header">Genre</f:facet>
+                #{_tune.genre}
+            </h:column>
+			<h:column>
+				<f:facet name="header">Price</f:facet>
+                #{_tune.price}
+            </h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Delete" />
+				</f:facet>
+				<h:commandLink value="Delete"
+					action="#{tunesController.delete(_tune)}" />
+			</h:column>
+
+		</h:dataTable>
+		</h:form>
+		<a href="#{request.contextPath}/newtune.jsf">New Tune</a>
+	</ui:define>
+</ui:composition>

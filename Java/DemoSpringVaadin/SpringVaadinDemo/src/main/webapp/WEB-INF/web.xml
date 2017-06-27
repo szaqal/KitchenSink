@@ -1,0 +1,74 @@
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+
+	<display-name>vaadin-spring</display-name>
+
+	<context-param>
+		<param-name>productionMode</param-name>
+		<param-value>false</param-value>
+		<description>Vaadin production mode</description>
+	</context-param>
+
+	<context-param>
+		<param-name>contextClass</param-name>
+		<param-value>
+			org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+		</param-value>
+	</context-param>
+
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>szaqal.springvaadin.demo.ApplicationConfig</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+
+	<servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextClass</param-name>
+			<param-value>
+				org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>szaqal.springvaadin.demo.ApplicationConfig</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet>
+		<servlet-name>vaadin-spring</servlet-name>
+		<servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
+		<init-param>
+			<param-name>application</param-name>
+			<param-value>szaqal.springvaadin.demo.VaadinApplication</param-value>
+			<description>Vaadin application class to start</description>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>/spring/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>vaadin-spring</servlet-name>
+		<url-pattern>/vaadin/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>vaadin-spring</servlet-name>
+		<url-pattern>/VAADIN/*</url-pattern>
+	</servlet-mapping>
+</web-app>

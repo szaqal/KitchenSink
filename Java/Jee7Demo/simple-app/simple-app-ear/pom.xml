@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<artifactId>simple-app</artifactId>
+		<groupId>javaee.sample</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>simple-app-ear</artifactId>
+	<packaging>ear</packaging>
+
+	<name>simple-app: EAR Module</name>
+
+	<url>http://wildfly.org</url>
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<distribution>repo</distribution>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+		</license>
+	</licenses>
+
+	<dependencies>
+
+		<!-- Depend on the ejb module and war so that we can package them -->
+		<dependency>
+			<groupId>javaee.sample</groupId>
+			<artifactId>simple-app-web</artifactId>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>javaee.sample</groupId>
+			<artifactId>simple-app-ejb</artifactId>
+			<type>ejb</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>properties-maven-plugin</artifactId>
+			<version>1.0-alpha-2</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>${version.ear.plugin}</version>
+				<configuration>
+					<version>7</version>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<fileNameMapping>no-version</fileNameMapping>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>properties-maven-plugin</artifactId>
+				<version>1.0-alpha-2</version>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<goals>
+							<goal>read-project-properties</goal>
+						</goals>
+						<configuration>
+							<files>
+								<file>../application.properties</file>
+							</files>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.wildfly.plugins</groupId>
+				<artifactId>wildfly-maven-plugin</artifactId>
+				<configuration>
+					<filename>${project.artifactId}.ear</filename>
+					<skip>false</skip>
+				</configuration>
+				<executions>
+					<execution>
+						<id>add-datasource</id>
+						<phase>package</phase>
+						<goals>
+							<goal>add-resource</goal>
+						</goals>
+						<configuration>
+							<address>subsystem=datasources,data-source=${mysql.jndi.ds.name}</address>
+							<resources>
+								<resource>
+									<properties>
+										<jndi-name>${mysql.jndi.ds.name}</jndi-name>
+										<enabled>true</enabled>
+										<connection-url>${mysql.url}</connection-url>
+										<driver-name>mysql</driver-name>
+										<user-name>${mysql.username}</user-name>
+										<password>${mysql.password}</password>
+									</properties>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>

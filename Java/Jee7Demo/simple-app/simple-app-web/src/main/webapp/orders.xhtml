@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h1>Orders</h1>
+
+
+		<h2>Tunes</h2>
+		<h:panelGroup rendered="#{empty orders}">
+			<em>No Orders.</em>
+		</h:panelGroup>
+		<h:dataTable var="_order" value="#{orders}"
+			rendered="#{not empty orders}" styleClass="simpletablestyle">
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+                #{_order.id}
+            </h:column>
+			<h:column>
+				<f:facet name="header">Date</f:facet>
+                #{_order.orderDate}
+            </h:column>
+			<h:column>
+				<f:facet name="header">Customer</f:facet>
+                #{_order.customer.firstName}    #{_order.customer.lastName}
+            </h:column>
+			<h:column>
+				<f:facet name="header">Tune</f:facet>
+                #{_order.tune.artist}    #{_order.tune.title}
+            </h:column>
+		</h:dataTable>
+
+		<a href="#{request.contextPath}/neworder.jsf">New Order</a>
+	</ui:define>
+</ui:composition>
