@@ -71,5 +71,15 @@ Range
 ```
 
 
+## Standard Library ##
+
+* **import os**
+* **import shutil** directory management task
+* **import sys** command line args
+* **import re** regex etc
+* **import math** maths
+* **import random** rand
+* **import urllib/smtp lib**
+
 
 
