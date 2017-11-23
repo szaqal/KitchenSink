@@ -82,6 +82,7 @@ Scala/misc_problems/.classpath
 Scala/misc_problems/.project
 Scala/misc_problems/.worksheet/*
 Scala/misc_problems/.cache
+.recommenders/
 **/.Rhistory
 **/.cache
 **/.classpath
