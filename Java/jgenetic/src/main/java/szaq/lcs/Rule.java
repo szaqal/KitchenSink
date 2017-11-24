@@ -10,12 +10,20 @@ import lombok.Data;
 @Builder
 public class Rule {
 	
-	private BitChromosome chromosome;
+	private String id;
 	
+	/**
+	 * Condition  (Genome)
+	 */
+	private BitChromosome condition;
+	
+	/**
+	 * Should be {@link Phenotype}
+	 */
 	private int action;
 	
 	@Override
 	public String toString() {
-		return MoreObjects.toStringHelper(this).addValue(getChromosome().toCanonicalString()).addValue(action).toString();
+		return MoreObjects.toStringHelper(this).addValue(getId()).addValue(getCondition().toCanonicalString()).addValue(action).toString();
 	}
 }
