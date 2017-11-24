@@ -6,8 +6,10 @@ import java.util.List;
 import java.util.function.Supplier;
 
 import io.jenetics.BitChromosome;
+import lombok.extern.slf4j.Slf4j;
 
-public final class RulesGenerator {
+@Slf4j
+public  class RulesGenerator {
 
 	private static final int CHROMOSOME_LENGTH = 8;
 
@@ -20,21 +22,22 @@ public final class RulesGenerator {
 	}
 
 	public RulesGenerator(int count) {
+		this();
 		this.count = count;
 	}
 
-	public List<Rule> classARules() {
-		List<Rule> rule = new ArrayList<>();
-		for (int i = 0; i < count; i++) {
-			rule.add(Rule.builder().chromosome(getRandomPart(TRUE_ONLY)).action(0).build());
-		}
-		return rule;
+	public List<Rule> trueRules() {
+		return generate(TRUE_ONLY, 1);
 	}
 
-	public List<Rule> classBRules() {
+	public List<Rule> falseRules() {
+		return generate(FALSE_ONLY, 0);
+	}
+	
+	private List<Rule> generate(Supplier<BitChromosome> supplier, int value) {
 		List<Rule> rule = new ArrayList<>();
 		for (int i = 0; i < count; i++) {
-			rule.add(Rule.builder().chromosome(getRandomPart(FALSE_ONLY)).action(1).build());
+			rule.add(Rule.builder().chromosome(getRandomPart(supplier)).action(value).build());
 		}
 		return rule;
 	}
@@ -42,15 +45,12 @@ public final class RulesGenerator {
 	private BitChromosome getRandomPart(Supplier<BitChromosome> supplier) {
 
 		BitChromosome generatedChromosome = BitChromosome.of(CHROMOSOME_LENGTH, 0.5);
-		System.out.println(">" + generatedChromosome.toCanonicalString() + ">" + generatedChromosome.toString());
+		log.debug("> {}  {}", generatedChromosome.toCanonicalString(), generatedChromosome.toString());
 		BitChromosome suffixChromosome = supplier.get();
-		System.out.println(">" + suffixChromosome.toCanonicalString() + ">" + suffixChromosome.toString());
-
-		byte[] suffixArr = generatedChromosome.toByteArray();
-		System.out.println(">" + BitChromosome.of(BitSet.valueOf(suffixArr), CHROMOSOME_LENGTH).toCanonicalString());
+		log.debug("> {}  {}", suffixChromosome.toCanonicalString(), suffixChromosome.toString());
 
 		byte[] resultChromosome = concat(generatedChromosome.toByteArray(), suffixChromosome.toByteArray());
-		System.out.println(">" + BitChromosome.of(BitSet.valueOf(resultChromosome), CHROMOSOME_LENGTH*2).toCanonicalString());
+		log.info("" + BitChromosome.of(BitSet.valueOf(resultChromosome), CHROMOSOME_LENGTH*2).toCanonicalString());
 		return null;
 	}
 
