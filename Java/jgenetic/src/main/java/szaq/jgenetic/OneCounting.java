@@ -19,8 +19,8 @@ public class OneCounting {
 	}
 	
 	public static void main(String[]args) {
-		Engine<BitGene, Integer> engine = Engine.builder(OneCounting::count, BitChromosome.of(20,0.15))
-		.populationSize(100)
+		Engine<BitGene, Integer> engine = Engine.builder(OneCounting::count, BitChromosome.of(10,0.15))
+		.populationSize(10)
 		.selector(new RouletteWheelSelector<>()).alterers(new Mutator<>(0.55), new SinglePointCrossover<>())
 		.build();
 		
@@ -32,6 +32,8 @@ public class OneCounting {
 				. peek(statistics)
 				. collect(toBestPhenotype()) ;
 		
+		System.out.println(best.getFitness());
+		System.out.println(best.getGenotype().getChromosome(0));
 		//System.out.println(statistics) ;
 		System.out.println(best) ;
 	}
