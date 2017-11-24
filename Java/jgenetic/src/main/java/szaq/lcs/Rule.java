@@ -1,4 +1,4 @@
-package lcs;
+package szaq.lcs;
 
 import com.google.common.base.MoreObjects;
 

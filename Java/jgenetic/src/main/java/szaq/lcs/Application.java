@@ -1,4 +1,4 @@
-package lcs;
+package szaq.lcs;
 
 import java.util.ArrayList;
 import java.util.List;
