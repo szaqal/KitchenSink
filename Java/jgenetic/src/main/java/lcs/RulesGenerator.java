@@ -50,8 +50,9 @@ public  class RulesGenerator {
 		log.debug("> {}  {}", suffixChromosome.toCanonicalString(), suffixChromosome.toString());
 
 		byte[] resultChromosome = concat(generatedChromosome.toByteArray(), suffixChromosome.toByteArray());
-		log.info("" + BitChromosome.of(BitSet.valueOf(resultChromosome), CHROMOSOME_LENGTH*2).toCanonicalString());
-		return null;
+		BitChromosome result = BitChromosome.of(BitSet.valueOf(resultChromosome), CHROMOSOME_LENGTH*2);
+		log.debug("" + result.toCanonicalString());
+		return result;
 	}
 
 	public byte[] concat(byte[] a, byte[] b) {
