@@ -2,7 +2,7 @@ package szaq.lcs;
 
 import com.google.common.base.MoreObjects;
 
-import io.jenetics.BitChromosome;
+import io.jenetics.Phenotype;
 import lombok.Builder;
 import lombok.Data;
 import szaq.lcs.api.WildcardChromosome;

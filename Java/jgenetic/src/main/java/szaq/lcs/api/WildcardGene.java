@@ -15,49 +15,60 @@ import io.jenetics.util.RandomRegistry;
  *
  */
 public enum WildcardGene {
-	TRUE("1"), FALSE("0"), UNKNOWN("?");
+	
+	TRUE("1", false), 
+	FALSE("0", false), 
+	WILDCARD("?",true);
 
-	private String value;
+	private String representation;
+	
+	private boolean matchesAnyhing;
 
-	WildcardGene(String value) {
-		this.value = value;
+	WildcardGene(String respresentation, boolean matchesAnyhing) {
+		this.representation = respresentation;
+		this.matchesAnyhing = matchesAnyhing;
 	}
 
 	public String getValue() {
-		return value;
+		return representation;
 	}
 
 	public static WildcardGene randomWithWildcard(Random random) {
 		return WildcardGene.values()[random.nextInt(3)];
 	}
-	
+
 	public static WildcardGene randomWithoutWildcard(Random random) {
 		return WildcardGene.values()[random.nextInt(2)];
 	}
 	
+	public boolean matches(WildcardGene that) {
+		if(matchesAnyhing || that.matchesAnyhing) {
+			return true;
+		}
+		return this.equals(that);
+	}
+
 	static ISeq<EnumGene<WildcardGene>> seqWithoutWildcard(final IntRange lengthRange) {
-		
+
 		final Random r = RandomRegistry.getRandom();
 
 		return MSeq.<WildcardGene>ofLength(random.nextInt(lengthRange, r)).fill(() -> randomWithoutWildcard(r))
 				.map(x -> EnumGene.of(x)).toISeq();
 	}
-	
-	
 
 	static ISeq<EnumGene<WildcardGene>> seqWithWildcard(final IntRange lengthRange) {
-		
+
 		final Random r = RandomRegistry.getRandom();
 
 		return MSeq.<WildcardGene>ofLength(random.nextInt(lengthRange, r)).fill(() -> randomWithWildcard(r))
 				.map(x -> EnumGene.of(x)).toISeq();
 	}
-	
+
 	static ISeq<EnumGene<WildcardGene>> seqCustom(final IntRange lengthRange, Supplier<WildcardGene> geneValue) {
 		final Random r = RandomRegistry.getRandom();
 
 		return MSeq.<WildcardGene>ofLength(random.nextInt(lengthRange, r)).fill(() -> randomWithWildcard(r))
-				.map(x->EnumGene.of(geneValue.get())).toISeq();
+				.map(x -> EnumGene.of(geneValue.get())).toISeq();
 	}
-	
+
 }
