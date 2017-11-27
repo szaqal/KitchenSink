@@ -1,5 +1,8 @@
 package szaq.jgenetic;
 
+import static io.jenetics.engine.EvolutionResult.toBestPhenotype;
+import static io.jenetics.engine.Limits.bySteadyFitness;
+
 import io.jenetics.BitChromosome;
 import io.jenetics.BitGene;
 import io.jenetics.Genotype;
@@ -9,8 +12,6 @@ import io.jenetics.RouletteWheelSelector;
 import io.jenetics.SinglePointCrossover;
 import io.jenetics.engine.Engine;
 import io.jenetics.engine.EvolutionStatistics;
-import static io.jenetics.engine.Limits.*;
-import static io.jenetics.engine.EvolutionResult.*;
 
 public class OneCounting {
 	
