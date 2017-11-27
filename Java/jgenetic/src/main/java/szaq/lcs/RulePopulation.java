@@ -11,7 +11,7 @@ public class RulePopulation {
 	private int size;
 
 	/**
-	 * Creates initial rule populteion
+	 * Creates initial rule population
 	 * 
 	 * @param size
 	 *            rule population size

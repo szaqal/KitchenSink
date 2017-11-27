@@ -1,5 +1,9 @@
 package szaq.lcs.api;
 
+import static szaq.lcs.api.WildcardGene.FALSE;
+import static szaq.lcs.api.WildcardGene.TRUE;
+import static szaq.lcs.api.WildcardGene.WILDCARD;
+
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
@@ -32,29 +36,43 @@ public class WildcardChromosomeTest {
 	
 	@Test
 	public void testMatchingExact() {
-		WildcardChromosome one = WildcardChromosome.of(new WildcardGene[] {WildcardGene.FALSE, WildcardGene.FALSE, WildcardGene.TRUE, WildcardGene.TRUE});
-		WildcardChromosome two = WildcardChromosome.of(new WildcardGene[] {WildcardGene.FALSE, WildcardGene.FALSE, WildcardGene.TRUE, WildcardGene.TRUE});
+		WildcardChromosome one = WildcardChromosome.of(new WildcardGene[] {FALSE, FALSE, TRUE, TRUE});
+		WildcardChromosome two = WildcardChromosome.of(new WildcardGene[] {FALSE, FALSE, TRUE, TRUE});
 		Assertions.assertThat(one.matches(two)).isTrue();
 	}
 	
 	@Test
 	public void testMatchingPartial1() {
-		WildcardChromosome one = WildcardChromosome.of(new WildcardGene[] {WildcardGene.FALSE, WildcardGene.WILDCARD, WildcardGene.TRUE, WildcardGene.TRUE});
-		WildcardChromosome two = WildcardChromosome.of(new WildcardGene[] {WildcardGene.FALSE, WildcardGene.FALSE, WildcardGene.TRUE, WildcardGene.TRUE});
+		WildcardChromosome one = WildcardChromosome.of(new WildcardGene[] {FALSE, WILDCARD, TRUE, TRUE});
+		WildcardChromosome two = WildcardChromosome.of(new WildcardGene[] {FALSE, FALSE, TRUE, TRUE});
 		Assertions.assertThat(one.matches(two)).isTrue();
 	}
 	
 	@Test
 	public void testMatchingPartial2() {
-		WildcardChromosome one = WildcardChromosome.of(new WildcardGene[] {WildcardGene.FALSE, WildcardGene.WILDCARD, WildcardGene.WILDCARD, WildcardGene.TRUE});
-		WildcardChromosome two = WildcardChromosome.of(new WildcardGene[] {WildcardGene.FALSE, WildcardGene.FALSE, WildcardGene.TRUE, WildcardGene.TRUE});
+		WildcardChromosome one = WildcardChromosome.of(new WildcardGene[] {FALSE, WILDCARD, WILDCARD, TRUE});
+		WildcardChromosome two = WildcardChromosome.of(new WildcardGene[] {FALSE, FALSE, TRUE, TRUE});
 		Assertions.assertThat(one.matches(two)).isTrue();
 	}
 	
 	@Test
 	public void testNotMatching() {
-		WildcardChromosome one = WildcardChromosome.of(new WildcardGene[] {WildcardGene.FALSE, WildcardGene.TRUE, WildcardGene.WILDCARD, WildcardGene.TRUE});
-		WildcardChromosome two = WildcardChromosome.of(new WildcardGene[] {WildcardGene.FALSE, WildcardGene.FALSE, WildcardGene.TRUE, WildcardGene.TRUE});
+		WildcardChromosome one = WildcardChromosome.of(new WildcardGene[] {FALSE, TRUE, WILDCARD, TRUE});
+		WildcardChromosome two = WildcardChromosome.of(new WildcardGene[] {FALSE, FALSE, TRUE, TRUE});
 		Assertions.assertThat(one.matches(two)).isFalse();	
+	}
+	
+	@Test
+	public void testGeneralization() {
+		WildcardChromosome one = WildcardChromosome.of(new WildcardGene[] {FALSE, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE, TRUE});
+		System.out.println("Generalize > "+ one.toCanonicalString());
+		WildcardChromosome generalize = one.generalize();
+		String canonicalString = generalize.toCanonicalString();
+		System.out.println("Generalize > "+ canonicalString);
+		for(int i=0;i<canonicalString.length();i++ ) {
+			if(canonicalString.charAt(i)!='?') {
+				Assertions.assertThat(canonicalString.charAt(i)).isEqualTo(one.toCanonicalString().charAt(i));
+			}
+		}
 	}
 }
