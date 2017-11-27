@@ -5,6 +5,7 @@ import com.google.common.base.MoreObjects;
 import io.jenetics.BitChromosome;
 import lombok.Builder;
 import lombok.Data;
+import szaq.lcs.api.WildcardChromosome;
 
 @Data
 @Builder
@@ -15,7 +16,7 @@ public class Rule {
 	/**
 	 * Condition  (Genome)
 	 */
-	private BitChromosome condition;
+	private WildcardChromosome condition;
 	
 	/**
 	 * Should be {@link Phenotype}

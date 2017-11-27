@@ -45,7 +45,8 @@ public  class RulesGenerator {
 	private List<Rule> generate(Supplier<BitChromosome> supplier, int value) {
 		List<Rule> rule = new ArrayList<>();
 		for (int i = 0; i < count; i++) {
-			rule.add(Rule.builder().id(UUID.randomUUID().toString()).condition(getRandomPart(supplier)).action(value).build());
+			//FIXME
+		//	rule.add(Rule.builder().id(UUID.randomUUID().toString()).condition(getRandomPart(supplier)).action(value).build());
 		}
 		return rule;
 	}

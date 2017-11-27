@@ -13,6 +13,7 @@ import com.google.common.base.Joiner;
 import io.jenetics.BitChromosome;
 import io.jenetics.BitGene;
 import lombok.extern.slf4j.Slf4j;
+import szaq.lcs.api.WildcardChromosome;
 
 @Slf4j
 public class RuleWildcard extends Rule {
@@ -26,7 +27,7 @@ public class RuleWildcard extends Rule {
 	 */
 	private static final ToIntFunction<BitGene> AS_INT = x -> x.booleanValue() ? 1 : 0;
 
-	private RuleWildcard(String id, BitChromosome condition, int action) {
+	private RuleWildcard(String id, WildcardChromosome condition, int action) {
 		super(id, condition, action);
 
 		int[] values = asInts();
@@ -41,7 +42,8 @@ public class RuleWildcard extends Rule {
 	}
 
 	private int[] asInts() {
-		return getCondition().stream().mapToInt(AS_INT).toArray();
+		return new int[] {}; 
+		//getCondition().stream().mapToInt(AS_INT).toArray();
 	}
 
 	private int getRandom(int[] values) {
@@ -49,7 +51,9 @@ public class RuleWildcard extends Rule {
 	}
 
 	public static RuleWildcard of(Rule rule) {
-		return new RuleWildcard(UUID.randomUUID().toString(), rule.getCondition(), rule.getAction());
+		//FIXME:
+		return null;
+		//return new RuleWildcard(UUID.randomUUID().toString(), rule.getCondition(), rule.getAction());
 	}
 
 	public Set<Integer> getComparablePositions() {
