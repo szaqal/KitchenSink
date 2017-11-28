@@ -1,7 +1,5 @@
 package szaq.lcs;
 
-import java.util.Set;
-
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -15,34 +13,31 @@ public class Performer {
 
 	private RulePopulation rulePopulation;
 
-	private MatchSet matchSet;
-
 
 	public Performer(Env env) {
 		this.env = env;
 		rulePopulation = new RulePopulation(30);
-		matchSet = new MatchSet();
 	}
 
-	public void perform() {
-
+	public void perform() throws InterruptedException {
 		Rule evaluatedRule = null;
 		while ((evaluatedRule = env.next()) != null) {
-			if (evaluatedRule != null) {
-				Set<Rule> matched = rulePopulation.match(evaluatedRule);
-				log.debug("Evaluated rule matched {}", matched.size());
-				if (matched.isEmpty()) {
-					rulePopulation.put(evaluatedRule.generalize());
-				} else {
-					matchSet.addAll(matched);
-					log.debug("{} {}", evaluatedRule, matchSet);
-					CorrectSet correctSet = new CorrectSet(evaluatedRule, matchSet);
-					log.info("Correct > {} ",correctSet);
-					IncorrectSet incorrectSet = new IncorrectSet(evaluatedRule, matchSet);
-					log.info("Incorrect > {}", incorrectSet);
-				}
+			MatchSet matchSet = new MatchSet(rulePopulation.match(evaluatedRule));
+
+			log.debug("{} {}", evaluatedRule, matchSet);
+			CorrectSet correctSet = new CorrectSet(evaluatedRule, matchSet);
+			IncorrectSet incorrectSet = new IncorrectSet(evaluatedRule, matchSet);
+			log.info("CORRECT {} | INCORRECT {}", correctSet, incorrectSet);
+			if (correctSet.isEmpty()) {
+				log.info("GENERALIZE");
+				rulePopulation.put(evaluatedRule.generalize());
 			}
+			
+			rulePopulation.updateStatsCorrect(correctSet.getItemSet());
+			rulePopulation.updateStatsMatched(matchSet.getItemSet());
 		}
+		
+		log.info("{}", rulePopulation.toString());
 
 	}
 

@@ -26,8 +26,8 @@ public class Env {
 	public Env(final int size) {
 		this.trainingSet = new HashSet<>();
 		int elementsCount = size/2;
-		IntStream.range(0, elementsCount).forEach(x->trainingSet.add(new Rule(getId(), WildcardChromosome.randomFalse(), 0)));
-		IntStream.range(0, elementsCount).forEach(x->trainingSet.add(new Rule(getId().toString(), WildcardChromosome.randomTrue(), 1)));
+		IntStream.range(0, elementsCount).forEach(x->trainingSet.add(new Rule(getId(), WildcardChromosome.randomFalse(), 0,0,0,0,0)));
+		IntStream.range(0, elementsCount).forEach(x->trainingSet.add(new Rule(getId().toString(), WildcardChromosome.randomTrue(), 1,0,0,0,0)));
 		iterator = trainingSet.iterator();
 	}
 	

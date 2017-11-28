@@ -26,6 +26,10 @@ public abstract class BaseMatchingSet implements Iterable<Rule> {
 			}
 		}
 	}
+	
+	public boolean isEmpty() {
+		return itemSet.isEmpty();
+	}
 
 	public void add(Rule rule) {
 		itemSet.add(rule);
@@ -40,10 +44,14 @@ public abstract class BaseMatchingSet implements Iterable<Rule> {
 		return evaluatedRule;
 	}
 	
+	public Set<Rule> getItemSet() {
+		return itemSet;
+	}
+	
 	@Override
 	public String toString() {
 		List<Rule> vals = Lists.newArrayList(evaluatedRule);
 		vals.addAll(itemSet);
-		return vals.stream().map(x->String.format("%s:%s", x.getCondition().toCanonicalString(), x.getAction())).collect(Collectors.joining("\n"));
+		return vals.stream().map(x->String.format("%s:%s", x.getCondition().toCanonicalString(), x.getAction())).collect(Collectors.joining(","));
 	}
 }

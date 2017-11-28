@@ -17,7 +17,7 @@ public class Covering implements Function<Rule, Rule> {
 	@Override
 	public Rule apply(Rule generalizedRule) {
 		WildcardChromosome condition = generalizedRule.getCondition();
-		return new Rule(UUID.randomUUID().toString(), condition.generalize(), generalizedRule.getAction());
+		return new Rule(UUID.randomUUID().toString(), condition.generalize(), generalizedRule.getAction(),0,0,0,0);
 	}
 
 }
