@@ -23,6 +23,10 @@ public class MatchSet  implements Iterable<Rule> {
 	public MatchSet(Set<Rule> rulesMatched) {
 		this.itemSet = rulesMatched;
 	}
+	
+	public boolean isEmpty() {
+		return itemSet.isEmpty();
+	}
 
 	@Override
 	public Iterator<Rule> iterator() {

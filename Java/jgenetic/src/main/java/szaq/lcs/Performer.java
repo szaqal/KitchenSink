@@ -29,12 +29,12 @@ public class Performer {
 			IncorrectSet incorrectSet = new IncorrectSet(evaluatedRule, matchSet);
 			log.info("CORRECT {} | INCORRECT {}", correctSet, incorrectSet);
 			if (correctSet.isEmpty()) {
-				log.info("GENERALIZE");
+				log.info("GENERALIZE {}", evaluatedRule.getCondition().toCanonicalString());
 				rulePopulation.put(evaluatedRule.generalize());
 			}
 			
 			rulePopulation.updateStatsCorrect(correctSet.getItemSet());
-			rulePopulation.updateStatsMatched(matchSet.getItemSet());
+			rulePopulation.updateStatsIncorrect(matchSet.getItemSet());
 		}
 		
 		log.info("{}", rulePopulation.toString());

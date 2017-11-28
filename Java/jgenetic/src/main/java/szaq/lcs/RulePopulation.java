@@ -48,7 +48,7 @@ public class RulePopulation {
 		return Joiner.on("\n").join(rules);
 	}
 
-	public void updateStatsMatched(Set<Rule> matched) {
+	public void updateStatsIncorrect(Set<Rule> matched) {
 		for (Rule rule : matched) {
 			if(rules.contains(rule)) {
 				rule.increaseMatchCount();

@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Application {
 	
-	private static final int CLASSCOUNT = 2000;
+	private static final int CLASSCOUNT = 50;
 	
 	public static void main(String[]args) throws Exception {
 		Env env = new Env(CLASSCOUNT);
