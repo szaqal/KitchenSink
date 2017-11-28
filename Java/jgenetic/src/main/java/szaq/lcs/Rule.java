@@ -24,49 +24,50 @@ public class Rule {
 	 * Should be {@link Phenotype}
 	 */
 	private int action;
-	
+
 	/**
 	 * number of copies ?
 	 */
 	private int numerocity;
-	
+
 	/**
 	 * numer of times it's been on a match set
 	 */
 	private int matchCount;
-	
+
 	/**
 	 * numer of times it's been on a correct set
 	 */
 	private int correctCount;
-	
-	/**
-	 * correct count/match count
-	 */
-	private int accuracy;
-	
 
 	@Override
 	public String toString() {
 		return MoreObjects.toStringHelper(this).addValue(getId()).addValue(getCondition().toCanonicalString())
-				.addValue(action).addValue(numerocity).addValue(matchCount).addValue(correctCount).toString();
+				.addValue(action).addValue(numerocity).addValue(matchCount).addValue(correctCount)
+				.addValue(getAccuracy()).toString();
 	}
-	
+
 	public Rule generalize() {
-		return new Rule(UUID.randomUUID().toString(), condition.generalize(), getAction(), 0,0,0,0);
+		return new Rule(UUID.randomUUID().toString(), condition.generalize(), getAction(), 0, 0, 0);
 	}
-	
+
 	public boolean actionMatched(Rule rule) {
 		return action == rule.getAction();
 	}
-	
+
 	public void increaseMatchCount() {
-		matchCount +=1;
+		matchCount += 1;
 	}
-	
+
 	public void increatesCorrectCount() {
-		correctCount +=1;
+		correctCount += 1;
 	}
-	
-	
+
+	public double getAccuracy() {
+		if (matchCount == 0) {
+			return 0.0;
+		}
+		return correctCount / matchCount;
+	}
+
 }
