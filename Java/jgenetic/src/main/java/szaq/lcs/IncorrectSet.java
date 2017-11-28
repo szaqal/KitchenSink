@@ -1,23 +1,12 @@
 package szaq.lcs;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+/**
+ * @author malczyk
+ *
+ */
+public class IncorrectSet extends BaseMatchingSet {
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
-public class IncorrectSet implements Iterable<Rule> {
-	
-	private Set<Rule> inCorrectSet = new HashSet<>();
-
-	@Override
-	public Iterator<Rule> iterator() {
-		return inCorrectSet.iterator();
+	public IncorrectSet(final Rule evaluatedRule, final MatchSet matchSet) {
+		super(evaluatedRule, matchSet, (x, y) -> x.getAction() != y.getAction());
 	}
-	public void add(Rule rule) {
-		inCorrectSet.add(rule);
-		log.debug("Added incorrect {} {}", rule, inCorrectSet.size());
-	}
-
 }

@@ -17,15 +17,10 @@ public class Performer {
 
 	private MatchSet matchSet;
 
-	private CorrectSet correctSet;
-
-	private IncorrectSet incorrectSet;
 
 	public Performer(Env env) {
 		this.env = env;
 		rulePopulation = new RulePopulation(30);
-		correctSet = new CorrectSet();
-		incorrectSet = new IncorrectSet();
 		matchSet = new MatchSet();
 	}
 
@@ -40,10 +35,15 @@ public class Performer {
 					rulePopulation.put(evaluatedRule.generalize());
 				} else {
 					matchSet.addAll(matched);
-					log.info("{} {}", evaluatedRule, matchSet);
+					log.debug("{} {}", evaluatedRule, matchSet);
+					CorrectSet correctSet = new CorrectSet(evaluatedRule, matchSet);
+					log.info("Correct > {} ",correctSet);
+					IncorrectSet incorrectSet = new IncorrectSet(evaluatedRule, matchSet);
+					log.info("Incorrect > {}", incorrectSet);
 				}
 			}
 		}
+
 	}
 
 }
