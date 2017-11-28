@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 import io.jenetics.AbstractChromosome;
 import io.jenetics.EnumGene;
@@ -123,6 +124,11 @@ public final class WildcardChromosome extends AbstractChromosome<EnumGene<Wildca
 
 	private WildcardGene[] asArray(ISeq<EnumGene<WildcardGene>> input) {
 		return input.map(x -> x.getAllele()).toArray(new WildcardGene[input.size()]);
+	}
+
+	public long countWildcards() {
+		Long count = toSeq().stream().filter(x->WildcardGene.WILDCARD.equals(x.getAllele())).collect(Collectors.counting());
+		return count;
 	}
 
 }

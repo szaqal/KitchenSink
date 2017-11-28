@@ -63,6 +63,11 @@ public class WildcardChromosomeTest {
 	}
 	
 	@Test
+	public void testWildcardCount() {
+		Assertions.assertThat(WildcardChromosome.of(new WildcardGene[] {FALSE, WILDCARD, WILDCARD, TRUE}).countWildcards()).isEqualTo(2);
+	}
+	
+	@Test
 	public void testGeneralization() {
 		WildcardChromosome one = WildcardChromosome.of(new WildcardGene[] {FALSE, TRUE, FALSE, TRUE, FALSE, TRUE, FALSE, TRUE});
 		System.out.println("Generalize > "+ one.toCanonicalString());

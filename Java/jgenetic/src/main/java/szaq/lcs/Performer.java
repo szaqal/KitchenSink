@@ -35,6 +35,7 @@ public class Performer {
 			
 			rulePopulation.updateStatsCorrect(correctSet.getItemSet());
 			rulePopulation.updateStatsIncorrect(matchSet.getItemSet());
+			rulePopulation.doSubsumption();
 		}
 		
 		log.info("{}", rulePopulation.toString());

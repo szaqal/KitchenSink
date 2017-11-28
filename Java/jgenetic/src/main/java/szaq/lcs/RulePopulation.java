@@ -32,7 +32,9 @@ public class RulePopulation {
 	}
 
 	public Set<Rule> match(Rule rule) {
-		return rules.stream().filter(x -> x.getCondition().matches(rule.getCondition())).collect(Collectors.toSet());
+		return rules.stream()
+				.filter(x -> x.getCondition().matches(rule.getCondition()))
+				.collect(Collectors.toSet());
 	}
 
 	public void put(final Rule rule) {
@@ -63,5 +65,9 @@ public class RulePopulation {
 				rule.increatesCorrectCount();
 			}
 		}
+	}
+
+	public void doSubsumption() {
+		
 	}
 }
