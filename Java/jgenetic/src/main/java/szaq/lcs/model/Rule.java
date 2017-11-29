@@ -12,6 +12,11 @@ import lombok.Data;
 import szaq.lc.ga.WildcardChromosome;
 
 /**
+ * General definition
+ * <pre>
+ * Classifier(n) = Condition : Action :: Parameter(s)
+ * </pre>
+ * 
  * @author malczyk
  *
  */
@@ -30,21 +35,9 @@ public class Rule {
 	 * Should be {@link Phenotype}
 	 */
 	private int action;
+	
+	private Properties properties;
 
-	/**
-	 * number of copies ?
-	 */
-	private int numerocity;
-
-	/**
-	 * numer of times it's been on a match set
-	 */
-	private int matchCount;
-
-	/**
-	 * numer of times it's been on a correct set
-	 */
-	private int correctCount;
 
 	@Override
 	public String toString() {
@@ -52,35 +45,17 @@ public class Rule {
 				.addValue(getId())
 				.addValue(getCondition().toCanonicalString())
 				.addValue(action)
-				.addValue(numerocity)
-				.addValue(matchCount)
-				.addValue(correctCount)
-				.addValue(getAccuracy()).toString();
+				.addValue(getProperties()).toString();
 	}
 
 	public Rule generalize() {
-		return new Rule(UUID.randomUUID().toString(), condition.generalize(), getAction(), 0, 0, 0);
+		return new Rule(UUID.randomUUID().toString(), condition.generalize(), getAction(), new Properties(0, 0, 0));
 	}
 
 	public boolean actionMatched(Rule rule) {
 		return action == rule.getAction();
 	}
 
-	public void increaseMatchCount() {
-		matchCount += 1;
-	}
-
-	public void increatesCorrectCount() {
-		correctCount += 1;
-	}
-
-	public double getAccuracy() {
-		if (matchCount == 0) {
-			return 0.0;
-		}
-		return correctCount / matchCount;
-	}
-	
 
 	public static Rule getSubsumer(final Rule inputRule1, final Rule inputRule2) {
 		
@@ -103,6 +78,14 @@ public class Rule {
 		} else {
 			return rule2;
 		}
+	}
+
+	public void increaseMatchCount() {
+		properties.increaseMatchCount();
+	}
+
+	public void increatesCorrectCount() {
+		properties.increatesCorrectCount();
 	}
 
 }
