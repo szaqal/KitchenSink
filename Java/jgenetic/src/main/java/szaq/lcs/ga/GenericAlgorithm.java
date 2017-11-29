@@ -1,8 +1,8 @@
-package szaq.lc.ga;
+package szaq.lcs.ga;
 
 import io.vavr.Tuple2;
-import szaq.lc.ga.impl.SpCrossover;
-import szaq.lc.ga.impl.TournamentSelector;
+import szaq.lcs.ga.impl.SpCrossover;
+import szaq.lcs.ga.impl.TournamentSelector;
 import szaq.lcs.model.Classifier;
 import szaq.lcs.model.Population;
 

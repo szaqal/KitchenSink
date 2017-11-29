@@ -1,4 +1,4 @@
-package szaq.lc.ga;
+package szaq.lcs.ga;
 
 import java.util.Random;
 import java.util.function.Supplier;

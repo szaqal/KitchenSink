@@ -1,4 +1,4 @@
-package szaq.lc.ga.api;
+package szaq.lcs.ga.api;
 
 import io.vavr.Tuple2;
 import szaq.lcs.model.Classifier;

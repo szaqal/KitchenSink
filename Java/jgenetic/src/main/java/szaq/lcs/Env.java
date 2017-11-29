@@ -8,8 +8,8 @@ import java.util.stream.IntStream;
 
 import com.google.common.base.Joiner;
 
-import szaq.lc.ga.WildcardChromosome;
 import szaq.lcs.model.Parameters;
+import szaq.lcs.ga.WildcardChromosome;
 import szaq.lcs.model.Classifier;
 
 /**

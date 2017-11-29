@@ -9,9 +9,9 @@ import java.util.function.Function;
 import io.jenetics.EnumGene;
 import io.jenetics.util.IntRange;
 import io.jenetics.util.MSeq;
-import szaq.lc.ga.WildcardChromosome;
-import szaq.lc.ga.WildcardGene;
-import szaq.lc.ga.api.IWildcardChromosome;
+import szaq.lcs.ga.WildcardChromosome;
+import szaq.lcs.ga.WildcardGene;
+import szaq.lcs.ga.api.IWildcardChromosome;
 
 /**
  * Chromosome generalizing function
@@ -47,8 +47,7 @@ public class Generalizer implements Function<IWildcardChromosome, IWildcardChrom
 			}
 
 		}
-		final WildcardGene[] arr = new WildcardGene[size];
-		final WildcardGene[] array = seq.map(x -> x.getAllele()).toArray(arr);
+		final WildcardGene[] array = seq.map(x -> x.getAllele()).toArray(new WildcardGene[size]);
 		return WildcardChromosome.of(array);
 	}
 

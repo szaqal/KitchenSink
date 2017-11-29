@@ -1,4 +1,4 @@
-package szaq.lc.ga.api;
+package szaq.lcs.ga.api;
 
 import szaq.lcs.model.Classifier;
 

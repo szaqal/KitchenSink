@@ -1,7 +1,7 @@
-package szaq.lc.ga;
+package szaq.lcs.ga;
 
 import static java.util.stream.Collectors.joining;
-import static szaq.lc.ga.WildcardGene.seqWithWildcard;
+import static szaq.lcs.ga.WildcardGene.seqWithWildcard;
 
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -11,9 +11,9 @@ import io.jenetics.EnumGene;
 import io.jenetics.util.ISeq;
 import io.jenetics.util.IntRange;
 import io.jenetics.util.MSeq;
-import szaq.lc.ga.api.IWildcardChromosome;
 import szaq.lcs.func.ChromosomeMatched;
 import szaq.lcs.func.Generalizer;
+import szaq.lcs.ga.api.IWildcardChromosome;
 
 /**
  * @author malczyk

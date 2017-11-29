@@ -1,13 +1,13 @@
 package szaq.lcs.api;
 
-import static szaq.lc.ga.WildcardGene.*;
+import static szaq.lcs.ga.WildcardGene.*;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
-import szaq.lc.ga.WildcardChromosome;
-import szaq.lc.ga.WildcardGene;
 import szaq.lcs.model.Parameters;
+import szaq.lcs.ga.WildcardChromosome;
+import szaq.lcs.ga.WildcardGene;
 import szaq.lcs.model.Classifier;
 
 /**

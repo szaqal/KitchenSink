@@ -1,9 +1,9 @@
-package szaq.lc.ga.impl;
+package szaq.lcs.ga.impl;
 
 import io.jenetics.EnumGene;
 import io.vavr.Tuple2;
-import szaq.lc.ga.WildcardGene;
-import szaq.lc.ga.api.SelectionOperator;
+import szaq.lcs.ga.WildcardGene;
+import szaq.lcs.ga.api.SelectionOperator;
 import szaq.lcs.model.Classifier;
 import szaq.lcs.model.Population;
 

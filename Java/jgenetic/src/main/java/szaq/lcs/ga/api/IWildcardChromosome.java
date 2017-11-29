@@ -1,8 +1,8 @@
-package szaq.lc.ga.api;
+package szaq.lcs.ga.api;
 
 import io.jenetics.Chromosome;
 import io.jenetics.EnumGene;
-import szaq.lc.ga.WildcardGene;
+import szaq.lcs.ga.WildcardGene;
 
 /**
  * @author malczyk

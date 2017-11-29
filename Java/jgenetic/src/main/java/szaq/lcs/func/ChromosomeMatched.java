@@ -4,8 +4,8 @@ import java.util.function.BiPredicate;
 
 import io.jenetics.EnumGene;
 import io.jenetics.util.ISeq;
-import szaq.lc.ga.WildcardGene;
-import szaq.lc.ga.api.IWildcardChromosome;
+import szaq.lcs.ga.WildcardGene;
+import szaq.lcs.ga.api.IWildcardChromosome;
 
 /**
  * @author malczyk
