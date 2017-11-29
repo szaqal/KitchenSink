@@ -9,7 +9,7 @@ import com.google.common.base.Preconditions;
 import io.jenetics.Phenotype;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import szaq.lc.ga.WildcardChromosome;
+import szaq.lc.ga.api.IWildcardChromosome;
 
 /**
  * Classifier represents potential solution.
@@ -32,7 +32,7 @@ public final class Classifier {
 	/**
 	 * Condition (Genome)
 	 */
-	private WildcardChromosome condition;
+	private IWildcardChromosome condition;
 
 	/**
 	 * Should be {@link Phenotype}

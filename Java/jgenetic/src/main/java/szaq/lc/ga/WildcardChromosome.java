@@ -14,12 +14,14 @@ import io.jenetics.EnumGene;
 import io.jenetics.util.ISeq;
 import io.jenetics.util.IntRange;
 import io.jenetics.util.MSeq;
+import szaq.lc.ga.api.IWildcardChromosome;
 
 /**
  * @author malczyk
  *
  */
-public final class WildcardChromosome extends AbstractChromosome<EnumGene<WildcardGene>> {
+public final class WildcardChromosome extends AbstractChromosome<EnumGene<WildcardGene>>
+		implements IWildcardChromosome {
 
 	/**
 	 * Default chromosome length.
@@ -72,12 +74,8 @@ public final class WildcardChromosome extends AbstractChromosome<EnumGene<Wildca
 		return new WildcardChromosome(iSeq);
 	}
 
-	/**
-	 * Does generalization of more specific rule that is for given 110011 it could
-	 * be 1?00??.
-	 *
-	 * @return generalized chromosome
-	 */
+	/** {@inheritDoc} */
+	@Override
 	public WildcardChromosome generalize() {
 		// TODO: generalization of chromosomes with wildcards
 		final Random rand = new Random();
@@ -108,16 +106,9 @@ public final class WildcardChromosome extends AbstractChromosome<EnumGene<Wildca
 		return new WildcardChromosome(WildcardGene.seqCustom(IntRange.of(DEFAULT_LENGTH), () -> WildcardGene.WILDCARD));
 	}
 
-	/**
-	 * Verifies if "that" chromosome is matching this. Wildcard is matching
-	 * everything for example "??11" matches both "0011" and "1111"
-	 *
-	 * @param that
-	 *            chromosome being matched
-	 *
-	 * @return true if matching
-	 */
-	public boolean matches(final WildcardChromosome that) {
+	/** {@inheritDoc} */
+	@Override
+	public boolean matches(final IWildcardChromosome that) {
 		final WildcardGene[] thisChromosome = asArray(this.toSeq());
 		final WildcardGene[] thatChromosome = asArray(that.toSeq());
 
@@ -134,13 +125,8 @@ public final class WildcardChromosome extends AbstractChromosome<EnumGene<Wildca
 		return true;
 	}
 
-	/**
-	 * Returns count of wildcard values in this chromosome.
-	 *
-	 * 00??11 -> 2
-	 *
-	 * @return number of occuring wildcards.
-	 */
+	/** {@inheritDoc} */
+	@Override
 	public long countWildcards() {
 		//@formatter:off
 		return toSeq()
