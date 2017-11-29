@@ -1,9 +1,9 @@
 package szaq.lc.ga.api;
 
-import szaq.lcs.model.Rule;
+import szaq.lcs.model.Classifier;
 
 public interface CrossoverOperator {
 	
-	void doCrossover(Rule parent1, Rule parent2, int generation);
+	void doCrossover(Classifier parent1, Classifier parent2, int generation);
 
 }

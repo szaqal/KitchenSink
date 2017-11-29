@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Properties {
-	
+
 	/**
 	 * number of copies ?
 	 */
@@ -25,12 +25,14 @@ public class Properties {
 	 * numer of times it's been on a correct set
 	 */
 	private int correctCount;
-	
-	public static Properties init() {
-		return new Properties(0, 0, 0);
+
+	public double getAccuracy() {
+		if (matchCount == 0) {
+			return 0.0;
+		}
+		return correctCount / matchCount;
 	}
-	
-	
+
 	public void increaseMatchCount() {
 		matchCount += 1;
 	}
@@ -39,10 +41,8 @@ public class Properties {
 		correctCount += 1;
 	}
 
-	public double getAccuracy() {
-		if (matchCount == 0) {
-			return 0.0;
-		}
-		return correctCount / matchCount;
+	public static Properties init() {
+		return new Properties(0, 0, 0);
 	}
+
 }

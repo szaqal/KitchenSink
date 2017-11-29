@@ -8,7 +8,7 @@ import szaq.lcs.BaseMatchingSet;
  */
 public class IncorrectSet extends BaseMatchingSet {
 
-	public IncorrectSet(final Rule evaluatedRule, final MatchSet matchSet) {
+	public IncorrectSet(final Classifier evaluatedRule, final MatchSet matchSet) {
 		super(evaluatedRule, matchSet, (x, y) -> x.getAction() != y.getAction());
 	}
 }

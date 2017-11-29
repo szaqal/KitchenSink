@@ -10,7 +10,7 @@ import com.google.common.base.Joiner;
 
 import szaq.lc.ga.WildcardChromosome;
 import szaq.lcs.model.Properties;
-import szaq.lcs.model.Rule;
+import szaq.lcs.model.Classifier;
 
 /**
  * Placeholder of learning examples.
@@ -20,9 +20,9 @@ import szaq.lcs.model.Rule;
  */
 public class Env {
 
-	private Set<Rule> trainingSet;
+	private Set<Classifier> trainingSet;
 
-	private Iterator<Rule> iterator;
+	private Iterator<Classifier> iterator;
 
 	public Env(final int size) {
 		this.trainingSet = new HashSet<>();
@@ -35,12 +35,12 @@ public class Env {
 		iterator = trainingSet.iterator();
 	}
 
-	private Rule trueRule() {
-		return new Rule(getId().toString(), WildcardChromosome.randomTrue(), 1, Properties.init());
+	private Classifier trueRule() {
+		return new Classifier(getId().toString(), WildcardChromosome.randomTrue(), 1, Properties.init());
 	}
 
-	private Rule falseRule() {
-		return new Rule(getId().toString(), WildcardChromosome.randomFalse(), 0, Properties.init());
+	private Classifier falseRule() {
+		return new Classifier(getId().toString(), WildcardChromosome.randomFalse(), 0, Properties.init());
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class Env {
 		return UUID.randomUUID().toString();
 	}
 
-	public Rule next() {
+	public Classifier next() {
 		return iterator.hasNext() ? iterator.next() : null;
 	}
 

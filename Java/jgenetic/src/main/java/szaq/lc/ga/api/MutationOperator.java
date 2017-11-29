@@ -1,11 +1,11 @@
 package szaq.lc.ga.api;
 
-import szaq.lcs.model.Rule;
+import szaq.lcs.model.Classifier;
 
 /**
  * Created by malczyk on 29.11.17.
  */
 public interface MutationOperator {
 
-    Rule mutate(Rule rule);
+    Classifier mutate(Classifier rule);
 }

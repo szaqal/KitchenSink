@@ -4,8 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import szaq.lcs.model.CorrectSet;
 import szaq.lcs.model.IncorrectSet;
 import szaq.lcs.model.MatchSet;
-import szaq.lcs.model.Rule;
-import szaq.lcs.model.RulePopulation;
+import szaq.lcs.model.Classifier;
+import szaq.lcs.model.Population;
 
 /**
  * @author malczyk
@@ -16,16 +16,16 @@ public class Performer {
 
 	private Env env;
 
-	private RulePopulation rulePopulation;
+	private Population rulePopulation;
 
 
 	public Performer(Env env) {
 		this.env = env;
-		rulePopulation = new RulePopulation(30);
+		rulePopulation = new Population(30);
 	}
 
 	public void perform() throws InterruptedException {
-		Rule evaluatedRule = null;
+		Classifier evaluatedRule = null;
 		while ((evaluatedRule = env.next()) != null) {
 			MatchSet matchSet = new MatchSet(rulePopulation.match(evaluatedRule));
 

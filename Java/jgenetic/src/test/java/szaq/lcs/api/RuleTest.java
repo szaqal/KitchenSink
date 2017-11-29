@@ -8,7 +8,7 @@ import org.junit.Test;
 import szaq.lc.ga.WildcardChromosome;
 import szaq.lc.ga.WildcardGene;
 import szaq.lcs.model.Properties;
-import szaq.lcs.model.Rule;
+import szaq.lcs.model.Classifier;
 
 /**
  * @author malczyk
@@ -18,48 +18,48 @@ public class RuleTest {
 
 	@Test(expected=NullPointerException.class)
 	public void testSubsumptionInvalidArgs() {
-		Rule rule1 = null;
-		Rule rule2 = null;
-		Rule subsumer = Rule.getSubsumer(rule1, rule2);
+		Classifier rule1 = null;
+		Classifier rule2 = null;
+		Classifier subsumer = Classifier.getSubsumer(rule1, rule2);
 		Assertions.assertThat(subsumer).isEqualTo(rule1);
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void testSubsumptionActionMismatch() {
-		Rule rule1 = new Rule("rule1", null, 0, Properties.init());
-		Rule rule2 = new Rule("rule2", null, 1, Properties.init());
-		Rule.getSubsumer(rule1, rule2);
+		Classifier rule1 = new Classifier("rule1", null, 0, Properties.init());
+		Classifier rule2 = new Classifier("rule2", null, 1, Properties.init());
+		Classifier.getSubsumer(rule1, rule2);
 	}
 	
 	@Test
 	public void testSubsumptionActionSame() {
-		Rule rule = new Rule("rule1", null, 0,  Properties.init());
-		Rule ruleCopy = new Rule("rule1", null, 0,  Properties.init());
-		Rule subsumer = Rule.getSubsumer(rule, ruleCopy);
+		Classifier rule = new Classifier("rule1", null, 0,  Properties.init());
+		Classifier ruleCopy = new Classifier("rule1", null, 0,  Properties.init());
+		Classifier subsumer = Classifier.getSubsumer(rule, ruleCopy);
 		Assertions.assertThat(subsumer).isEqualTo(rule);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void testNotMatchable() {
-		Rule rule1 = new Rule("rule1", WildcardChromosome.of(new WildcardGene[] {FALSE, FALSE, FALSE, TRUE}), 0,  Properties.init());
-		Rule rule2 = new Rule("rule2", WildcardChromosome.of(new WildcardGene[] {FALSE, FALSE, TRUE, TRUE}), 0,  Properties.init());
-		Rule.getSubsumer(rule1, rule2);
+		Classifier rule1 = new Classifier("rule1", WildcardChromosome.of(new WildcardGene[] {FALSE, FALSE, FALSE, TRUE}), 0,  Properties.init());
+		Classifier rule2 = new Classifier("rule2", WildcardChromosome.of(new WildcardGene[] {FALSE, FALSE, TRUE, TRUE}), 0,  Properties.init());
+		Classifier.getSubsumer(rule1, rule2);
 	}
 	
 	@Test
 	public void testSubsumption() {
-		Rule rule1 = new Rule("rule1", WildcardChromosome.of(new WildcardGene[] {WILDCARD, FALSE, WILDCARD, TRUE}), 0, Properties.init());
-		Rule rule2 = new Rule("rule2", WildcardChromosome.of(new WildcardGene[] {FALSE, FALSE, TRUE, TRUE}), 0,  Properties.init());
-		Rule subsumer = Rule.getSubsumer(rule1, rule2);
+		Classifier rule1 = new Classifier("rule1", WildcardChromosome.of(new WildcardGene[] {WILDCARD, FALSE, WILDCARD, TRUE}), 0, Properties.init());
+		Classifier rule2 = new Classifier("rule2", WildcardChromosome.of(new WildcardGene[] {FALSE, FALSE, TRUE, TRUE}), 0,  Properties.init());
+		Classifier subsumer = Classifier.getSubsumer(rule1, rule2);
 		Assertions.assertThat(subsumer).isEqualTo(rule1);
 	}
 	
 	
 	@Test
 	public void testSubsumption2() {
-		Rule rule1 = new Rule("rule1", WildcardChromosome.of(new WildcardGene[] {FALSE, FALSE, WILDCARD, TRUE}), 0,  Properties.init());
-		Rule rule2 = new Rule("rule2", WildcardChromosome.of(new WildcardGene[] {WILDCARD, WILDCARD, TRUE, WILDCARD}), 0,  Properties.init());
-		Rule subsumer = Rule.getSubsumer(rule1, rule2);
+		Classifier rule1 = new Classifier("rule1", WildcardChromosome.of(new WildcardGene[] {FALSE, FALSE, WILDCARD, TRUE}), 0,  Properties.init());
+		Classifier rule2 = new Classifier("rule2", WildcardChromosome.of(new WildcardGene[] {WILDCARD, WILDCARD, TRUE, WILDCARD}), 0,  Properties.init());
+		Classifier subsumer = Classifier.getSubsumer(rule1, rule2);
 		Assertions.assertThat(subsumer).isEqualTo(rule2);
 	}
 }

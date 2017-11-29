@@ -5,7 +5,7 @@ import java.util.function.Function;
 
 import szaq.lc.ga.WildcardChromosome;
 import szaq.lcs.model.Properties;
-import szaq.lcs.model.Rule;
+import szaq.lcs.model.Classifier;
 
 /**
  * Covering initializes a rule by generalizing an instance. 0 2 1 2 0 ~ 1 => 0 #
@@ -14,12 +14,12 @@ import szaq.lcs.model.Rule;
  * @author malczyk
  *
  */
-public class Covering implements Function<Rule, Rule> {
+public class Covering implements Function<Classifier, Classifier> {
 
 	@Override
-	public Rule apply(Rule generalizedRule) {
+	public Classifier apply(Classifier generalizedRule) {
 		WildcardChromosome condition = generalizedRule.getCondition();
-		return new Rule(UUID.randomUUID().toString(), condition.generalize(), generalizedRule.getAction(),Properties.init());
+		return new Classifier(UUID.randomUUID().toString(), condition.generalize(), generalizedRule.getAction(),Properties.init());
 	}
 
 }

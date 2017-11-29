@@ -1,9 +1,9 @@
 package szaq.lcs.functional;
 
-import szaq.lcs.model.Rule;
+import szaq.lcs.model.Classifier;
 
 @FunctionalInterface
 public interface ActionMatcher {
 
-	boolean matched(Rule ruleA, Rule ruleB);
+	boolean matched(Classifier ruleA, Classifier ruleB);
 }

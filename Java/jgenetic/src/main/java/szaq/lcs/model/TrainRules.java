@@ -17,7 +17,7 @@ public class TrainRules {
 	/**
 	 * List of training rules
 	 */
-	private List<Rule> trainingInstances;
+	private List<Classifier> trainingInstances;
 	
 	@Override
 	public String toString() {

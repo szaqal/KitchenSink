@@ -16,11 +16,11 @@ import lombok.extern.slf4j.Slf4j;
  *
  */
 @Slf4j
-public class MatchSet  implements Iterable<Rule> {
+public class MatchSet  implements Iterable<Classifier> {
 	
-	private Set<Rule> itemSet;
+	private Set<Classifier> itemSet;
 	
-	public MatchSet(Set<Rule> rulesMatched) {
+	public MatchSet(Set<Classifier> rulesMatched) {
 		this.itemSet = rulesMatched;
 	}
 	
@@ -29,11 +29,11 @@ public class MatchSet  implements Iterable<Rule> {
 	}
 
 	@Override
-	public Iterator<Rule> iterator() {
+	public Iterator<Classifier> iterator() {
 		return itemSet.iterator();
 	}
 	
-	public void addAll(Set<Rule> matched ) {
+	public void addAll(Set<Classifier> matched ) {
 		itemSet.addAll(matched);
 		log.debug("Match size {}",itemSet.size());
 	}
@@ -44,7 +44,7 @@ public class MatchSet  implements Iterable<Rule> {
 		return Joiner.on("\n").join(collect);
 	}
 	
-	public Set<Rule> getItemSet() {
+	public Set<Classifier> getItemSet() {
 		return itemSet;
 	}
 }

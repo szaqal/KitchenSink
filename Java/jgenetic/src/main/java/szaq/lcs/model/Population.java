@@ -15,11 +15,11 @@ import lombok.extern.slf4j.Slf4j;
  *
  */
 @Slf4j
-public class RulePopulation {
+public class Population {
 
 	private int size;
 
-	private Set<Rule> rules = new HashSet<>();
+	private Set<Classifier> rules = new HashSet<>();
 
 	/**
 	 * Creates initial rule population
@@ -27,17 +27,17 @@ public class RulePopulation {
 	 * @param size
 	 *            rule population size
 	 */
-	public RulePopulation(int size) {
+	public Population(int size) {
 		this.size = size;
 	}
 
-	public Set<Rule> match(Rule rule) {
+	public Set<Classifier> match(Classifier rule) {
 		return rules.stream()
 				.filter(x -> x.getCondition().matches(rule.getCondition()))
 				.collect(Collectors.toSet());
 	}
 
-	public void put(final Rule rule) {
+	public void put(final Classifier rule) {
 		if (rules.size() == size) {
 			throw new UnsupportedOperationException("Rule to big");
 		}
@@ -50,16 +50,16 @@ public class RulePopulation {
 		return Joiner.on("\n").join(rules);
 	}
 
-	public void updateStatsIncorrect(Set<Rule> matched) {
-		for (Rule rule : matched) {
+	public void updateStatsIncorrect(Set<Classifier> matched) {
+		for (Classifier rule : matched) {
 			if(rules.contains(rule)) {
 				rule.increaseMatchCount();
 			}
 		}
 	}
 
-	public void updateStatsCorrect(Set<Rule> matched) {
-		for (Rule rule : matched) {
+	public void updateStatsCorrect(Set<Classifier> matched) {
+		for (Classifier rule : matched) {
 			if(rules.contains(rule)) {
 				rule.increaseMatchCount();
 				rule.increatesCorrectCount();

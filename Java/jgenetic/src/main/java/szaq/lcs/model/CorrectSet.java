@@ -10,7 +10,7 @@ import szaq.lcs.BaseMatchingSet;
 public class CorrectSet extends BaseMatchingSet {
 	
 	
-	public CorrectSet(final Rule evaluatedRule, final MatchSet matchSet) {
+	public CorrectSet(final Classifier evaluatedRule, final MatchSet matchSet) {
 		super(evaluatedRule, matchSet, (x, y) -> x.getAction() == y.getAction());
 	}
 
