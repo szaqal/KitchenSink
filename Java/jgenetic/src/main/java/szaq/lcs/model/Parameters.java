@@ -9,7 +9,7 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class Properties {
+public class Parameters {
 
 	/**
 	 * number of copies ?
@@ -41,8 +41,8 @@ public class Properties {
 		correctCount += 1;
 	}
 
-	public static Properties init() {
-		return new Properties(0, 0, 0);
+	public static Parameters init() {
+		return new Parameters(0, 0, 0);
 	}
 
 }

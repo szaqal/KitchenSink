@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 import com.google.common.base.Joiner;
 
 import szaq.lc.ga.WildcardChromosome;
-import szaq.lcs.model.Properties;
+import szaq.lcs.model.Parameters;
 import szaq.lcs.model.Classifier;
 
 /**
@@ -36,11 +36,11 @@ public class Env {
 	}
 
 	private Classifier trueRule() {
-		return new Classifier(getId().toString(), WildcardChromosome.randomTrue(), 1, Properties.init());
+		return new Classifier(getId().toString(), WildcardChromosome.randomTrue(), 1, Parameters.init());
 	}
 
 	private Classifier falseRule() {
-		return new Classifier(getId().toString(), WildcardChromosome.randomFalse(), 0, Properties.init());
+		return new Classifier(getId().toString(), WildcardChromosome.randomFalse(), 0, Parameters.init());
 	}
 
 	@Override

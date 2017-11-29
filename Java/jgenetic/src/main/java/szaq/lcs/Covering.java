@@ -4,7 +4,7 @@ import java.util.UUID;
 import java.util.function.Function;
 
 import szaq.lc.ga.WildcardChromosome;
-import szaq.lcs.model.Properties;
+import szaq.lcs.model.Parameters;
 import szaq.lcs.model.Classifier;
 
 /**
@@ -19,7 +19,7 @@ public class Covering implements Function<Classifier, Classifier> {
 	@Override
 	public Classifier apply(Classifier generalizedRule) {
 		WildcardChromosome condition = generalizedRule.getCondition();
-		return new Classifier(UUID.randomUUID().toString(), condition.generalize(), generalizedRule.getAction(),Properties.init());
+		return new Classifier(UUID.randomUUID().toString(), condition.generalize(), generalizedRule.getAction(),Parameters.init());
 	}
 
 }

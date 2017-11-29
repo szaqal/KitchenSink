@@ -13,19 +13,33 @@ import szaq.lc.ga.WildcardChromosome;
 
 /**
  * Classifier represents potential solution.
- * 
+ *
  * General definition
- * 
+ *
  * <pre>
  * Classifier(n) = Condition : Action :: Parameter(s)
  * </pre>
- * 
+ *
  * @author malczyk
  *
  */
 @Data
 @AllArgsConstructor
 public final class Classifier {
+
+	private String id;
+
+	/**
+	 * Condition (Genome)
+	 */
+	private WildcardChromosome condition;
+
+	/**
+	 * Should be {@link Phenotype}
+	 */
+	private int action;
+
+	private Parameters parameters;
 
 	public static Classifier getSubsumer(final Classifier inputClassifier1, final Classifier inputClassifier2) {
 
@@ -50,41 +64,30 @@ public final class Classifier {
 		}
 	}
 
-	private String id;
-
-	/**
-	 * Condition (Genome)
-	 */
-	private WildcardChromosome condition;
-
-	/**
-	 * Should be {@link Phenotype}
-	 */
-	private int action;
-
-	private Properties properties;
-
 	public boolean actionMatched(final Classifier rule) {
 		return action == rule.getAction();
 	}
 
 	public Classifier generalize() {
-		return new Classifier(UUID.randomUUID().toString(), condition.generalize(), getAction(),
-				new Properties(0, 0, 0));
+		return new Classifier(UUID.randomUUID().toString(), condition.generalize(), getAction(), Parameters.init());
 	}
 
 	public void increaseMatchCount() {
-		properties.increaseMatchCount();
+		parameters.increaseMatchCount();
 	}
 
 	public void increatesCorrectCount() {
-		properties.increatesCorrectCount();
+		parameters.increatesCorrectCount();
 	}
 
 	@Override
 	public String toString() {
-		return MoreObjects.toStringHelper(this).addValue(getId()).addValue(getCondition().toCanonicalString())
-				.addValue(action).addValue(getProperties()).toString();
+		//@formatter:off
+		return MoreObjects.toStringHelper(this)
+				.addValue(getId())
+				.addValue(getCondition().toCanonicalString())
+				.addValue(action)
+				.addValue(getParameters()).toString();
+		//@formatter:on
 	}
-
 }

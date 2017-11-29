@@ -21,23 +21,33 @@ import io.jenetics.util.MSeq;
  */
 public final class WildcardChromosome extends AbstractChromosome<EnumGene<WildcardGene>> {
 
+	/**
+	 * Default chromosome length.
+	 */
 	private static final int DEFAULT_LENGTH = 8;
 
 	private static final long serialVersionUID = 6027715032396038105L;
 
-	protected WildcardChromosome(ISeq<? extends EnumGene<WildcardGene>> genes) {
+	protected WildcardChromosome(final ISeq<? extends EnumGene<WildcardGene>> genes) {
 		super(genes);
 	}
 
+	/**
+	 * Returns formatted chromosome value.
+	 *
+	 * @return string representation
+	 */
 	public String toCanonicalString() {
 		return toSeq().stream().map(g -> g.getAllele().getValue()).collect(joining());
 	}
 
+	/** {@inheritDoc} */
 	@Override
-	public WildcardChromosome newInstance(ISeq<EnumGene<WildcardGene>> genes) {
+	public WildcardChromosome newInstance(final ISeq<EnumGene<WildcardGene>> genes) {
 		return new WildcardChromosome(genes);
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public WildcardChromosome newInstance() {
 		return new WildcardChromosome(seqWithWildcard(IntRange.of(DEFAULT_LENGTH)));
@@ -47,65 +57,60 @@ public final class WildcardChromosome extends AbstractChromosome<EnumGene<Wildca
 		return new WildcardChromosome(seqWithWildcard(IntRange.of(DEFAULT_LENGTH)));
 	}
 
-	public static WildcardChromosome of(WildcardGene[] wildcardGene) {
-		ISeq<EnumGene<WildcardGene>> iSeq = MSeq.<WildcardGene>ofLength(wildcardGene.length)
-				.setAll(wildcardGene)
+	public static WildcardChromosome of(final WildcardGene[] wildcardGene) {
+		final ISeq<EnumGene<WildcardGene>> iSeq = MSeq.<WildcardGene>ofLength(wildcardGene.length).setAll(wildcardGene)
 				.map(x -> EnumGene.of(x)).toISeq();
 		return new WildcardChromosome(iSeq);
 	}
 
+	/**
+	 * Does generalization of more specific rule that is for given 110011 it could
+	 * be 1?00??.
+	 *
+	 * @return generalized chromosome
+	 */
 	public WildcardChromosome generalize() {
-		Random rand = new Random();
-		WildcardChromosome allWildcard = allWildcard();
-		int length = allWildcard.length();
+		// TODO: generalization of chromosomes with wildcards
+		final Random rand = new Random();
+		final WildcardChromosome allWildcard = allWildcard();
+		final int length = allWildcard.length();
 
 		// Covering adds #’s to a new rule with probability of generalization 0.33 - 0.5
 		// (typically)
-		int lower = Math.round((float) 0.33 * length);
-		int upper = Math.round((float) 0.5 * length);
-		MSeq<EnumGene<WildcardGene>> seq = allWildcard.toSeq().asMSeq();
+		final int lower = Math.round((float) 0.33 * length);
+		final int upper = Math.round((float) 0.5 * length);
+		final MSeq<EnumGene<WildcardGene>> seq = allWildcard.toSeq().asMSeq();
 
-		int toChange = io.jenetics.internal.math.random.nextInt(IntRange.of(lower, upper), rand);
-		
-		Set<Integer> positionsToChange = new HashSet<>();
-		while(positionsToChange.size()<toChange) {
-			int nextInt = io.jenetics.internal.math.random.nextInt(0, length, rand);
-			if(positionsToChange.add(nextInt)) {
+		final int toChange = io.jenetics.internal.math.random.nextInt(IntRange.of(lower, upper), rand);
+
+		final Set<Integer> positionsToChange = new HashSet<>();
+		while (positionsToChange.size() < toChange) {
+			final int nextInt = io.jenetics.internal.math.random.nextInt(0, length, rand);
+			if (positionsToChange.add(nextInt)) {
 				seq.set(nextInt, toSeq().get(nextInt));
 			}
-			
+
 		}
-		
+
 		return new WildcardChromosome(seq.asISeq());
-	}
-
-	/**
-	 * For testing only
-	 */
-	public static WildcardChromosome randomTrue() {
-		return training(() -> WildcardGene.TRUE);
-	}
-
-	/**
-	 * For testing only
-	 */
-	public static WildcardChromosome randomFalse() {
-		return training(() -> WildcardGene.FALSE);
 	}
 
 	public static WildcardChromosome allWildcard() {
 		return new WildcardChromosome(WildcardGene.seqCustom(IntRange.of(DEFAULT_LENGTH), () -> WildcardGene.WILDCARD));
 	}
 
-	private static WildcardChromosome training(Supplier<WildcardGene> gene) {
-		IntRange length = IntRange.of(DEFAULT_LENGTH / 2);
-		return new WildcardChromosome(
-				WildcardGene.seqWithoutWildcard(length).append(WildcardGene.seqCustom(length, gene)));
-	}
-
-	public boolean matches(WildcardChromosome that) {
-		WildcardGene[] thisChromosome = asArray(this.toSeq());
-		WildcardGene[] thatChromosome = asArray(that.toSeq());
+	/**
+	 * Verifies if "that" chromosome is matching this. Wildcard is matching
+	 * everything for example "??11" matches both "0011" and "1111"
+	 *
+	 * @param that
+	 *            chromosome being matched
+	 *
+	 * @return true if matching
+	 */
+	public boolean matches(final WildcardChromosome that) {
+		final WildcardGene[] thisChromosome = asArray(this.toSeq());
+		final WildcardGene[] thatChromosome = asArray(that.toSeq());
 
 		if (thisChromosome.length != thatChromosome.length) {
 			return false;
@@ -120,13 +125,58 @@ public final class WildcardChromosome extends AbstractChromosome<EnumGene<Wildca
 		return true;
 	}
 
-	private WildcardGene[] asArray(ISeq<EnumGene<WildcardGene>> input) {
+	private WildcardGene[] asArray(final ISeq<EnumGene<WildcardGene>> input) {
 		return input.map(x -> x.getAllele()).toArray(new WildcardGene[input.size()]);
 	}
 
+	/**
+	 * Returns count of wildcard values in this chromosome.
+	 *
+	 * 00??11 -> 2
+	 *
+	 * @return number of occuring wildcards.
+	 */
 	public long countWildcards() {
-		Long count = toSeq().stream().filter(x->WildcardGene.WILDCARD.equals(x.getAllele())).collect(Collectors.counting());
-		return count;
+		//@formatter:off
+		return toSeq()
+				.stream()
+				.filter(x -> WildcardGene.WILDCARD.equals(x.getAllele()))
+				.collect(Collectors.counting());
+		//@formatter:on
+	}
+
+	// ---------- utility testing methods
+
+	/**
+	 * Creates wildcards chromosome that half is random and second half is true
+	 *
+	 * @return {@link WildcardChromosome}
+	 */
+	public static WildcardChromosome randomTrue() {
+		return training(() -> WildcardGene.TRUE);
+	}
+
+	/**
+	 * Creates wildcards chromosome that half is random and second half is false
+	 *
+	 * @return {@link WildcardChromosome}
+	 */
+	public static WildcardChromosome randomFalse() {
+		return training(() -> WildcardGene.FALSE);
+	}
+
+	/**
+	 * Creates chromosome that is build from random part and predefined part
+	 * provided by supplied
+	 *
+	 * @param gene
+	 *            fixed part value supplied
+	 * @return {@link WildcardChromosome}
+	 */
+	private static WildcardChromosome training(final Supplier<WildcardGene> gene) {
+		final IntRange length = IntRange.of(DEFAULT_LENGTH / 2);
+		return new WildcardChromosome(
+				WildcardGene.seqWithoutWildcard(length).append(WildcardGene.seqCustom(length, gene)));
 	}
 
 }

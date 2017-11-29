@@ -10,30 +10,32 @@ import java.util.stream.Collectors;
 import com.google.common.collect.Lists;
 
 import szaq.lcs.functional.ActionMatcher;
-import szaq.lcs.model.MatchSet;
 import szaq.lcs.model.Classifier;
+import szaq.lcs.model.MatchSet;
 
 public abstract class BaseMatchingSet implements Iterable<Classifier> {
 
-	private Classifier evaluatedRule;
+	private final Classifier evaluatedRule;
 
-	private Set<Classifier> itemSet = new HashSet<>();
+	private final Set<Classifier> itemSet = new HashSet<>();
 
-	protected BaseMatchingSet(final Classifier evaluatedRule, final MatchSet matchSet, final ActionMatcher actionMatcher) {
+	protected BaseMatchingSet(final Classifier evaluatedRule, final MatchSet matchSet,
+			final ActionMatcher actionMatcher) {
+
 		Objects.requireNonNull(evaluatedRule);
 		this.evaluatedRule = evaluatedRule;
-		for (Classifier rule : matchSet) {
+		for (final Classifier rule : matchSet) {
 			if (actionMatcher.matched(rule, evaluatedRule)) {
 				itemSet.add(rule);
 			}
 		}
 	}
-	
+
 	public boolean isEmpty() {
 		return itemSet.isEmpty();
 	}
 
-	public void add(Classifier rule) {
+	public void add(final Classifier rule) {
 		itemSet.add(rule);
 	}
 
@@ -41,19 +43,20 @@ public abstract class BaseMatchingSet implements Iterable<Classifier> {
 	public Iterator<Classifier> iterator() {
 		return itemSet.iterator();
 	}
-	
+
 	protected Classifier getEvaluatedRule() {
 		return evaluatedRule;
 	}
-	
+
 	public Set<Classifier> getItemSet() {
 		return itemSet;
 	}
-	
+
 	@Override
 	public String toString() {
-		List<Classifier> vals = Lists.newArrayList(evaluatedRule);
+		final List<Classifier> vals = Lists.newArrayList(evaluatedRule);
 		vals.addAll(itemSet);
-		return vals.stream().map(x->String.format("%s:%s", x.getCondition().toCanonicalString(), x.getAction())).collect(Collectors.joining(","));
+		return vals.stream().map(x -> String.format("%s:%s", x.getCondition().toCanonicalString(), x.getAction()))
+				.collect(Collectors.joining(","));
 	}
 }
