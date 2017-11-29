@@ -9,7 +9,7 @@ import com.google.common.base.Preconditions;
 import io.jenetics.Phenotype;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import szaq.lcs.api.WildcardChromosome;
+import szaq.lc.ga.WildcardChromosome;
 
 /**
  * @author malczyk

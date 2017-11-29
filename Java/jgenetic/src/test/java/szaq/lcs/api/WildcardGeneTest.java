@@ -3,6 +3,8 @@ package szaq.lcs.api;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
+import szaq.lc.ga.WildcardGene;
+
 public class WildcardGeneTest {
 
 	@Test

@@ -1,11 +1,14 @@
 package szaq.lcs.api;
 
-import static szaq.lcs.api.WildcardGene.FALSE;
-import static szaq.lcs.api.WildcardGene.TRUE;
-import static szaq.lcs.api.WildcardGene.WILDCARD;
+import static szaq.lc.ga.WildcardGene.FALSE;
+import static szaq.lc.ga.WildcardGene.TRUE;
+import static szaq.lc.ga.WildcardGene.WILDCARD;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
+
+import szaq.lc.ga.WildcardChromosome;
+import szaq.lc.ga.WildcardGene;
 
 public class WildcardChromosomeTest {
 

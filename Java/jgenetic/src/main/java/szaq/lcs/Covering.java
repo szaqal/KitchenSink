@@ -3,7 +3,7 @@ package szaq.lcs;
 import java.util.UUID;
 import java.util.function.Function;
 
-import szaq.lcs.api.WildcardChromosome;
+import szaq.lc.ga.WildcardChromosome;
 import szaq.lcs.model.Rule;
 
 /**

@@ -1,7 +1,7 @@
-package szaq.lcs.api;
+package szaq.lc.ga;
 
 import static java.util.stream.Collectors.joining;
-import static szaq.lcs.api.WildcardGene.seqWithWildcard;
+import static szaq.lc.ga.WildcardGene.seqWithWildcard;
 
 import java.util.HashSet;
 import java.util.Random;
