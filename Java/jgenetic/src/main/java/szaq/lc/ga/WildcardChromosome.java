@@ -57,9 +57,18 @@ public final class WildcardChromosome extends AbstractChromosome<EnumGene<Wildca
 		return new WildcardChromosome(seqWithWildcard(IntRange.of(DEFAULT_LENGTH)));
 	}
 
+	/**
+	 *
+	 * @param wildcardGene
+	 * @return
+	 */
 	public static WildcardChromosome of(final WildcardGene[] wildcardGene) {
-		final ISeq<EnumGene<WildcardGene>> iSeq = MSeq.<WildcardGene>ofLength(wildcardGene.length).setAll(wildcardGene)
-				.map(x -> EnumGene.of(x)).toISeq();
+		//@formatter:off
+		final ISeq<EnumGene<WildcardGene>> iSeq = MSeq.<WildcardGene>ofLength(wildcardGene.length)
+				.setAll(wildcardGene)
+				.map(x -> EnumGene.of(x))
+				.toISeq();
+		//@formatter:on
 		return new WildcardChromosome(iSeq);
 	}
 
@@ -125,10 +134,6 @@ public final class WildcardChromosome extends AbstractChromosome<EnumGene<Wildca
 		return true;
 	}
 
-	private WildcardGene[] asArray(final ISeq<EnumGene<WildcardGene>> input) {
-		return input.map(x -> x.getAllele()).toArray(new WildcardGene[input.size()]);
-	}
-
 	/**
 	 * Returns count of wildcard values in this chromosome.
 	 *
@@ -143,6 +148,17 @@ public final class WildcardChromosome extends AbstractChromosome<EnumGene<Wildca
 				.filter(x -> WildcardGene.WILDCARD.equals(x.getAllele()))
 				.collect(Collectors.counting());
 		//@formatter:on
+	}
+
+	/**
+	 * Returns from this chromosome all genes as array
+	 *
+	 * @param input
+	 *            sequence of genes
+	 * @return array of genes
+	 */
+	private WildcardGene[] asArray(final ISeq<EnumGene<WildcardGene>> input) {
+		return input.map(x -> x.getAllele()).toArray(new WildcardGene[input.size()]);
 	}
 
 	// ---------- utility testing methods

@@ -43,24 +43,24 @@ public final class Classifier {
 
 	public static Classifier getSubsumer(final Classifier inputClassifier1, final Classifier inputClassifier2) {
 
-		final Classifier rule1 = Objects.requireNonNull(inputClassifier1, "Missing input rule 1");
-		final Classifier rule2 = Objects.requireNonNull(inputClassifier2, "Missing input rule 2");
-		Preconditions.checkArgument(rule1.actionMatched(rule2), "Action mismatch");
-		if (rule1.equals(rule2)) {
-			return rule1;
+		final Classifier classifier1 = Objects.requireNonNull(inputClassifier1, "Missing input rule 1");
+		final Classifier classifier2 = Objects.requireNonNull(inputClassifier2, "Missing input rule 2");
+		Preconditions.checkArgument(classifier1.actionMatched(classifier2), "Action mismatch");
+		if (classifier1.equals(classifier2)) {
+			return classifier1;
 		}
 
-		if (!rule1.getCondition().matches(rule2.getCondition())) {
+		if (!classifier1.getCondition().matches(classifier2.getCondition())) {
 			throw new IllegalArgumentException("Non maching conditions");
 		}
 
-		final long wildcards1 = rule1.getCondition().countWildcards();
-		final long wildcards2 = rule2.getCondition().countWildcards();
+		final long wildcards1 = classifier1.getCondition().countWildcards();
+		final long wildcards2 = classifier2.getCondition().countWildcards();
 
 		if (wildcards1 == wildcards2 || wildcards1 > wildcards2) {
-			return rule1;
+			return classifier1;
 		} else {
-			return rule2;
+			return classifier2;
 		}
 	}
 
