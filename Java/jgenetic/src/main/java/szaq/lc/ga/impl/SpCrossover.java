@@ -1,7 +1,8 @@
-package szaq.lc.ga;
+package szaq.lc.ga.impl;
 
 import io.jenetics.EnumGene;
 import io.jenetics.SinglePointCrossover;
+import szaq.lc.ga.WildcardGene;
 import szaq.lc.ga.api.CrossoverOperator;
 import szaq.lcs.model.Rule;
 
