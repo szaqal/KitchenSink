@@ -1,4 +1,4 @@
-package szaq.lcs;
+package szaq.lcs.model;
 
 import java.util.Objects;
 import java.util.UUID;

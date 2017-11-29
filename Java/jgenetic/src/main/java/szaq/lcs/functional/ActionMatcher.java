@@ -1,6 +1,6 @@
-package szaq.jgenetic.functional;
+package szaq.lcs.functional;
 
-import szaq.lcs.Rule;
+import szaq.lcs.model.Rule;
 
 @FunctionalInterface
 public interface ActionMatcher {

@@ -1,4 +1,6 @@
-package szaq.lcs;
+package szaq.lcs.model;
+
+import szaq.lcs.BaseMatchingSet;
 
 /**
  * Matching and with correct classes

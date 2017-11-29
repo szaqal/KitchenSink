@@ -1,6 +1,11 @@
 package szaq.lcs;
 
 import lombok.extern.slf4j.Slf4j;
+import szaq.lcs.model.CorrectSet;
+import szaq.lcs.model.IncorrectSet;
+import szaq.lcs.model.MatchSet;
+import szaq.lcs.model.Rule;
+import szaq.lcs.model.RulePopulation;
 
 /**
  * @author malczyk

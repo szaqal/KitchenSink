@@ -9,6 +9,7 @@ import java.util.stream.IntStream;
 import com.google.common.base.Joiner;
 
 import szaq.lcs.api.WildcardChromosome;
+import szaq.lcs.model.Rule;
 
 /**
  * Placeholder of learning examples.

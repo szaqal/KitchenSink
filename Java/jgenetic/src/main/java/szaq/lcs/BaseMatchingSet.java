@@ -9,7 +9,9 @@ import java.util.stream.Collectors;
 
 import com.google.common.collect.Lists;
 
-import szaq.jgenetic.functional.ActionMatcher;
+import szaq.lcs.functional.ActionMatcher;
+import szaq.lcs.model.MatchSet;
+import szaq.lcs.model.Rule;
 
 public abstract class BaseMatchingSet implements Iterable<Rule> {
 

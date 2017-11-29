@@ -4,6 +4,7 @@ import java.util.UUID;
 import java.util.function.Function;
 
 import szaq.lcs.api.WildcardChromosome;
+import szaq.lcs.model.Rule;
 
 /**
  * Covering initializes a rule by generalizing an instance. 0 2 1 2 0 ~ 1 => 0 #

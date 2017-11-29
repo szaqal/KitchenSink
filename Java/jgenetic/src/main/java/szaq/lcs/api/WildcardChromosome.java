@@ -14,13 +14,11 @@ import io.jenetics.EnumGene;
 import io.jenetics.util.ISeq;
 import io.jenetics.util.IntRange;
 import io.jenetics.util.MSeq;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author malczyk
  *
  */
-@Slf4j
 public final class WildcardChromosome extends AbstractChromosome<EnumGene<WildcardGene>> {
 
 	private static final int DEFAULT_LENGTH = 8;

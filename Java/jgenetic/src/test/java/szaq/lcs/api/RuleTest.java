@@ -5,7 +5,7 @@ import static szaq.lcs.api.WildcardGene.*;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
-import szaq.lcs.Rule;
+import szaq.lcs.model.Rule;
 
 /**
  * @author malczyk

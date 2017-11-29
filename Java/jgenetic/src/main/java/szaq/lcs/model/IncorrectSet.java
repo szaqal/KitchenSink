@@ -1,4 +1,6 @@
-package szaq.lcs;
+package szaq.lcs.model;
+
+import szaq.lcs.BaseMatchingSet;
 
 /**
  * @author malczyk
