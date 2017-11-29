@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 import com.google.common.collect.Lists;
 
-import szaq.lcs.functional.ActionMatcher;
+import szaq.lcs.func.ActionMatcher;
 import szaq.lcs.model.Classifier;
 import szaq.lcs.model.MatchSet;
 

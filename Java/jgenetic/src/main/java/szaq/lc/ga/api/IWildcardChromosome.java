@@ -38,5 +38,10 @@ public interface IWildcardChromosome extends Chromosome<EnumGene<WildcardGene>> 
 	 */
 	long countWildcards();
 
+	/**
+	 * Returns formatted chromosome value.
+	 *
+	 * @return string representation
+	 */
 	String toCanonicalString();
 }

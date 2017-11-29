@@ -3,9 +3,6 @@ package szaq.lc.ga;
 import static java.util.stream.Collectors.joining;
 import static szaq.lc.ga.WildcardGene.seqWithWildcard;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
@@ -15,6 +12,8 @@ import io.jenetics.util.ISeq;
 import io.jenetics.util.IntRange;
 import io.jenetics.util.MSeq;
 import szaq.lc.ga.api.IWildcardChromosome;
+import szaq.lcs.func.ChromosomeMatched;
+import szaq.lcs.func.Generalizer;
 
 /**
  * @author malczyk
@@ -34,24 +33,21 @@ public final class WildcardChromosome extends AbstractChromosome<EnumGene<Wildca
 		super(genes);
 	}
 
-	/**
-	 * Returns formatted chromosome value.
-	 *
-	 * @return string representation
-	 */
+	/** {@inheritDoc} */
+	@Override
 	public String toCanonicalString() {
 		return toSeq().stream().map(g -> g.getAllele().getValue()).collect(joining());
 	}
 
 	/** {@inheritDoc} */
 	@Override
-	public WildcardChromosome newInstance(final ISeq<EnumGene<WildcardGene>> genes) {
+	public IWildcardChromosome newInstance(final ISeq<EnumGene<WildcardGene>> genes) {
 		return new WildcardChromosome(genes);
 	}
 
 	/** {@inheritDoc} */
 	@Override
-	public WildcardChromosome newInstance() {
+	public IWildcardChromosome newInstance() {
 		return new WildcardChromosome(seqWithWildcard(IntRange.of(DEFAULT_LENGTH)));
 	}
 
@@ -76,53 +72,14 @@ public final class WildcardChromosome extends AbstractChromosome<EnumGene<Wildca
 
 	/** {@inheritDoc} */
 	@Override
-	public WildcardChromosome generalize() {
-		// TODO: generalization of chromosomes with wildcards
-		final Random rand = new Random();
-		final WildcardChromosome allWildcard = allWildcard();
-		final int length = allWildcard.length();
-
-		// Covering adds #’s to a new rule with probability of generalization 0.33 - 0.5
-		// (typically)
-		final int lower = Math.round((float) 0.33 * length);
-		final int upper = Math.round((float) 0.5 * length);
-		final MSeq<EnumGene<WildcardGene>> seq = allWildcard.toSeq().asMSeq();
-
-		final int toChange = io.jenetics.internal.math.random.nextInt(IntRange.of(lower, upper), rand);
-
-		final Set<Integer> positionsToChange = new HashSet<>();
-		while (positionsToChange.size() < toChange) {
-			final int nextInt = io.jenetics.internal.math.random.nextInt(0, length, rand);
-			if (positionsToChange.add(nextInt)) {
-				seq.set(nextInt, toSeq().get(nextInt));
-			}
-
-		}
-
-		return new WildcardChromosome(seq.asISeq());
-	}
-
-	public static WildcardChromosome allWildcard() {
-		return new WildcardChromosome(WildcardGene.seqCustom(IntRange.of(DEFAULT_LENGTH), () -> WildcardGene.WILDCARD));
+	public IWildcardChromosome generalize() {
+		return new Generalizer().apply(this);
 	}
 
 	/** {@inheritDoc} */
 	@Override
 	public boolean matches(final IWildcardChromosome that) {
-		final WildcardGene[] thisChromosome = asArray(this.toSeq());
-		final WildcardGene[] thatChromosome = asArray(that.toSeq());
-
-		if (thisChromosome.length != thatChromosome.length) {
-			return false;
-		}
-
-		for (int i = 0; i < thisChromosome.length; i++) {
-			if (!thisChromosome[i].matches(thatChromosome[i])) {
-				return false;
-			}
-		}
-
-		return true;
+		return new ChromosomeMatched().test(this, that);
 	}
 
 	/** {@inheritDoc} */
@@ -136,17 +93,6 @@ public final class WildcardChromosome extends AbstractChromosome<EnumGene<Wildca
 		//@formatter:on
 	}
 
-	/**
-	 * Returns from this chromosome all genes as array
-	 *
-	 * @param input
-	 *            sequence of genes
-	 * @return array of genes
-	 */
-	private WildcardGene[] asArray(final ISeq<EnumGene<WildcardGene>> input) {
-		return input.map(x -> x.getAllele()).toArray(new WildcardGene[input.size()]);
-	}
-
 	// ---------- utility testing methods
 
 	/**
@@ -154,7 +100,7 @@ public final class WildcardChromosome extends AbstractChromosome<EnumGene<Wildca
 	 *
 	 * @return {@link WildcardChromosome}
 	 */
-	public static WildcardChromosome randomTrue() {
+	public static IWildcardChromosome randomTrue() {
 		return training(() -> WildcardGene.TRUE);
 	}
 
@@ -163,7 +109,7 @@ public final class WildcardChromosome extends AbstractChromosome<EnumGene<Wildca
 	 *
 	 * @return {@link WildcardChromosome}
 	 */
-	public static WildcardChromosome randomFalse() {
+	public static IWildcardChromosome randomFalse() {
 		return training(() -> WildcardGene.FALSE);
 	}
 
@@ -175,7 +121,7 @@ public final class WildcardChromosome extends AbstractChromosome<EnumGene<Wildca
 	 *            fixed part value supplied
 	 * @return {@link WildcardChromosome}
 	 */
-	private static WildcardChromosome training(final Supplier<WildcardGene> gene) {
+	private static IWildcardChromosome training(final Supplier<WildcardGene> gene) {
 		final IntRange length = IntRange.of(DEFAULT_LENGTH / 2);
 		return new WildcardChromosome(
 				WildcardGene.seqWithoutWildcard(length).append(WildcardGene.seqCustom(length, gene)));

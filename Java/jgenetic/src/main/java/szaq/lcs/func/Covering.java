@@ -1,4 +1,4 @@
-package szaq.lcs.functional;
+package szaq.lcs.func;
 
 import java.util.UUID;
 import java.util.function.Function;

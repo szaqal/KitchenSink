@@ -25,10 +25,10 @@ public class SwapMutation extends SwapMutator<EnumGene<WildcardGene>, Double> im
 
 	@Override
 	public Classifier mutate(final Classifier classifier) {
-		final MutatorResult<Chromosome<EnumGene<WildcardGene>>> mutationReult = mutate(classifier.getCondition(),
+		final MutatorResult<Chromosome<EnumGene<WildcardGene>>> mutationResult = mutate(classifier.getCondition(),
 				mutationPropability, random);
 
-		final Chromosome<EnumGene<WildcardGene>> result = mutationReult.getResult();
+		final Chromosome<EnumGene<WildcardGene>> result = mutationResult.getResult();
 		return null;
 	}
 }
