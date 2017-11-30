@@ -1,5 +1,6 @@
 package szaq.lcs.ga;
 
+import java.util.UUID;
 import java.util.function.Supplier;
 
 import io.jenetics.util.IntRange;
@@ -51,10 +52,37 @@ public final class LcsObjects {
 				WildcardGene.seqWithoutWildcard(length).append(WildcardGene.seqCustom(length, gene)));
 	}
 
+	/**
+	 * Creates new classifier using provided name and genes that will be used in
+	 * chromosome.
+	 *
+	 * @param name
+	 *            classifier name
+	 * @param genes
+	 *            genes
+	 * @return {@link Classifier}
+	 */
 	public static Classifier anyClassifier(final String name, final WildcardGene... genes) {
 		return new Classifier(name, anyChromosome(genes), 0, Parameters.init());
 	}
 
+	/**
+	 * Creates new classifier using provided genes with name as UUID
+	 *
+	 * @param genes
+	 *            genes
+	 * @return {@link Classifier}
+	 */
+	public static Classifier anyClassifier(final WildcardGene... genes) {
+		return new Classifier(UUID.randomUUID().toString(), anyChromosome(genes), 0, Parameters.init());
+	}
+
+	/**
+	 * Creates chromosome from provided genes
+	 *
+	 * @param genes
+	 * @return {@link IWildcardChromosome}
+	 */
 	public static IWildcardChromosome anyChromosome(final WildcardGene... genes) {
 		return WildcardChromosome.of(genes);
 	}

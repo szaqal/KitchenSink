@@ -3,7 +3,6 @@ package szaq.lcs.ga.impl;
 import static szaq.lcs.ga.WildcardGene.FALSE;
 import static szaq.lcs.ga.WildcardGene.TRUE;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import io.vavr.Tuple2;
@@ -14,7 +13,6 @@ import szaq.lcs.model.Classifier;
 @Slf4j
 public class SpCrossoverTest {
 
-	@Ignore
 	@Test
 	public void testCrossover() {
 		final SpCrossover spCrossover = new SpCrossover();
