@@ -10,31 +10,35 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * This is where we'll store solution candidates
- * 
+ *
  * @author malczyk
  *
  */
 @Slf4j
 public class Population {
 
-	private int size;
+	private final int size;
 
-	private Set<Classifier> rules = new HashSet<>();
+	private final Set<Classifier> rules = new HashSet<>();
+
+	private int currentGeneration;
 
 	/**
 	 * Creates initial rule population
-	 * 
+	 *
 	 * @param size
 	 *            rule population size
 	 */
-	public Population(int size) {
+	public Population(final int size) {
 		this.size = size;
 	}
 
-	public Set<Classifier> match(Classifier rule) {
-		return rules.stream()
-				.filter(x -> x.getCondition().matches(rule.getCondition()))
-				.collect(Collectors.toSet());
+	public Set<Classifier> match(final Classifier rule) {
+		return rules.stream().filter(x -> x.getCondition().matches(rule.getCondition())).collect(Collectors.toSet());
+	}
+
+	public Set<Classifier> getRules() {
+		return rules;
 	}
 
 	public void put(final Classifier rule) {
@@ -50,24 +54,29 @@ public class Population {
 		return Joiner.on("\n").join(rules);
 	}
 
-	public void updateStatsIncorrect(Set<Classifier> matched) {
-		for (Classifier rule : matched) {
-			if(rules.contains(rule)) {
+	public void updateStatsIncorrect(final Set<Classifier> matched) {
+		for (final Classifier rule : matched) {
+			if (rules.contains(rule)) {
 				rule.increaseMatchCount();
 			}
 		}
 	}
 
-	public void updateStatsCorrect(Set<Classifier> matched) {
-		for (Classifier rule : matched) {
-			if(rules.contains(rule)) {
+	public void updateStatsCorrect(final Set<Classifier> matched) {
+		for (final Classifier rule : matched) {
+			if (rules.contains(rule)) {
 				rule.increaseMatchCount();
 				rule.increatesCorrectCount();
 			}
 		}
 	}
 
-	public void doSubsumption() {
-		
+	public void nextGen() {
+		currentGeneration += 1;
 	}
+
+	public int getCurrentGeneration() {
+		return currentGeneration;
+	}
+
 }
