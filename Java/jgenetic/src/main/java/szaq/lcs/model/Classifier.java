@@ -25,13 +25,10 @@ import szaq.lcs.ga.api.IWildcardChromosome;
  */
 @Data
 @AllArgsConstructor
-public final class Classifier {
+public class Classifier {
 
 	private String id;
 
-	/**
-	 * Condition (Genome)
-	 */
 	private IWildcardChromosome condition;
 
 	/**

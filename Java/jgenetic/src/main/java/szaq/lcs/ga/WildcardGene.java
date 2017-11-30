@@ -15,16 +15,14 @@ import io.jenetics.util.RandomRegistry;
  *
  */
 public enum WildcardGene {
-	
-	TRUE("1", false), 
-	FALSE("0", false), 
-	WILDCARD("?",true);
+
+	TRUE("1", false), FALSE("0", false), WILDCARD("?", true);
 
 	private String representation;
-	
+
 	private boolean matchesAnyhing;
 
-	WildcardGene(String respresentation, boolean matchesAnyhing) {
+	WildcardGene(final String respresentation, final boolean matchesAnyhing) {
 		this.representation = respresentation;
 		this.matchesAnyhing = matchesAnyhing;
 	}
@@ -33,16 +31,16 @@ public enum WildcardGene {
 		return representation;
 	}
 
-	public static WildcardGene randomWithWildcard(Random random) {
+	public static WildcardGene randomWithWildcard(final Random random) {
 		return WildcardGene.values()[random.nextInt(3)];
 	}
 
-	public static WildcardGene randomWithoutWildcard(Random random) {
+	public static WildcardGene randomWithoutWildcard(final Random random) {
 		return WildcardGene.values()[random.nextInt(2)];
 	}
-	
-	public boolean matches(WildcardGene that) {
-		if(matchesAnyhing || that.matchesAnyhing) {
+
+	public boolean matches(final WildcardGene that) {
+		if (matchesAnyhing || that.matchesAnyhing) {
 			return true;
 		}
 		return this.equals(that);
@@ -64,7 +62,7 @@ public enum WildcardGene {
 				.map(x -> EnumGene.of(x)).toISeq();
 	}
 
-	static ISeq<EnumGene<WildcardGene>> seqCustom(final IntRange lengthRange, Supplier<WildcardGene> geneValue) {
+	static ISeq<EnumGene<WildcardGene>> seqCustom(final IntRange lengthRange, final Supplier<WildcardGene> geneValue) {
 		final Random r = RandomRegistry.getRandom();
 
 		return MSeq.<WildcardGene>ofLength(random.nextInt(lengthRange, r)).fill(() -> randomWithWildcard(r))
