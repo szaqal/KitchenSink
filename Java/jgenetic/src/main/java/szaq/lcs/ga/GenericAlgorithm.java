@@ -11,19 +11,19 @@ import szaq.lcs.model.Population;
  *
  */
 public class GenericAlgorithm {
-	
-	private Population rulePopulation;
+
+	private final Population rulePopulation;
 
 	private int generation;
-	
-	public GenericAlgorithm(Population rulePopulation, int generation) {
+
+	public GenericAlgorithm(final Population rulePopulation, final int generation) {
 		this.rulePopulation = rulePopulation;
 	}
 
 	public void perform() {
 
-		Tuple2<Classifier,Classifier> parents = getParents();
-		new SpCrossover().doCrossover(parents._1, parents._2, generation);
+		final Tuple2<Classifier, Classifier> parents = getParents();
+		new SpCrossover().doCrossover(parents._1, parents._2);
 	}
 
 	private Tuple2<Classifier, Classifier> getParents() {

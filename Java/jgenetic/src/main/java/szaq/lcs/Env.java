@@ -8,25 +8,25 @@ import java.util.stream.IntStream;
 
 import com.google.common.base.Joiner;
 
-import szaq.lcs.model.Parameters;
-import szaq.lcs.ga.WildcardChromosome;
+import szaq.lcs.ga.LcsObjects;
 import szaq.lcs.model.Classifier;
+import szaq.lcs.model.Parameters;
 
 /**
  * Placeholder of learning examples.
- * 
+ *
  * @author malczyk
  *
  */
 public class Env {
 
-	private Set<Classifier> trainingSet;
+	private final Set<Classifier> trainingSet;
 
-	private Iterator<Classifier> iterator;
+	private final Iterator<Classifier> iterator;
 
 	public Env(final int size) {
 		this.trainingSet = new HashSet<>();
-		int elementsCount = size / 2;
+		final int elementsCount = size / 2;
 
 		IntStream.range(0, elementsCount).forEach(x -> {
 			trainingSet.add(trueRule());
@@ -36,11 +36,11 @@ public class Env {
 	}
 
 	private Classifier trueRule() {
-		return new Classifier(getId().toString(), WildcardChromosome.randomTrue(), 1, Parameters.init());
+		return new Classifier(getId().toString(), LcsObjects.randomTrue(), 1, Parameters.init());
 	}
 
 	private Classifier falseRule() {
-		return new Classifier(getId().toString(), WildcardChromosome.randomFalse(), 0, Parameters.init());
+		return new Classifier(getId().toString(), LcsObjects.randomFalse(), 0, Parameters.init());
 	}
 
 	@Override

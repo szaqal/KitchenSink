@@ -1,14 +1,15 @@
 package szaq.lcs.api;
 
-import static szaq.lcs.ga.WildcardGene.*;
+import static szaq.lcs.ga.WildcardGene.FALSE;
+import static szaq.lcs.ga.WildcardGene.TRUE;
+import static szaq.lcs.ga.WildcardGene.WILDCARD;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
-import szaq.lcs.model.Parameters;
-import szaq.lcs.ga.WildcardChromosome;
-import szaq.lcs.ga.WildcardGene;
+import szaq.lcs.ga.LcsObjects;
 import szaq.lcs.model.Classifier;
+import szaq.lcs.model.Parameters;
 
 /**
  * @author malczyk
@@ -16,50 +17,49 @@ import szaq.lcs.model.Classifier;
  */
 public class RuleTest {
 
-	@Test(expected=NullPointerException.class)
+	@Test(expected = NullPointerException.class)
 	public void testSubsumptionInvalidArgs() {
-		Classifier rule1 = null;
-		Classifier rule2 = null;
-		Classifier subsumer = Classifier.getSubsumer(rule1, rule2);
+		final Classifier rule1 = null;
+		final Classifier rule2 = null;
+		final Classifier subsumer = Classifier.getSubsumer(rule1, rule2);
 		Assertions.assertThat(subsumer).isEqualTo(rule1);
 	}
-	
-	@Test(expected=IllegalArgumentException.class)
+
+	@Test(expected = IllegalArgumentException.class)
 	public void testSubsumptionActionMismatch() {
-		Classifier rule1 = new Classifier("rule1", null, 0, Parameters.init());
-		Classifier rule2 = new Classifier("rule2", null, 1, Parameters.init());
+		final Classifier rule1 = new Classifier("rule1", null, 0, Parameters.init());
+		final Classifier rule2 = new Classifier("rule2", null, 1, Parameters.init());
 		Classifier.getSubsumer(rule1, rule2);
 	}
-	
+
 	@Test
 	public void testSubsumptionActionSame() {
-		Classifier rule = new Classifier("rule1", null, 0,  Parameters.init());
-		Classifier ruleCopy = new Classifier("rule1", null, 0,  Parameters.init());
-		Classifier subsumer = Classifier.getSubsumer(rule, ruleCopy);
+		final Classifier rule = new Classifier("rule1", null, 0, Parameters.init());
+		final Classifier ruleCopy = new Classifier("rule1", null, 0, Parameters.init());
+		final Classifier subsumer = Classifier.getSubsumer(rule, ruleCopy);
 		Assertions.assertThat(subsumer).isEqualTo(rule);
 	}
-	
+
 	@Test(expected = IllegalArgumentException.class)
 	public void testNotMatchable() {
-		Classifier rule1 = new Classifier("rule1", WildcardChromosome.of(new WildcardGene[] {FALSE, FALSE, FALSE, TRUE}), 0,  Parameters.init());
-		Classifier rule2 = new Classifier("rule2", WildcardChromosome.of(new WildcardGene[] {FALSE, FALSE, TRUE, TRUE}), 0,  Parameters.init());
+		final Classifier rule1 = LcsObjects.anyClassifier("rule1", FALSE, FALSE, FALSE, TRUE);
+		final Classifier rule2 = LcsObjects.anyClassifier("rule2", FALSE, FALSE, TRUE, TRUE);
 		Classifier.getSubsumer(rule1, rule2);
 	}
-	
+
 	@Test
 	public void testSubsumption() {
-		Classifier rule1 = new Classifier("rule1", WildcardChromosome.of(new WildcardGene[] {WILDCARD, FALSE, WILDCARD, TRUE}), 0, Parameters.init());
-		Classifier rule2 = new Classifier("rule2", WildcardChromosome.of(new WildcardGene[] {FALSE, FALSE, TRUE, TRUE}), 0,  Parameters.init());
-		Classifier subsumer = Classifier.getSubsumer(rule1, rule2);
+		final Classifier rule1 = LcsObjects.anyClassifier("rule1", WILDCARD, FALSE, WILDCARD, TRUE);
+		final Classifier rule2 = LcsObjects.anyClassifier("rule2", FALSE, FALSE, TRUE, TRUE);
+		final Classifier subsumer = Classifier.getSubsumer(rule1, rule2);
 		Assertions.assertThat(subsumer).isEqualTo(rule1);
 	}
-	
-	
+
 	@Test
 	public void testSubsumption2() {
-		Classifier rule1 = new Classifier("rule1", WildcardChromosome.of(new WildcardGene[] {FALSE, FALSE, WILDCARD, TRUE}), 0,  Parameters.init());
-		Classifier rule2 = new Classifier("rule2", WildcardChromosome.of(new WildcardGene[] {WILDCARD, WILDCARD, TRUE, WILDCARD}), 0,  Parameters.init());
-		Classifier subsumer = Classifier.getSubsumer(rule1, rule2);
+		final Classifier rule1 = LcsObjects.anyClassifier("rule1", FALSE, FALSE, WILDCARD, TRUE);
+		final Classifier rule2 = LcsObjects.anyClassifier("rule1", WILDCARD, WILDCARD, TRUE, WILDCARD);
+		final Classifier subsumer = Classifier.getSubsumer(rule1, rule2);
 		Assertions.assertThat(subsumer).isEqualTo(rule2);
 	}
 }

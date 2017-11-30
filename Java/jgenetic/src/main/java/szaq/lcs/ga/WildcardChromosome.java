@@ -3,7 +3,6 @@ package szaq.lcs.ga;
 import static java.util.stream.Collectors.joining;
 import static szaq.lcs.ga.WildcardGene.seqWithWildcard;
 
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import io.jenetics.AbstractChromosome;
@@ -21,11 +20,6 @@ import szaq.lcs.ga.api.IWildcardChromosome;
  */
 public final class WildcardChromosome extends AbstractChromosome<EnumGene<WildcardGene>>
 		implements IWildcardChromosome {
-
-	/**
-	 * Default chromosome length.
-	 */
-	private static final int DEFAULT_LENGTH = 8;
 
 	private static final long serialVersionUID = 6027715032396038105L;
 
@@ -48,10 +42,6 @@ public final class WildcardChromosome extends AbstractChromosome<EnumGene<Wildca
 	/** {@inheritDoc} */
 	@Override
 	public IWildcardChromosome newInstance() {
-		return new WildcardChromosome(seqWithWildcard(IntRange.of(DEFAULT_LENGTH)));
-	}
-
-	public static WildcardChromosome random() {
 		return new WildcardChromosome(seqWithWildcard(IntRange.of(DEFAULT_LENGTH)));
 	}
 
@@ -93,38 +83,16 @@ public final class WildcardChromosome extends AbstractChromosome<EnumGene<Wildca
 		//@formatter:on
 	}
 
-	// ---------- utility testing methods
-
-	/**
-	 * Creates wildcards chromosome that half is random and second half is true
-	 *
-	 * @return {@link WildcardChromosome}
-	 */
-	public static IWildcardChromosome randomTrue() {
-		return training(() -> WildcardGene.TRUE);
+	/** {@inheritDoc} */
+	@Override
+	public int chromosomeLength() {
+		return toSeq().size();
 	}
 
-	/**
-	 * Creates wildcards chromosome that half is random and second half is false
-	 *
-	 * @return {@link WildcardChromosome}
-	 */
-	public static IWildcardChromosome randomFalse() {
-		return training(() -> WildcardGene.FALSE);
-	}
-
-	/**
-	 * Creates chromosome that is build from random part and predefined part
-	 * provided by supplied
-	 *
-	 * @param gene
-	 *            fixed part value supplied
-	 * @return {@link WildcardChromosome}
-	 */
-	private static IWildcardChromosome training(final Supplier<WildcardGene> gene) {
-		final IntRange length = IntRange.of(DEFAULT_LENGTH / 2);
-		return new WildcardChromosome(
-				WildcardGene.seqWithoutWildcard(length).append(WildcardGene.seqCustom(length, gene)));
+	/** {@inheritDoc} */
+	@Override
+	public WildcardGene[] asArray() {
+		return toSeq().map(x -> x.getAllele()).toArray(new WildcardGene[chromosomeLength()]);
 	}
 
 }

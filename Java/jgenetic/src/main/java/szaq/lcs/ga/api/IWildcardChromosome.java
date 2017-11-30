@@ -11,6 +11,11 @@ import szaq.lcs.ga.WildcardGene;
 public interface IWildcardChromosome extends Chromosome<EnumGene<WildcardGene>> {
 
 	/**
+	 * Default chromosome length.
+	 */
+	int DEFAULT_LENGTH = 8;
+
+	/**
 	 * Does generalization of more specific rule that is for given 110011 it could
 	 * be 1?00??.
 	 *
@@ -44,4 +49,19 @@ public interface IWildcardChromosome extends Chromosome<EnumGene<WildcardGene>> 
 	 * @return string representation
 	 */
 	String toCanonicalString();
+
+	/**
+	 * Returns length of the chromosomes
+	 *
+	 * @return length
+	 */
+	int chromosomeLength();
+
+	/**
+	 * Returns array representation of chromomsome.
+	 *
+	 * @return array
+	 */
+	WildcardGene[] asArray();
+
 }

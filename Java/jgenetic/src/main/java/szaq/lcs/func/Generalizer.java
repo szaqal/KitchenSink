@@ -35,7 +35,7 @@ public class Generalizer implements Function<IWildcardChromosome, IWildcardChrom
 		// (typically)
 		final int lower = Math.round((float) 0.33 * size);
 		final int upper = Math.round((float) 0.5 * size);
-		final MSeq<EnumGene<WildcardGene>> seq = allWildcard.toSeq().asMSeq();
+		final MSeq<EnumGene<WildcardGene>> seq = allWildcard.toSeq().copy();
 
 		final int toChange = io.jenetics.internal.math.random.nextInt(IntRange.of(lower, upper), rand);
 

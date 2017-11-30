@@ -2,6 +2,10 @@ package szaq.lcs.func;
 
 import szaq.lcs.model.Classifier;
 
+/**
+ * @author malczyk
+ *
+ */
 @FunctionalInterface
 public interface ActionMatcher {
 

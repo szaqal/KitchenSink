@@ -2,12 +2,13 @@ package szaq.lcs.func;
 
 import java.util.function.BiPredicate;
 
-import io.jenetics.EnumGene;
-import io.jenetics.util.ISeq;
 import szaq.lcs.ga.WildcardGene;
 import szaq.lcs.ga.api.IWildcardChromosome;
 
 /**
+ * Predicate that returns true whenever chromosomes are matched that is either
+ * full matched or partial matched when wildcards are present.
+ *
  * @author malczyk
  *
  */
@@ -15,8 +16,9 @@ public class ChromosomeMatched implements BiPredicate<IWildcardChromosome, IWild
 
 	@Override
 	public boolean test(final IWildcardChromosome thiz, final IWildcardChromosome that) {
-		final WildcardGene[] thisChromosome = asArray(thiz.toSeq());
-		final WildcardGene[] thatChromosome = asArray(that.toSeq());
+
+		final WildcardGene[] thisChromosome = thiz.asArray();
+		final WildcardGene[] thatChromosome = that.asArray();
 
 		if (thisChromosome.length != thatChromosome.length) {
 			return false;
@@ -29,17 +31,6 @@ public class ChromosomeMatched implements BiPredicate<IWildcardChromosome, IWild
 		}
 
 		return true;
-	}
-
-	/**
-	 * Returns from this chromosome all genes as array
-	 *
-	 * @param input
-	 *            sequence of genes
-	 * @return array of genes
-	 */
-	private WildcardGene[] asArray(final ISeq<EnumGene<WildcardGene>> input) {
-		return input.map(x -> x.getAllele()).toArray(new WildcardGene[input.size()]);
 	}
 
 }

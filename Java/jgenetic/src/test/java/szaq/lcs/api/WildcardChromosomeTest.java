@@ -7,6 +7,7 @@ import static szaq.lcs.ga.WildcardGene.WILDCARD;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
+import szaq.lcs.ga.LcsObjects;
 import szaq.lcs.ga.WildcardChromosome;
 import szaq.lcs.ga.WildcardGene;
 import szaq.lcs.ga.api.IWildcardChromosome;
@@ -15,7 +16,7 @@ public class WildcardChromosomeTest {
 
 	@Test
 	public void testCreate() {
-		final WildcardChromosome randomFalse = WildcardChromosome.random();
+		final IWildcardChromosome randomFalse = LcsObjects.random();
 		final String canonicalString = randomFalse.toCanonicalString();
 		System.out.println("Create > " + canonicalString);
 		Assertions.assertThat(canonicalString.length()).isEqualTo(8);
@@ -23,7 +24,7 @@ public class WildcardChromosomeTest {
 
 	@Test
 	public void testFalse() {
-		final IWildcardChromosome randomFalse = WildcardChromosome.randomFalse();
+		final IWildcardChromosome randomFalse = LcsObjects.randomFalse();
 		final String canonicalString = randomFalse.toCanonicalString();
 		System.out.println("False > " + canonicalString);
 		Assertions.assertThat(canonicalString.substring(4)).isEqualTo("0000");
@@ -31,7 +32,7 @@ public class WildcardChromosomeTest {
 
 	@Test
 	public void testTtrue() {
-		final IWildcardChromosome randomTrue = WildcardChromosome.randomTrue();
+		final IWildcardChromosome randomTrue = LcsObjects.randomTrue();
 		final String canonicalString = randomTrue.toCanonicalString();
 		System.out.println("True > " + canonicalString);
 		Assertions.assertThat(canonicalString.substring(4)).isEqualTo("1111");
@@ -39,29 +40,29 @@ public class WildcardChromosomeTest {
 
 	@Test
 	public void testMatchingExact() {
-		final WildcardChromosome one = WildcardChromosome.of(new WildcardGene[] { FALSE, FALSE, TRUE, TRUE });
-		final WildcardChromosome two = WildcardChromosome.of(new WildcardGene[] { FALSE, FALSE, TRUE, TRUE });
+		final IWildcardChromosome one = LcsObjects.anyChromosome(FALSE, FALSE, TRUE, TRUE);
+		final IWildcardChromosome two = LcsObjects.anyChromosome(FALSE, FALSE, TRUE, TRUE);
 		Assertions.assertThat(one.matches(two)).isTrue();
 	}
 
 	@Test
 	public void testMatchingPartial1() {
-		final WildcardChromosome one = WildcardChromosome.of(new WildcardGene[] { FALSE, WILDCARD, TRUE, TRUE });
-		final WildcardChromosome two = WildcardChromosome.of(new WildcardGene[] { FALSE, FALSE, TRUE, TRUE });
+		final IWildcardChromosome one = LcsObjects.anyChromosome(FALSE, WILDCARD, TRUE, TRUE);
+		final IWildcardChromosome two = LcsObjects.anyChromosome(FALSE, FALSE, TRUE, TRUE);
 		Assertions.assertThat(one.matches(two)).isTrue();
 	}
 
 	@Test
 	public void testMatchingPartial2() {
-		final WildcardChromosome one = WildcardChromosome.of(new WildcardGene[] { FALSE, WILDCARD, WILDCARD, TRUE });
-		final WildcardChromosome two = WildcardChromosome.of(new WildcardGene[] { FALSE, FALSE, TRUE, TRUE });
+		final IWildcardChromosome one = LcsObjects.anyChromosome(FALSE, WILDCARD, WILDCARD, TRUE);
+		final IWildcardChromosome two = LcsObjects.anyChromosome(FALSE, FALSE, TRUE, TRUE);
 		Assertions.assertThat(one.matches(two)).isTrue();
 	}
 
 	@Test
 	public void testNotMatching() {
-		final WildcardChromosome one = WildcardChromosome.of(new WildcardGene[] { FALSE, TRUE, WILDCARD, TRUE });
-		final WildcardChromosome two = WildcardChromosome.of(new WildcardGene[] { FALSE, FALSE, TRUE, TRUE });
+		final IWildcardChromosome one = LcsObjects.anyChromosome(FALSE, TRUE, WILDCARD, TRUE);
+		final IWildcardChromosome two = LcsObjects.anyChromosome(FALSE, FALSE, TRUE, TRUE);
 		Assertions.assertThat(one.matches(two)).isFalse();
 	}
 
