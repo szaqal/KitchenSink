@@ -16,7 +16,7 @@ import szaq.lcs.model.Classifier;
  */
 public class SwapMutation extends SwapMutator<EnumGene<WildcardGene>, Double> implements MutationOperator {
 
-	private final Random random = new Random();
+	private static final Random RAND = new Random();
 
 	public double mutationPropability;
 
@@ -27,7 +27,7 @@ public class SwapMutation extends SwapMutator<EnumGene<WildcardGene>, Double> im
 	@Override
 	public Classifier mutate(final Classifier classifier) {
 		final MutatorResult<Chromosome<EnumGene<WildcardGene>>> mutationResult = mutate(classifier.getCondition(),
-				mutationPropability, random);
+				mutationPropability, RAND);
 
 		classifier.setCondition((IWildcardChromosome) mutationResult.getResult());
 		return classifier;

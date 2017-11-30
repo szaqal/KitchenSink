@@ -68,6 +68,12 @@ public final class Classifier {
 		return action == rule.getAction();
 	}
 
+	/**
+	 * Will create new {@link Classifier} that will contain generalized chromosome,
+	 * and <b>new ID</b>
+	 *
+	 * @return classifier
+	 */
 	public Classifier generalize() {
 		return new Classifier(UUID.randomUUID().toString(), condition.generalize(), getAction(), Parameters.init());
 	}
