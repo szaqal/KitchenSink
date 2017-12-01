@@ -25,7 +25,6 @@ public class ToPhenotype implements Function<IWildcardChromosome, Phenotype<Enum
 	public Phenotype<EnumGene<WildcardGene>, Double> apply(final IWildcardChromosome chromosome) {
 		// TODO: use function composition
 		final Genotype<EnumGene<WildcardGene>> genotype = ToGenotype.get(chromosome);
-
 		return Phenotype.of(genotype, currentGeneration, fitness);
 	}
 
