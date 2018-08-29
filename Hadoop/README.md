@@ -75,3 +75,24 @@ http://192.168.2.52:50070/dfshealth.html#tab-overview
 ```
 
 HADOOP UI ```http://192.168.2.52:8088```
+
+# Hive
+
+```
+malczyk@master:~/hadoop/bin$ ./hadoop fs -mkdir -p /usr/hive/warehouse
+malczyk@master:~/hadoop/bin$ ./hadoop fs -chmod g+w /usr/hive/warehouse
+```
+
+### Hive server 2
+
+```
+./hive --service hiveserver2
+http://192.168.2.52:10002/
+```
+
+### Beeline
+
+```
+malczyk@master:~/hive/bin$ ./beeline -u jdbc:hive2://localhost:10000
+```
+
