@@ -53,3 +53,25 @@ malczyk@master:~/hadoop/sbin$ jps
 10053 Jps
 
 ```
+
+Start DFS
+
+```
+ $HADOOP_HOME/sbin/start-dfs.sh 
+```
+Start YARN
+
+```
+ $HADOOP_HOME/sbin/start-yarn.sh 
+```
+
+***Add slaves nodes to $HADOOP_CONF/slaves file***
+
+
+HDFS UI before hadoop < 3
+
+```
+http://192.168.2.52:50070/dfshealth.html#tab-overview
+```
+
+HADOOP UI ```http://192.168.2.52:8088```
