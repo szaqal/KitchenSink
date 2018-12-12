@@ -1,0 +1,329 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: bash -l
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /home/data/repos/KitchenSink/Go
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 238
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 55
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: Terminalizer
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+  
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 807
+    content: "\e]0;malczyk@i5:/home/data/repos/KitchenSink/Go\a\e]7;file://i5/home/data/repos/KitchenSink/Go\a\e[0;34m/home/data/repos/KitchenSink/Go\e[m\e[0;36m ⑂master\e[m\e[0;32m $ \e[m"
+  - delay: 1321
+    content: "\r\e[20P(reverse-i-search)`': "
+  - delay: 1064
+    content: "\b\b\be': exit\b\b\b\b"
+  - delay: 112
+    content: "\b\b\b\e[1@x\e[C\e[C\e[C"
+  - delay: 63
+    content: "\b\b\bp': export GOPATH=/home/data/repos/KitchenSink/Go/\r\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C\e[C"
+  - delay: 88
+    content: "\b\b\b\e[1@o\e[C\e[C\e[C"
+  - delay: 97
+    content: "\b\b\b\e[1@r\e[C\e[C\e[C"
+  - delay: 208
+    content: "\b\b\b\e[1@t\e[C\e[C\e[C"
+  - delay: 305
+    content: "\r\e[0;34m/home/data/repos/KitchenSink/Go\e[m\e[0;36m ⑂master\e[m\e[0;32m $ \e[mexport GOPATH=/home/data/repos/KitchenSink/Go/\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\r\n"
+  - delay: 25
+    content: "\e]0;malczyk@i5:/home/data/repos/KitchenSink/Go\a\e]7;file://i5/home/data/repos/KitchenSink/Go\a\e[0;34m/home/data/repos/KitchenSink/Go\e[m\e[0;36m ⑂master\e[m\e[0;32m $ \e[m"
+  - delay: 702
+    content: g
+  - delay: 79
+    content: o
+  - delay: 104
+    content: ' '
+  - delay: 249
+    content: e
+  - delay: 120
+    content: 'n'
+  - delay: 119
+    content: v
+  - delay: 321
+    content: "\r\n"
+  - delay: 52
+    content: "GOARCH=\"amd64\"\r\nGOBIN=\"\"\r\nGOCACHE=\"/home/malczyk/.cache/go-build\"\r\nGOEXE=\"\"\r\nGOHOSTARCH=\"amd64\"\r\nGOHOSTOS=\"linux\"\r\nGOOS=\"linux\"\r\nGOPATH=\"/home/data/repos/KitchenSink/Go/\"\r\nGORACE=\"\"\r\nGOROOT=\"/usr/lib/go-1.10\"\r\nGOTMPDIR=\"\"\r\nGOTOOLDIR=\"/usr/lib/go-1.10/pkg/tool/linux_amd64\"\r\nGCCGO=\"gccgo\"\r\nCC=\"gcc\"\r\nCXX=\"g++\"\r\nCGO_ENABLED=\"1\"\r\nCGO_CFLAGS=\"-g -O2\"\r\nCGO_CPPFLAGS=\"\"\r\nCGO_CXXFLAGS=\"-g -O2\"\r\nCGO_FFLAGS=\"-g -O2\"\r\nCGO_LDFLAGS=\"-g -O2\"\r\nPKG_CONFIG=\"pkg-config\"\r\nGOGCCFLAGS=\"-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-build134369223=/tmp/go-build -gno-record-gcc-switches\"\r\n"
+  - delay: 23
+    content: "\e]0;malczyk@i5:/home/data/repos/KitchenSink/Go\a\e]7;file://i5/home/data/repos/KitchenSink/Go\a\e[0;34m/home/data/repos/KitchenSink/Go\e[m\e[0;36m ⑂master\e[m\e[0;32m $ \e[m"
+  - delay: 2629
+    content: g
+  - delay: 112
+    content: o
+  - delay: 528
+    content: ' '
+  - delay: 95
+    content: b
+  - delay: 152
+    content: u
+  - delay: 151
+    content: "\a"
+  - delay: 746
+    content: "\b\e[K"
+  - delay: 167
+    content: "\b\e[K"
+  - delay: 169
+    content: "\b\e[K"
+  - delay: 168
+    content: "\b\e[K"
+  - delay: 151
+    content: "\b\e[K"
+  - delay: 145
+    content: "\a"
+  - delay: 288
+    content: l
+  - delay: 71
+    content: s
+  - delay: 88
+    content: "\r\nhello.go  README.md  \e[0m\e[01;34msrc\e[0m\r\n"
+  - delay: 22
+    content: "\e]0;malczyk@i5:/home/data/repos/KitchenSink/Go\a\e]7;file://i5/home/data/repos/KitchenSink/Go\a\e[0;34m/home/data/repos/KitchenSink/Go\e[m\e[0;36m ⑂master\e[m\e[0;32m $ \e[m"
+  - delay: 1257
+    content: g
+  - delay: 40
+    content: o
+  - delay: 95
+    content: ' '
+  - delay: 72
+    content: b
+  - delay: 97
+    content: u
+  - delay: 63
+    content: i
+  - delay: 24
+    content: l
+  - delay: 88
+    content: d
+  - delay: 2807
+    content: "\a"
+  - delay: 321
+    content: .
+  - delay: 134
+    content: "\a"
+  - delay: 795
+    content: g
+  - delay: 111
+    content: o
+  - delay: 568
+    content: "\b\e[K"
+  - delay: 176
+    content: "\b\e[K"
+  - delay: 393
+    content: "\b\e[K"
+  - delay: 128
+    content: ' '
+  - delay: 240
+    content: h
+  - delay: 96
+    content: e
+  - delay: 203
+    content: 'llo.go '
+  - delay: 405
+    content: "\r\n"
+  - delay: 232
+    content: "\e]0;malczyk@i5:/home/data/repos/KitchenSink/Go\a\e]7;file://i5/home/data/repos/KitchenSink/Go\a\e[0;34m/home/data/repos/KitchenSink/Go\e[m\e[0;36m ⑂master*\e[m\e[0;32m $ \e[m"
+  - delay: 870
+    content: l
+  - delay: 56
+    content: s
+  - delay: 135
+    content: "\r\n\e[0m\e[01;32mhello\e[0m  hello.go  README.md  \e[01;34msrc\e[0m\r\n"
+  - delay: 18
+    content: "\e]0;malczyk@i5:/home/data/repos/KitchenSink/Go\a\e]7;file://i5/home/data/repos/KitchenSink/Go\a\e[0;34m/home/data/repos/KitchenSink/Go\e[m\e[0;36m ⑂master*\e[m\e[0;32m $ \e[m"
+  - delay: 949
+    content: v
+  - delay: 40
+    content: i
+  - delay: 97
+    content: m
+  - delay: 16
+    content: ' '
+  - delay: 159
+    content: h
+  - delay: 64
+    content: e
+  - delay: 173
+    content: "\allo"
+  - delay: 156
+    content: "\r\n"
+  - delay: 64
+    content: "\e[?2004h\e[?1049h\e[22;0;0t\e[?1h\e=\e[?2004h\e[1;55r\e[?12h\e[?12l\e[27m\e[23m\e[29m\e[m\e[H\e[2J\e[?25l\e[55;1H\"hello\""
+  - delay: 18
+    content: ' [noeol][przemienione] 7147L, 2351157C'
+  - delay: 49
+    content: "\e[?2004l\e[?2004h"
+  - delay: 8
+    content: "\e[?2004l\e[?2004h\e[2;1H▽\e[6n\e[2;1H  \e[1;1H\e[>c\e]10;?\a\e]11;?\a"
+  - delay: 90
+    content: "\e[?25h\eP+q436f\e\\\eP+q6b75\e\\\eP+q6b64\e\\\eP+q6b72\e\\\eP+q6b6c\e\\\eP+q2332\e\\\eP+q2334\e\\\eP+q2569\e\\\eP+q2a37\e\\\eP+q6b31\e\\\e[?25l\e[1;1H\e[93m   1 \e[m\e[4m^?ELF^B^A^A^@^@^@^@^@^@^@^@^@^B^@>^@^A^@^@^@`ü\e[1;52HD^@^@^@^@^@@^@^@^@^@^@^@^@È^A^@^@^@^@^@^@^@^@^@^@@^@8^@^G^@@^@^W^@^C^@^F^@^@^@^D^@^@^@@^@^@^@^@^@^@^@@^@@^@^@^@^@^@@^@@^@^@^@^@^@<88>^A^@^@^@^@^@^@<88>^A^@^@^@^@^@^@^@^P^@^@^@^@^@^@^D^@^@@\e[m\e[2;1H\e[93m     \e[m\e[4m^@^D^@^@^@<9c>^O^@^@^@^@^@^@<9c>^O@^@^@^@^@^@<9c>^O@^@^@^@^@^@d^@^@^@^@^@^@^@d^@^@^@^@^@^@^@^D^@^@^@^@^@^@^@^A^@^@^@^E^@^@^@^@^@^@^@^@^@^@^@^@^@@^@^@^@^@^@^@^@@^@^@^@^@^@u2^H^@^@^@^@^@u2^H^@^@^@^@^@^@^P^@^@^@^@^@^@^A^@^@^@^D^@^@^@^@@@\e[m\e[3;1H\e[93m     \e[m\e[4m^H^@^@^@^@^@^@@H^@^@^@^@^@^@@H^@^@^@^@^@Ü^V   ^@^@^@^@^@Ü^V   ^@^@^@^@^@^@^P^@^@^@^@^@^@^A^@^@^@^F^@^@^@^@`^Q^@^@^@^@^@^@`Q^@^@^@^@^@^@`Q^@^@^@^@^@^@7^A^@^@^@^@^@8$^C^@^@^@^@^@^@^P^@^@^@^@^@^@Qåtd^F^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^^\e[m\e[4;1H\e[93m     \e[m\e[4m@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^H^@^@^@^@^@^@^@<80>^U^De^@*^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@@\e[m\e[5;1H\e[93m     \e[m\e[4m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^A^@^@^@^F^@^@^@^@^@^@^@^@^P@^@^@^@^@^@^@^P^@^@^@^@^@^@u\"^H^@^@^@^@^@^@^@^@^@^@^@^@^@^P^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@A^@^@^@^A^@^@^@^B^@^@^@^@^@^@^@^@@@\e[m\e[6;1H\e[93m     \e[m\e[4mH^@^@^@^@^@^@@^H^@^@^@^@^@^O\"^D^@^@^@^@^@^@^@^@^@^@^@^@^@ ^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^A^@^@^C^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@ b^L^@^@^@^@^@^K^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@I^@^@^@^A^@^@^@^B^@@\e[m\e[7;1H\e[93m     \e[m\e[4m^@^@^@^@^@^@@cL^@^@^@^@^@@c^L^@^@^@^@^@T^K^@^@^@^@^@^@^@^@^@^@^@^@^@^@ ^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@S^@^@^@^A^@^@^@^B^@^@^@^@^@^@^@<98>nL^@^@^@^@^@<98>n^L^@^@^@^@^@@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@]^@^@@\e[m\e[8;1H\e[93m     \e[m\e[4m^@^A^@^@^@^B^@^@^@^@^@^@^@Ø\e[8;33HnL^@^@^@^@^@Ø\e[8;46Hn^L^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@g^@^@^@^A^@^@^@^B^@^@^@^@^@^@^@à\e[8;155HnL^@^@^@^@^@à\e[8;168Hn^L^@^@^@^@^@ü\e[8;182Hç^D^@^@^@^@^@^@^@^@^@^@^@^@^@ ^@^@^@^@^@^@^@^@^@^@^@^@^@^^\e[m\e[9;1H\e[93m     \e[m\e[4m@^@^G^@^@^@^A^@^@^@^C^@^@^@^@^@^@^@^@`Q^@^@^@^@^@^@`^Q^@^@^@^@^@ÜË^@^@^@^@^@^@^@^@^@^@^@^@^@^@ ^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^R^@^@^@^A^@^@^@^C^@^@^@^@^@^@^@à\e[9;164H+R^@^@^@^@^@à\e[9;177H+^R^@^@^@^@^@^Pk^@^@^@^@^@^@^@^@^@^@^@^@^@^@ ^@^@^@^@^@^@^@^@^^\e[m\e[10;1H\e[93m     \e[m\e[4m@^@^@^@^@^@^@^X^@^@^@^H^@^@^@^C^@^@^@^@^@^@^@^@<97>R^@^@^@^@^@^@<97>^R^@^@^@^@^@<88>Æ\e[10;91H^A^@^@^@^@^@^@^@^@^@^@^@^@^@ ^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^]^@^@^@^H^@^@^@^C^@^@^@^@^@^@^@\_]T^@^@^@^@^@\_]^T^@^@^@^@^@<98>&^@^@^@^@^@^@^@^@^@^@^@^@^^\e[m\e[11;1H\e[93m     \e[m\e[4m@^@ ^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@<82>^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@<90>T^@^@^@^@^@^@\_^R^@^@^@^@^@µ^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@´\e[11;170H^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@µ<91>T^@^@^@^@^@µ¡\e[11;218H^R^@^@^@^@^@Í^H^A^@^@@\e[m\e[12;1H\e[93m     \e[m\e[4m^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@<90>^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@<82><9a>U^@^@^@^@^@<82>ª\e[12;118H^S^@^@^@^@^@D\"^A^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@À^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@Æ\e[12;224H¼\e[12;225HV^@^@^@^@^@Æ\e[12;237HÌ^^\e[m\e[13;1H\e[93m     \e[m\e[4mT^@^@^@^@^@<95>~^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@Ð\e[13;83H^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@[;W^@^@^@^@^@[K^U^@^@^@^@^@ý¥^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@à\e[13;203H^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@Xá\e[13;235HW^@^^\e[m\e[14;1H\e[93m     \e[m\e[4m@^@^@^@Xñ^U^@^@^@^@^@-^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@<9d>^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@<85>á\e[14;129HW^@^@^@^@^@<85>ñ^U^@^@^@^@^@®\e[14;158HH^F^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@ó\e[14;220H^@^@^@^A^@^@^@^@^@^^\e[m\e[15;1H\e[93m     \e[m\e[4m@^@^@^@^@^@3*^^@^@^@^@^@3:^\\^@^@^@^@^@À`^@^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@'^@^@^@^G^@^@^@^B^@^@^@^@^@^@^@<9c>^O@^@^@^@^@^@<9c>^O^@^@^@^@^@^@d^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^D^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@r^@^^\e[m\e[16;1H\e[93m     \e[m\e[4m@^@^B^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@\_^\\^@^@^@^@^@ø\e[16;65H!^A^@^@^@^@^@^V^@^@^@e^@^@^@^H^@^@^@^@^@^@^@^X^@^@^@^@^@^@^@z^@^@^@^C^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@ø\e[16;173HÁ^]^@^@^@^@^@B#^A^@^@^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^^\e[m\e[17;1H\e[93m     \e[m\e[4m@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@@\e[m\e[18;1H\e[93m     \e[m\e[4m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^^\e[m\e[19;1H\e[93m     \e[m\e[4m@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@@\e[m\e[20;1H\e[93m     \e[m\e[4m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^^\e[m\e[21;1H\e[93m     \e[m\e[4m@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@@\e[m\e[22;1H\e[93m     \e[m\e[4m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^^\e[m\e[23;1H\e[93m     \e[m\e[4m@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@@\e[m\e[24;1H\e[93m     \e[m\e[4m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^^\e[m\e[25;1H\e[93m     \e[m\e[4m@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@@\e[m\e[26;1H\e[93m     \e[m\e[4m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^^\e[m\e[27;1H\e[93m     \e[m\e[4m@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@@\e[m\e[28;1H\e[93m     \e[m\e[4m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^^\e[m\e[29;1H\e[93m     \e[m\e[4m@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@@\e[m\e[30;1H\e[93m     \e[m\e[4m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^^\e[m\e[31;1H\e[93m     \e[m\e[4m@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@@\e[m\e[32;1H\e[93m     \e[m\e[4m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^^\e[m\e[33;1H\e[93m     \e[m\e[4m@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@@\e[m\e[34;1H\e[93m     \e[m\e[4m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^D^@^@^@S^@^@^@^D^@^@^@Go^@^@KrVxC2CND3h3bW2g-7svv\e[m\e[35;1H\e[93m     \e[m\e[4m/0TLjYxvG62diDMfZtJ9o/vAm1duZI0H0lkHuFsv74/Fyw_z3WGa-IF1zQGnayY^@dH<8b>^L%ø\e[35;81HÿÿÿH;a^P^O<86>^Z^A^@^@H<83>ì\e[35;109H(H<89>l$ H<8d>l$ H<8b>D$8H<85>À^O<84>à\e[35;147H^@^@^@H<8b>D$0H<8b>^HH<85>Ét8H<89>ÊH<83>ù\e[35;188Hÿtê\e[35;191HH<8b>L$8H9Ê^O<85><9e>^@^@^@H<8b>L$@H<89>L$^HH<833\e[m\e[36;1H\e[93m     \e[m\e[4m>À^HH<89>^D$è\e[36;19H¦^P^@^@H<8b>l$ H<83>Ä(Ãè\e[36;43HG+^C^@H<8b>D$0H<89>^D$HÇD$^H^@^@^@^@HÇD$^Pÿÿÿÿè\e[36;90H×\e[36;91H^P^@^@^O¶\e[36;100HD$^X<84>Àu^Lè\e[36;113HI+^C^@H<8b>D$0ë<81>H<8b>D$@H<89>D$^HH<8b>D$0H<8d>H^HH<89>^L$è\e[36;174HF^P^@^@H<8b>D$8H<89>D$^HH<8b>D$0H<89>^D$è\e[36;215H.^P^@^@è\e[36;223H    +^C^@H<8b>l$$\e[m\e[37;1H\e[93m     \e[m\e[4m H<83>Ä(ÃH<8d>^E<88>)       ^@H<89>^D$H<8d>^Eí\e[37;52H=^L^@H<89>D$^Hè\e[37;67HÃN^B^@^O^KH<8d>^Ej)    ^@H<89>^D$H<8d>^E¿\e[37;108H=^L^@H<89>D$^Hè\e[37;123H¥N^B^@^O^Kè\e[37;134HÎ¸\e[37;136H^D^@é\e[37;141HÉþ\e[37;143HÿÿÌÌÌÌÌÌÌÌÌé\e[37;155H^K^@^@^@ÌÌÌÌÌÌÌÌÌÌÌH<8b>l$^HH<8b>D$^PH<8b>L$^Xð\e[37;202HH^O±\e[37;206HM^@^O<94>D$ ÃÌÌÌÌÌH<8b>l$^H<8b>D$$\e[m\e[38;1H\e[93m     \e[m\e[4m^P<87>E^@ÃÌÌÌH<8b>l$^HH<8b>D$^PH<87>E^@ÃÌé\e[38;48HëÿÿÿÌÌÌÌÌÌÌÌÌÌÌH<8b>D$^PH<89>D$^XÃÌÌÌÌÌdH<8b>^L%ø\e[38;97HÿÿÿH;a^PvCH<83>ì\e[38;113H(H<89>l$ H<8d>l$ H<8b>D$0H<89>^D$H<8b>D$8H<89>D$^HHÇD$^P^A^@^@^@è\e[38;178HÒO^@^@H<8b>D$^XH<89>D$@H<8b>l$ H<83>Ä(Ãè\e[38;218Hù\e[38;219H·\e[38;220H^D^@ë§\e[38;226HÌÌÌÌÌÌÌdH<8b>>\e[m\e[39;1H\e[93m     \e[m\e[4m^L%ø\e[39;10HÿÿÿH;a^PvCH<83>ì\e[39;26H(H<89>l$ H<8d>l$ H<8b>D$0H<89>^D$H<8b>D$8H<89>D$^HHÇD$^P^B^@^@^@è\e[39;91HrO^@^@H<8b>D$^XH<89>D$@H<8b>l$ H<83>Ä(Ãè\e[39;131H<99>·\e[39;136H^D^@ë§\e[39;142HÌÌÌÌÌÌÌdH<8b>^L%ø\e[39;159HÿÿÿH;a^PvCH<83>ì\e[39;175H(H<89>l$ H<8d>l$ H<8b>D$0H<89>^D$H<8b>D$8H<89>D$^HHÇD$^P^P^@^@^@@\e[m\e[40;1H\e[93m     \e[m\e[4mè\e[40;7H^RO^@^@H<8b>D$^XH<89>D$@H<8b>l$ H<83>Ä(Ãè\e[40;48H9·\e[40;50H^D^@ë§\e[40;56HÌÌÌÌÌÌÌH<83>ì\e[40;69H(H<89>l$ H<8d>l$ H<8d>B^HH<8b>^@H<8b>L$0H<89>^L$H<8b>L$8H<89>L$^HH<89>D$^Pè\e[40;144H¾\e[40;145HN^@^@H<8b>D$^XH<89>D$@H<8b>l$ H<83>Ä(ÃÌÌÌÌÌÌÌÌÌÌdH<8b>^L%ø\e[40;203HÿÿÿH;a^PvFH<83>ì\e[40;219H(H<89>l$ H<8d>l$ H<88\e[m\e[41;1H\e[93m     \e[m\e[4mb>D$0H<8b>^HH<8b>@^HH<89>D$^PH<89>^L$H<8b>D$8H<89>D$^Hè\e[41;61H_N^@^@H<8b>D$^XH<89>D$@H<8b>l$ H<83>Ä(Ãè\e[41;101H<86>¶\e[41;106H^D^@ë¤\e[41;112HÌÌÌÌdH<8b>^L%ø\e[41;126HÿÿÿH;a^P^O<86>ü\e[41;141H^@^@^@H<83>ì\e[41;153H(H<89>l$ H<8d>l$ H<8b>D$0ó\e[41;179H^O^P^@^OWÉ^O.Áu^F^O<8b>¨\e[41;203H^@^@^@^O.Àu^B{qdH<8b>^D%ø\e[41;228HÿÿÿH<8b>@0<<\e[m\e[42;1H\e[93m     \e[m\e[4m8b><88> ^A^@^@<8b><90>$^A^@^@<89><90> ^A^@^@<89>ËÁá\e[42;57H^Q1Ë<89>Ñ1ÚÁë^G1Ó<89>ÊÁé\e[42;81H^P1Ù<89><88>$^A^@^@<8d>^D                                                                                                                                     \e[m\e[43;1H\e[93m   2 \e[mH\e[38;5;81m<8b>\e[mL$8H1ÈH¹\e[43;19H!¦Vj¡\e[43;24Hnu\e[38;5;81m^@\e[mH1ÁH¸\e[43;33H¿\e[43;34Hc\e[38;5;81m<8f>\e[m»kïR\e[38;5;81m^@\e[mH\e[38;5;81m^O\e[m¯ÈH\e[38;5;81m<89>\e[mL$@H\e[38;5;81m<8b>\e[ml$ H\e[38;5;81m<83>\e[mÄ(ÃH\e[38;5;81m<89>^D\e[m$H\e[38;5;81m<8b>\e[mD$8H\e[38;5;81m<89>\e[mD$\e[38;5;81m^H\e[mHÇD$\e[38;5;81m^P^D^@^@^@\e[mè\e[43;114HtM\e[38;5;81m^@^@\e[mH\e[38;5;81m<8b>\e[mD$\e[38;5;81m^X\e[mH\e[38;5;81m<89>\e[mD$@H\e[38;5;81m<8b>\e[ml$ H\e[38;5;81m<83>\e[mÄ(ÃH¸\e[43;155H!¦Vj¡\e[43;160Hnu\e[38;5;81m^@\e[mH\e[38;5;81m<8b>\e[mL$8H1ÈH¹\e[43;177H¿\e[43;178Hc\e[38;5;81m<8f>\e[m»kïR\e[38;5;81m^@\e[mH\e[38;5;81m^O\e[m¯ÁH\e[38;5;81m<89>\e[mD$@H\e[38;5;81m<8b>\e[ml$ H\e[38;5;81m<83>\e[mÄ(Ãè\e[43;219Hlµ\e[38;5;81m^D^@\e[mé\e[43;226Hçþ\e[43;228HÿÿÌÌÌÌÌÌÌdHH\e[44;1H\e[93m     \e[m\e[38;5;81m<8b>^L\e[m%ø\e[44;14HÿÿÿH;a\e[38;5;81m^P^O<86>\e[mþ\e[44;29H\e[38;5;81m^@^@^@\e[mH\e[38;5;81m<83>\e[mì\e[44;41H(H\e[38;5;81m<89>\e[ml$ H\e[38;5;81m<8d>\e[ml$ H\e[38;5;81m<8b>\e[mD$0ò\e[44;67H\e[38;5;81m^O^P^@^O\e[mWÉf\e[38;5;81m^O\e[m.Áu\e[38;5;81m^F^O<8b>\e[m©\e[38;5;81m^@^@^@\e[mf\e[38;5;81m^O\e[m.Àu\e[38;5;81m^B\e[m{qdH\e[38;5;81m<8b>^D\e[m%ø\e[44;118HÿÿÿH\e[38;5;81m<8b>\e[m@0\e[38;5;81m<8b><88>\e[m \e[38;5;81m^A^@^@<8b><90>\e[m$\e[38;5;81m^A^@^@<89><90>\e[m \e[38;5;81m^A^@^@<89>\e[mËÁá\e[44;180H\e[38;5;81m^Q\e[m1Ë\e[38;5;81m<89>\e[mÑ1ÚÁë\e[38;5;81m^G\e[m1Ó\e[38;5;81m<89>\e[mÊÁé\e[44;204H\e[38;5;81m^P\e[m1Ù\e[38;5;81m<89><88>\e[m$\e[38;5;81m^A^@^@<8d>^D\e[m\r\n\e[93m   3 \e[mH\e[38;5;81m<8b>\e[mL$8H1ÈH¹\e[45;19H!¦Vj¡\e[45;24Hnu\e[38;5;81m^@\e[mH1ÁH¸\e[45;33H¿\e[45;34Hc\e[38;5;81m<8f>\e[m»kïR\e[38;5;81m^@\e[mH\e[38;5;81m^O\e[m¯ÈH\e[38;5;81m<89>\e[mL$@H\e[38;5;81m<8b>\e[ml$ H\e[38;5;81m<83>\e[mÄ(ÃH\e[38;5;81m<89>^D\e[m$H\e[38;5;81m<8b>\e[mD$8H\e[38;5;81m<89>\e[mD$\e[38;5;81m^H\e[mHÇD$\e[38;5;81m^P^H^@^@^@\e[mè\e[45;114HRL\e[38;5;81m^@^@\e[mH\e[38;5;81m<8b>\e[mD$\e[38;5;81m^X\e[mH\e[38;5;81m<89>\e[mD$@H\e[38;5;81m<8b>\e[ml$ H\e[38;5;81m<83>\e[mÄ(ÃH¸\e[45;155H!¦Vj¡\e[45;160Hnu\e[38;5;81m^@\e[mH\e[38;5;81m<8b>\e[mL$8H1ÈH¹\e[45;177H¿\e[45;178Hc\e[38;5;81m<8f>\e[m»kïR\e[38;5;81m^@\e[mH\e[38;5;81m^O\e[m¯ÁH\e[38;5;81m<89>\e[mD$@H\e[38;5;81m<8b>\e[ml$ H\e[38;5;81m<83>\e[mÄ(Ãè\e[45;219HJ´\e[45;221H\e[38;5;81m^D^@\e[mé\e[45;226Håþ\e[45;228HÿÿÌÌÌÌÌdH\e[38;5;81m<88\e[m\e[46;1H\e[93m     \e[m\e[38;5;81mb>^L\e[m%ø\e[46;12HÿÿÿH;a\e[38;5;81m^P\e[mvXH\e[38;5;81m<83>\e[mì\e[46;29HH\e[38;5;81m<89>\e[ml$\e[38;5;81m^X\e[mH\e[38;5;81m<8d>\e[ml$\e[38;5;81m^X\e[mH\e[38;5;81m<8b>\e[mD$(\e[38;5;81m<84>^@\e[mH\e[38;5;81m<89>^D\e[m$H\e[38;5;81m<8b>\e[mL$0H\e[38;5;81m<89>\e[mL$\e[38;5;81m^H\e[mè\e[46;87H\e[38;5;81m<89>\e[mýÿÿH\e[38;5;81m<8b>\e[mD$(H\e[38;5;81m<83>\e[mÀ\e[38;5;81m^D\e[mH\e[38;5;81m<8b>\e[mL$\e[38;5;81m^P\e[mH\e[38;5;81m<89>^D\e[m$H\e[38;5;81m<89>\e[mL$\e[38;5;81m^H\e[mè\e[46;137HmýÿÿH\e[38;5;81m<8b>\e[mD$\e[38;5;81m^P\e[mH\e[38;5;81m<89>\e[mD$8H\e[38;5;81m<8b>\e[ml$\e[38;5;81m^X\e[mH\e[38;5;81m<83>\e[mÄ Ãè\e[46;176HÔ³\e[46;178H\e[38;5;81m^D^@\e[më\e[38;5;81m<92>\e[mÌÌdH\e[38;5;81m<8b>^L\e[m%ø\e[46;199HÿÿÿH;a\e[38;5;81m^P\e[mvXH\e[38;5;81m<83>\e[mì\e[46;216HH\e[38;5;81m<89>\e[ml$\e[38;5;81m^X\e[mH\e[38;5;81m<8d>\e[ml$\e[38;5;81m^X\e[mH\e[38;5;81m<8b>>\e[m\e[47;1H\e[93m     \e[mD$(\e[38;5;81m<84>^@\e[mH\e[38;5;81m<89>^D\e[m$H\e[38;5;81m<8b>\e[mL$0H\e[38;5;81m<89>\e[mL$\e[38;5;81m^H\e[mè\e[47;41H9þ\e[47;43HÿÿH\e[38;5;81m<8b>\e[mD$(H\e[38;5;81m<83>\e[mÀ\e[38;5;81m^H\e[mH\e[38;5;81m<8b>\e[mL$\e[38;5;81m^P\e[mH\e[38;5;81m<89>^D\e[m$H\e[38;5;81m<89>\e[mL$\e[38;5;81m^H\e[mè\e[47;88H\e[38;5;81m^]\e[mþ\e[47;91HÿÿH\e[38;5;81m<8b>\e[mD$\e[38;5;81m^P\e[mH\e[38;5;81m<89>\e[mD$8H\e[38;5;81m<8b>\e[ml$\e[38;5;81m^X\e[mH\e[38;5;81m<83>\e[mÄ Ãè\e[47;128Hd³\e[47;130H\e[38;5;81m^D^@\e[më\e[38;5;81m<92>\e[mÌÌdH\e[38;5;81m<8b>^L\e[m%ø\e[47;151HÿÿÿH;a\e[38;5;81m^P^O<86>\e[mc\e[38;5;81m^A^@^@\e[mH\e[38;5;81m<83>\e[mì\e[47;178HPH\e[38;5;81m<89>\e[ml$HH\e[38;5;81m<8d>\e[ml$HH\e[38;5;81m<8b>\e[mD$XH\e[38;5;81m<8b>^H\e[mH\e[38;5;81m<85>\e[mÉ\e[38;5;81m^O<84>\e[m©\e[38;5;81m^@^@^@\e[mH\e[38;5;81m<8b>\e[mI\e[38;5;81m^H\e[mH\e[38;5;81m<<\e[m\e[48;1H\e[93m     \e[m\e[38;5;81m8b>\e[mY\e[38;5;81m^X\e[mH\e[38;5;81m<8b>^S\e[mH\e[38;5;81m<85>\e[mÒ\e[38;5;81m^O<84>\e[m©\e[38;5;81m^@^@^@^O\e[m¶\e[48;41HI\e[38;5;81m^W\e[möÁ tFH\e[38;5;81m<83>\e[mÀ\e[38;5;81m^H\e[mH\e[38;5;81m<89>^D\e[m$H¸\e[48;67H!¦Vj¡\e[48;72Hnu\e[38;5;81m^@\e[mH\e[38;5;81m<8b>\e[mL$`H1ÈH\e[38;5;81m<89>\e[mD$\e[38;5;81m^H\e[mH\e[38;5;81m<8b>^B\e[mÿÐ\e[48;105HH\e[38;5;81m<8b>\e[mD$\e[38;5;81m^P\e[mH¹\e[48;116H¿\e[48;117Hc\e[38;5;81m<8f>\e[m»kïR\e[38;5;81m^@\e[mH\e[38;5;81m^O\e[m¯ÈH\e[38;5;81m<89>\e[mL$hH\e[38;5;81m<8b>\e[ml$HH\e[38;5;81m<83>\e[mÄPÃH\e[38;5;81m<8b>\e[m@\e[38;5;81m^H\e[mH\e[38;5;81m<89>^D\e[m$H¸\e[48;175H!¦Vj¡\e[48;180Hnu\e[38;5;81m^@\e[mH\e[38;5;81m<8b>\e[mL$`H1ÈH\e[38;5;81m<89>\e[mD$\e[38;5;81m^H\e[mH\e[38;5;81m<8b>^B\e[mÿÐ\e[48;213HH\e[38;5;81m<8b>\e[mD$\e[38;5;81m^P\e[mH¹\e[48;224H¿\e[48;225Hc\e[38;5;81m<8f>\e[m»kïR\e[38;5;81m^@\e[mH\e[38;5;81m^OO\e[m\e[49;1H\e[93m     \e[m¯ÁH\e[38;5;81m<89>\e[mD$hH\e[38;5;81m<8b>\e[ml$HH\e[38;5;81m<83>\e[mÄPÃH\e[38;5;81m<8b>\e[mD$`H\e[38;5;81m<89>\e[mD$hH\e[38;5;81m<8b>\e[ml$HH\e[38;5;81m<83>\e[mÄPÃH\e[38;5;81m<89>^L\e[m$è\e[49;73HhQ\e[38;5;81m^D^@\e[mH\e[38;5;81m<8b>\e[mD$\e[38;5;81m^P\e[mH\e[38;5;81m<8b>\e[mL$\e[38;5;81m^H\e[mHÇ\e[38;5;81m^D\e[m$\e[38;5;81m^@^@^@^@\e[mH\e[38;5;81m<8d>^U<80>\e[mL\e[38;5;81m^K^@\e[mH\e[38;5;81m<89>\e[mT$\e[38;5;81m^H\e[mHÇD$\e[38;5;81m^P^X^@^@^@\e[mH\e[38;5;81m<89>\e[mL$\e[38;5;81m^X\e[mH\e[38;5;81m<89>\e[mD$ è\e[49;167HÂ»\e[38;5;81m^C^@\e[mH\e[38;5;81m<8b>\e[mD$0H\e[38;5;81m<8b>\e[mL$(H\e[38;5;81m<89>\e[mL$8H\e[38;5;81m<89>\e[mD$@H\e[38;5;81m<8d>^E\e[m7\e[38;5;81m<9c>\e[m \e[38;5;81m^@\e[mH\e[38;5;81m<89>^D\e[m$H\e[38;5;81m<8d>\e[mD$8H\e[38;5;81m<88\e[m\e[50;1H\e[93m     \e[m\e[38;5;81m9>\e[mD$\e[38;5;81m^H\e[mè\e[50;13HÄª\e[50;15H\e[38;5;81m^@^@\e[mH\e[38;5;81m<8b>\e[mD$\e[38;5;81m^X\e[mH\e[38;5;81m<8b>\e[mL$\e[38;5;81m^P\e[mH\e[38;5;81m<89>^L\e[m$H\e[38;5;81m<89>\e[mD$\e[38;5;81m^H\e[mè\e[50;55H¼\e[50;56HG\e[38;5;81m^B^@^O^K\e[mè\e[50;66Hå±\e[50;68H\e[38;5;81m^D^@\e[mé\e[50;73H\e[38;5;81m<80>\e[mþ\e[50;78HÿÿdH\e[38;5;81m<8b>^L\e[m%ø\e[50;90HÿÿÿH;a\e[38;5;81m^P^O<86>\e[m_\e[38;5;81m^A^@^@\e[mH\e[38;5;81m<83>\e[mì\e[50;117HPH\e[38;5;81m<89>\e[ml$HH\e[38;5;81m<8d>\e[ml$HH\e[38;5;81m<8b>\e[mD$XH\e[38;5;81m<8b>^H\e[mH\e[38;5;81m<85>\e[mÉ\e[38;5;81m^O<84>\e[m¥\e[38;5;81m^@^@^@\e[mH\e[38;5;81m<8b>\e[mY\e[38;5;81m^X\e[mH\e[38;5;81m<8b>^S\e[mH\e[38;5;81m<85>\e[mÒ\e[38;5;81m^O<84>\e[m©\e[38;5;81m^@^@^@^O\e[m¶\e[50;205HI\e[38;5;81m^W\e[möÁ tFH\e[38;5;81m<83>\e[mÀ\e[38;5;81m^H\e[mH\e[38;5;81m<89>^D\e[m$H¸\e[50;231H!¦Vj¡\e[50;236Hnu\e[38;5;81m^^\e[m\e[51;1H\e[93m     \e[m\e[38;5;81m@\e[mH\e[38;5;81m<8b>\e[mL$`H1ÈH\e[38;5;81m<89>\e[mD$\e[38;5;81m^H\e[mH\e[38;5;81m<8b>^B\e[mÿÐ\e[51;36HH\e[38;5;81m<8b>\e[mD$\e[38;5;81m^P\e[mH¹\e[51;47H¿\e[51;48Hc\e[38;5;81m<8f>\e[m»kïR\e[38;5;81m^@\e[mH\e[38;5;81m^O\e[m¯ÈH\e[38;5;81m<89>\e[mL$hH\e[38;5;81m<8b>\e[ml$HH\e[38;5;81m<83>\e[mÄPÃH\e[38;5;81m<8b>\e[m@\e[38;5;81m^H\e[mH\e[38;5;81m<89>^D\e[m$H¸\e[51;106H!¦Vj¡\e[51;111Hnu\e[38;5;81m^@\e[mH\e[38;5;81m<8b>\e[mL$`H1ÈH\e[38;5;81m<89>\e[mD$\e[38;5;81m^H\e[mH\e[38;5;81m<8b>^B\e[mÿÐ\e[51;144HH\e[38;5;81m<8b>\e[mD$\e[38;5;81m^P\e[mH¹\e[51;155H¿\e[51;156Hc\e[38;5;81m<8f>\e[m»kïR\e[38;5;81m^@\e[mH\e[38;5;81m^O\e[m¯ÁH\e[38;5;81m<89>\e[mD$hH\e[38;5;81m<8b>\e[ml$HH\e[38;5;81m<83>\e[mÄPÃH\e[38;5;81m<8b>\e[mD$`H\e[38;5;81m<89>\e[mD$hH\e[38;5;81m<8b>\e[ml$HH\e[38;5;81m<83>\e[mÄPÃH\e[38;5;81m<89>^L\e[m$è\e[51;237Hì\e[51;238HOO\e[52;1H\e[93m     \e[m\e[38;5;81m^D^@\e[mH\e[38;5;81m<8b>\e[mD$\e[38;5;81m^P\e[mH\e[38;5;81m<8b>\e[mL$\e[38;5;81m^H\e[mHÇ\e[38;5;81m^D\e[m$\e[38;5;81m^@^@^@^@\e[mH\e[38;5;81m<8d>^U^D\e[mK\e[38;5;81m^K^@\e[mH\e[38;5;81m<89>\e[mT$\e[38;5;81m^H\e[mHÇD$\e[38;5;81m^P^X^@^@^@\e[mH\e[38;5;81m<89>\e[mL$\e[38;5;81m^X\e[mH\e[38;5;81m<89>\e[mD$ è\e[52;96HFº\e[52;98H\e[38;5;81m^C^@\e[mH\e[38;5;81m<8b>\e[mD$0H\e[38;5;81m<8b>\e[mL$(H\e[38;5;81m<89>\e[mL$8H\e[38;5;81m<89>\e[mD$@H\e[38;5;81m<8d>^E\e[m»\e[38;5;81m<9a>\e[m     \e[38;5;81m^@\e[mH\e[38;5;81m<89>^D\e[m$H\e[38;5;81m<8d>\e[mD$8H\e[38;5;81m<89>\e[mD$\e[38;5;81m^H\e[mè\e[52;179HH©\e[38;5;81m^@^@\e[mH\e[38;5;81m<8b>\e[mD$\e[38;5;81m^X\e[mH\e[38;5;81m<8b>\e[mL$\e[38;5;81m^P\e[mH\e[38;5;81m<89>^L\e[m$H\e[38;5;81m<89>\e[mD$\e[38;5;81m^H\e[mè\e[52;221H@F\e[38;5;81m^B^@^O^K\e[mè\e[52;232Hi°\e[52;234H\e[38;5;81m^D^@\e[mé\e[52;238Hé \e[53;1H\e[93m     \e[m\e[38;5;81m<84>\e[mþ\e[53;11HÿÿÌÌÌÌÆ\e[53;18HD$\e[38;5;81m^X^A\e[mÃÌÌÌÌÌÌÌÌÌÌH\e[38;5;81m<8b>\e[mD$\e[38;5;81m^H^O\e[m¶\e[53;47H\e[38;5;81m^@\e[mH\e[38;5;81m<8b>\e[mL$\e[38;5;81m^P^O\e[m¶\e[53;62H8ÈH\e[38;5;81m<8d>\e[mD$\e[38;5;81m^X^O<94>^@\e[mÃÌÌÌÌÌH\e[38;5;81m<8b>\e[mD$\e[38;5;81m^H^O\e[m·\e[53;99H\e[38;5;81m^@\e[mH\e[38;5;81m<8b>\e[mL$\e[38;5;81m^P^O\e[m·\e[53;118Hf9ÈH\e[38;5;81m<8d>\e[mD$\e[38;5;81m^X^O<94>^@\e[mÃÌÌÌÌH\e[38;5;81m<8b>\e[mD$\e[38;5;81m^H<8b>^@\e[mH\e[38;5;81m<8b>\e[mL$\e[38;5;81m^P<8b>\e[m   9ÈH\e[38;5;81m<8d>\e[mD$\e[38;5;81m^X^O<94>^@\e[mÃÌÌÌÌÌÌÌH\e[38;5;81m<8b>\e[mD$\e[38;5;81m^H\e[mH\e[38;5;81m<8b>^@\e[mH\e[38;5;81m<8b>\e[mL$\e[38;5;81m^P\e[mH\e[38;5;81m<8b>\e[m\e[7CH\e[45;1H\e[94m@                                                                                                                                                                                                                                             \e[46;1H@                                                                                                                                                                                                                                             \e[47;1H@                                                                                                                                                                                                                                             \e[48;1H@                                                                                                                                                                                                                                             \e[49;1H@                                                                                                                                                                                                                                             \e[50;1H@                                                                                                                                                                                                                                             \e[51;1H@                                                                                                                                                                                                                                             \e[52;1H@                                                                                                                                          "
+  - delay: 290
+    content: "                                                                                                   \e[53;1H@                                                                                                                                                                                                                                             \e[m\e[54;1H\e[38;5;17m\e[48;5;190m \e[m\e[1m\e[38;5;17m\e[48;5;190mNORMAL\e[m\e[38;5;17m\e[48;5;190m \e[m\e[38;5;255m\e[48;5;238m ᚠ master \e[m\e[38;5;85m\e[48;5;234m hello                                                                                                                                   \e[m\e[38;5;255m\e[48;5;238m latin1[unix] \e[m\e[38;5;17m\e[48;5;190m   0% \e[m\e[1m\e[38;5;17m\e[48;5;190m☰    1/7147 ㏑\e[m\e[38;5;17m\e[48;5;190m :  1 \e[m\e[38;5;232m\e[48;5;166m ☲ [225]trailing [803:1115]mix-indent-file \e[1;6H\e[?25h"
+  - delay: 601
+    content: "\a\e[m\e[54;18H\e[38;5;255m\e[48;5;238mɆ \e[m\e[38;5;85m\e[48;5;234m hello"
+  - delay: 127
+    content: "\e[?25l\e[m\e[55;1H\e[K\e[55;1H:\e[?2004h\e[?25h"
+  - delay: 103
+    content: "q\e[?25l\e[?25h"
+  - delay: 176
+    content: "!\e[?25l\e[?25h"
+  - delay: 112
+    content: "\r\e[?25l\e[?2004l\e[?2004h"
+  - delay: 26
+    content: "\e[?2004l\e[55;1H\e[K\e[55;1H\e[?2004l\e[?1l\e>\e[?25h\e[?1049l\e[23;0;0t"
+  - delay: 20
+    content: "\e]0;malczyk@i5:/home/data/repos/KitchenSink/Go\a\e]7;file://i5/home/data/repos/KitchenSink/Go\a\e[0;34m/home/data/repos/KitchenSink/Go\e[m\e[0;36m ⑂master*\e[m\e[0;32m $ \e[m"
+  - delay: 126
+    content: vim hello
+  - delay: 216
+    content: .
+  - delay: 159
+    content: 'go '
+  - delay: 432
+    content: "\r\n"
+  - delay: 59
+    content: "\e[?2004h\e[?1049h\e[22;0;0t\e[?1h\e=\e[?2004h\e[1;55r\e[?12h\e[?12l\e[27m\e[23m\e[29m\e[m\e[H\e[2J\e[?25l\e[55;1H\"hello.go\" 31L, 433C"
+  - delay: 46
+    content: "\e[?2004l\e[?2004h\e[?2004l\e[?2004h\e[2;1H▽\e[6n\e[2;1H  \e[1;1H\e[>c\e]10;?\a\e]11;?\a"
+  - delay: 92
+    content: "\e[?25h\eP+q436f\e\\\eP+q6b75\e\\\eP+q6b64\e\\\eP+q6b72\e\\\eP+q6b6c\e\\\eP+q2332\e\\\eP+q2334\e\\\eP+q2569\e\\\eP+q2a37\e\\\eP+q6b31\e\\\e[?25l\e[1;1H\e[93m  1 \e[m\e[4m\e[93mpackage\e[m\e[4m main                                                                                                                                                                                                                              \e[m\e[2;1H\e[93m  2 \r\n  3 \e[m\e[93mimport\e[m (\r\n\e[93m  4 \e[m\e[8C\e[95m\"closure\"\e[m\r\n\e[93m  5 \e[m\e[8C\e[95m\"fmt\"\e[m\r\n\e[93m  6 \e[m\e[8C\e[95m\"funct\"\e[m\r\n\e[93m  7 \e[m\e[8C\e[95m\"maps\"\e[m\r\n\e[93m  8 \e[m\e[8C\e[95m\"methods\"\e[m\r\n\e[93m  9 \e[m\e[8C\e[95m\"ptrs\"\e[m\r\n\e[93m 10 \e[m\e[8C\e[95m\"slices\"\e[m\r\n\e[93m 11 \e[m)\r\n\e[93m 12 \r\n 13 \e[m\e[93mfunc\e[m main() {\r\n\e[93m 14 \e[m\e[8Cslices.DummySlices()\r\n\e[93m 15 \e[m\e[8Cmaps.DummyMaps()\r\n\e[93m 16 \r\n 17 \e[m\e[8C\e[96m// multivalue returns\e[m\r\n\e[93m 18 \e[m\e[8C_, b := funct.Dupa()\r\n\e[93m 19 \e[m\e[8Cfmt.Println(\e[95m\"Result \"\e[m, b)\r\n\e[93m 20 \r\n 21 \e[m\e[8C\e[96m// closures\e[m\r\n\e[93m 22 \e[m\e[8Cfmt.Println(\e[95m\"result \"\e[m, closure.TestClosure()())\r\n\e[93m 23 \r\n 24 \e[m\e[8C\e[96m// pointers\e[m\r\n\e[93m 25 \e[m\e[8Ci := \e[95m1\e[m\r\n\e[93m 26 \e[m\e[8Cfmt.Println(\e[95m\"result \"\e[m, ptrs.PtrTest(&i))\r\n\e[93m 27 \r\n 28 \e[m\e[8C\e[96m//mehods\e[m\r\n\e[93m 29 \e[m\e[8Cr := methods.Rect{Width: \e[95m10\e[m, Height: \e[95m10\e[m}\r\n\e[93m 30 \e[m\e[8Cfmt.Println(\e[95m\"result \"\e[m, r.Area())\r\n\e[93m 31 \e[m}\r\n\e[94m~                                                                                                                                                                                                                                             \e[33;1H~                                                                                                                                                                                                                                             \e[34;1H~                                                                                                                                                                                                                                             \e[35;1H~                                                                                                                                                                                                                                             \e[36;1H~                                                                                                                                                                                                                                             \e[37;1H~                                                                                                                                                                                                                                             \e[38;1H~                                                                                                                                                                                                                                             \e[39;1H~                                                                                                                                                                                                                                             \e[40;1H~                                                                                                                                                                                                                                             \e[41;1H~                                                                                                                                                                                                                                             \e[42;1H~                                                                                                                                                                                                                                             \e[43;1H~                                                                                                                                                                                                                                             \e[44;1H~                                                                                                                                                                                                                                             \e[45;1H~                                                                                                                                                                                                                                             \e[46;1H~                                                                                                                                                                                                                                             \e[47;1H~                                                                                                                                                                                                                                             \e[48;1H~                                                                                                                                                                                                                                             \e[49;1H~                                                                                                                                                                                                                                             \e[50;1H~                                                                                                                                                                                                                                             \e[51;1H~                                                                                                                                                                                                                       "
+  - delay: 10
+    content: "                      \e[52;1H~                                                                                                                                                                                                                                             \e[53;1H~                                                                                                                                                                                                                                             \e[m\e[54;1H\e[38;5;17m\e[48;5;190m \e[m\e[1m\e[38;5;17m\e[48;5;190mNORMAL\e[m\e[38;5;17m\e[48;5;190m \e[m\e[38;5;255m\e[48;5;238m ᚠ master \e[m\e[38;5;85m\e[48;5;234m hello.go                                                                                                                                                                           go \e[m\e[38;5;255m\e[48;5;238m utf-8[unix] \e[m\e[38;5;17m\e[48;5;190m   3% \e[m\e[1m\e[38;5;17m\e[48;5;190m☰    1/31 ㏑\e[m\e[38;5;17m\e[48;5;190m :  1 \e[1;5H\e[?25h"
+  - delay: 744
+    content: "\a\e[?25l\e[m\e[55;1H\e[K\e[55;1H:\e[?2004h\e[?25h"
+  - delay: 192
+    content: "\e[?25lq!\e[?25h"
+  - delay: 615
+    content: "\e[?25l\b\bwq\e[?25h"
+  - delay: 424
+    content: "\e[?25l\b\bGoBuild\e[?25h"
+  - delay: 536
+    content: "\r\e[?25l\e[1m\e[96mvim-go: building dispatched ...\e[1;5H\e[?25h"
+  - delay: 191
+    content: "\e[?25l\e[55;9HSUCCESSg\e[m\e[55;16H\e[K\e[1;5H\e[?25h"
+  - delay: 687
+    content: "\a\e[?25l\e[55;1H\e[K\e[55;1H:\e[?2004h\e[?25h"
+  - delay: 109
+    content: "q\e[?25l\e[?25h"
+  - delay: 217
+    content: "!\e[?25l\e[?25h"
+  - delay: 136
+    content: "\r\e[?25l\e[?2004l"
+  - delay: 7
+    content: "\e[?2004h"
+  - delay: 31
+    content: "\e[?2004l\e[55;1H\e[K\e[55;1H\e[?2004l\e[?1l\e>\e[?25h\e[?1049l\e[23;0;0t"
+  - delay: 20
+    content: "\e]0;malczyk@i5:/home/data/repos/KitchenSink/Go\a\e]7;file://i5/home/data/repos/KitchenSink/Go\a\e[0;34m/home/data/repos/KitchenSink/Go\e[m\e[0;36m ⑂master*\e[m\e[0;32m $ \e[m"
+  - delay: 892
+    content: e
+  - delay: 104
+    content: x
+  - delay: 32
+    content: i
+  - delay: 97
+    content: t
+  - delay: 80
+    content: "\r\nwylogowanie\r\n"
