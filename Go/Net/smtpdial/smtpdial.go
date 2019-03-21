@@ -12,6 +12,6 @@ func main() {
 		panic(err)
 	}
 	fmt.Fprintf(conn, "HELO abc\n")
-	status, err := bufio.NewReader(conn).ReadString('\n')
+	status, _ := bufio.NewReader(conn).ReadString('\n')
 	fmt.Println(status)
 }
