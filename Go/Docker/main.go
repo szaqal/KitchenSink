@@ -24,7 +24,7 @@ func main() {
 
 	opts := types.ImageImportOptions{Tag: "latest", Message: "dupa"}
 
-	_, err = cli.ImageImport(context.Background(), source, "", opts)
+	_, err = cli.ImageImport(context.Background(), source, "imgname", opts)
 
 	if err != nil {
 		panic(err)
