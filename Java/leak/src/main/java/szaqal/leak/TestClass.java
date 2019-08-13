@@ -8,7 +8,7 @@ public class TestClass {
 
 	public TestClass() {
 		super();
-		this.data = new byte[1024*10000];
+		this.data = new byte[1024*100];
 		Arrays.fill(this.data, (byte)9);
 	}
 	
