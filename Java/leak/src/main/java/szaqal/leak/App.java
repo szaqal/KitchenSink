@@ -15,6 +15,7 @@ public class App {
 			newFixedThreadPool.execute(new Run());
 		}
 		newFixedThreadPool.awaitTermination(60, TimeUnit.MINUTES);
+		newFixedThreadPool.isShutdown();
 
 	}
 }
