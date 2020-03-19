@@ -1,0 +1,7 @@
+version: '3.5'
+services:
+  localdev-redis:
+    build: build
+    container_name: redis
+    ports:
+      - 6379:6379
