@@ -1,6 +1,6 @@
 {
   "singleServerConfig":{
-    "address":"redis://127.0.0.1:6379",
+    "address":"redis://192.168.1.20:6379",
     "idleConnectionTimeout":10000,
     "pingTimeout":1000,
     "password": "XXXXXX",
