@@ -8,6 +8,12 @@
         </encoder>
     </appender>
 
+    <logger name="io.netty" additivity="true">
+        <level value="DEBUG"/>
+    </logger>
+    <logger name="org.redisson" additivity="true">
+        <level value="INFO"/>
+    </logger>
     <root level="INFO">
         <appender-ref ref="STDOUT" />
     </root>

@@ -13,17 +13,20 @@ public class Worker implements Runnable {
 
     private static final Logger LOG = LoggerFactory.getLogger("REDISSON");
 
-    private static final int VALUE_SIZE = 1048576*10;//1MB
+    private static final int VALUE_SIZE = 100_000;//1048576;//1MB
 
     private RedissonClient redissonClient;
 
     private long start;
 
+    private int jobId;
+
     private Random random = new Random();
 
-    public Worker(RedissonClient redissonClient) {
+    public Worker(RedissonClient redissonClient, int jobId) {
         this.redissonClient = redissonClient;
         this.start = System.currentTimeMillis();
+        this.jobId = jobId;
     }
 
     @Override
@@ -34,18 +37,24 @@ public class Worker implements Runnable {
             RBucket<byte[]> bucket = redissonClient.getBucket(key);
 
             if (!bucket.isExists()) {
-                bucket.set(generate(), 3, TimeUnit.SECONDS);
+                bucket.set(generate(), 10, TimeUnit.MINUTES);
                 byte[] andDelete = bucket.getAndDelete();
                 LOG.trace("{}",andDelete.length);
             }
 
         }
-        LOG.info("DONE in [{}] [{}] ms",System.currentTimeMillis() - start, System.currentTimeMillis() - jobStart);
+        LOG.info("[{}] DONE in [{}] [{}] ms", toString(), System.currentTimeMillis() - start, System.currentTimeMillis() - jobStart);
     }
 
     private byte[] generate() {
         byte[] bytes = new byte[VALUE_SIZE];
         random.nextBytes(bytes);
         return bytes;
+    }
+
+
+    @Override
+    public String toString() {
+        return "job-"+jobId;
     }
 }

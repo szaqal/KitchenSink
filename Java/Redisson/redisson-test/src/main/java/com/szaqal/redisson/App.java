@@ -37,7 +37,7 @@ public class App {
         ExecutorService workerExecutor = Threads.buildWorkerExecutor();
 
         for (int i = 1; i < Defaults.threadCount()+1; i++) {
-            workerExecutor.submit(new Worker(redissonClient));
+            workerExecutor.submit(new Worker(redissonClient, i));
             Thread.sleep(5000/i);
 
         }
