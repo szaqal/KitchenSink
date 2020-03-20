@@ -20,7 +20,6 @@ public class App {
     public static void main(String[] args) throws Exception {
         InputStream resourceAsStream = App.class.getClassLoader().getResourceAsStream("redisson.json");
         Config config = Config.fromJSON(resourceAsStream);
-        System.out.println(config);
         RedissonClient redissonClient = Redisson.create(config);
         redissonClient.getNodesGroup().addConnectionListener(new ConnectionListener() {
             @Override

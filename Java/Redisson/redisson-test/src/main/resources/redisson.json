@@ -4,8 +4,8 @@
     "idleConnectionTimeout":1000,
     "pingTimeout":100,
     "password": "XXXXXX",
-    "connectTimeout":1000,
-    "timeout":1000,
+    "connectTimeout":5000,
+    "timeout":3000,
     "retryAttempts":1,
     "retryInterval":100,
     "reconnectionTimeout":3000,
@@ -23,5 +23,5 @@
   "codec":{
     "class":"org.redisson.codec.SerializationCodec"
   },
-  "nettyThreads":2
+  "nettyThreads":1
 }
