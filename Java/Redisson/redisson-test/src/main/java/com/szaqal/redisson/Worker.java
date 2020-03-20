@@ -35,15 +35,18 @@ public class Worker implements Runnable {
         for (int i = 0; i < Defaults.iterationsCount(); i++) {
             String key = UUID.randomUUID().toString();
             RBucket<byte[]> bucket = redissonClient.getBucket(key);
-
             if (!bucket.isExists()) {
                 bucket.set(generate(), 15, TimeUnit.SECONDS);
                 byte[] andDelete = bucket.get();
                 LOG.trace("{}",andDelete.length);
             }
-
         }
-        LOG.info("[{}] DONE in [{}] [{}] ms", toString(), System.currentTimeMillis() - start, System.currentTimeMillis() - jobStart);
+
+        int keyCount =0;
+        for(String key :redissonClient.getKeys().getKeys()) {
+            keyCount++;
+        }
+        LOG.info("[{}] DONE in [{}] [{}] ms / [{}] keys", toString(), System.currentTimeMillis() - start, System.currentTimeMillis() - jobStart, keyCount);
     }
 
     private byte[] generate() {
