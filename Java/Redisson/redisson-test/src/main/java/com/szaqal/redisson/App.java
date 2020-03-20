@@ -38,7 +38,7 @@ public class App {
 
         for (int i = 1; i < Defaults.threadCount()+1; i++) {
             workerExecutor.submit(new Worker(redissonClient, i));
-            Thread.sleep(30000/i);
+            Thread.sleep(15_000/i);
 
         }
 
