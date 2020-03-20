@@ -38,13 +38,13 @@ public class App {
 
         for (int i = 1; i < Defaults.threadCount()+1; i++) {
             workerExecutor.submit(new Worker(redissonClient, i));
-            Thread.sleep(5000/i);
+            Thread.sleep(30000/i);
 
         }
 
         try {
             workerExecutor.shutdown();
-            if (!workerExecutor.awaitTermination(1, TimeUnit.HOURS)) {
+            if (!workerExecutor.awaitTermination(2, TimeUnit.HOURS)) {
                 workerExecutor.shutdownNow();
             }
         } catch (InterruptedException e) {

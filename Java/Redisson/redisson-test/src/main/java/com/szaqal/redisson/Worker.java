@@ -13,7 +13,7 @@ public class Worker implements Runnable {
 
     private static final Logger LOG = LoggerFactory.getLogger("REDISSON");
 
-    private static final int VALUE_SIZE = 100_000;//1048576;//1MB
+    private static final int VALUE_SIZE = Defaults.dataLength();
 
     private RedissonClient redissonClient;
 

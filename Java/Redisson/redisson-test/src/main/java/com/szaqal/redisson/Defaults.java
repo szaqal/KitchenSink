@@ -4,6 +4,10 @@ import java.util.Optional;
 
 public class Defaults {
 
+    public static final int dataLength() {
+        return Integer.parseInt(Optional.ofNullable(System.getenv("DATA_LENGTH")).orElse("1048576"));
+    }
+
     public static final int threadPoolQueue() {
         return Integer.parseInt(Optional.ofNullable(System.getenv("THREAD_POOL_QUEUE")).orElse("100"));
     }
