@@ -43,15 +43,12 @@ public class Worker implements Runnable {
             byte[] generate = generate();
             RBucket<byte[]> bucket = redissonClient.getBucket(key);
             if (!bucket.isExists()) {
-
                 bucket.set(generate, 15, TimeUnit.SECONDS);
                 byte[] andDelete = bucket.get();
                 LOG.trace("{}",andDelete.length);
             }
 
-            if(!map.isExists()) {
-                map.fastPutIfAbsent(key, generate);
-            }
+            map.fastPutIfAbsent(key, generate);
         }
 
 
