@@ -44,7 +44,7 @@ public class App {
 
         try {
             workerExecutor.shutdown();
-            if (!workerExecutor.awaitTermination(2, TimeUnit.HOURS)) {
+            if (!workerExecutor.awaitTermination(1, TimeUnit.HOURS)) {
                 workerExecutor.shutdownNow();
             }
         } catch (InterruptedException e) {
