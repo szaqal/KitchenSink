@@ -36,7 +36,7 @@ public class Worker implements Runnable {
         int keyCount =0;
         long jobStart = System.currentTimeMillis();
         RMap<Object, Object> map = redissonClient.getMap(UUID.randomUUID().toString());
-
+        Map<Object, Object> all = null;
         for (int i = 0; i < Defaults.iterationsCount(); i++) {
             String key = UUID.randomUUID().toString();
 
@@ -49,15 +49,19 @@ public class Worker implements Runnable {
             }
 
             map.fastPutIfAbsent(key, generate);
+
+            if( i%10==0 ) {
+                // --- HEAVY STUFF
+                for(String keyExistng :redissonClient.getKeys().getKeys()) {
+                    keyCount++;
+                }
+                all = map.getAll(map.readAllKeySet());
+            }
+
+
         }
 
 
-        // --- HEAVY STUFF
-        for(String keyExistng :redissonClient.getKeys().getKeys()) {
-            keyCount++;
-        }
-
-        Map<Object, Object> all = map.getAll(map.readAllKeySet());
         LOG.info("MAP size :[{}]", all.keySet().size());
         map.deleteAsync();
 
