@@ -37,7 +37,7 @@ public class Worker implements Runnable {
             RBucket<byte[]> bucket = redissonClient.getBucket(key);
 
             if (!bucket.isExists()) {
-                bucket.set(generate(), 10, TimeUnit.MINUTESs);
+                bucket.set(generate(), 10, TimeUnit.MINUTES);
                 byte[] andDelete = bucket.get();
                 LOG.trace("{}",andDelete.length);
             }
