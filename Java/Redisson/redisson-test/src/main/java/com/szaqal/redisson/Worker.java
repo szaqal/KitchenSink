@@ -31,6 +31,7 @@ public class Worker implements Runnable {
 
     @Override
     public void run() {
+        int keyCount =0;
         long jobStart = System.currentTimeMillis();
         for (int i = 0; i < Defaults.iterationsCount(); i++) {
             String key = UUID.randomUUID().toString();
@@ -40,12 +41,18 @@ public class Worker implements Runnable {
                 byte[] andDelete = bucket.get();
                 LOG.trace("{}",andDelete.length);
             }
+
+            if (i%250==0) {
+
+                for(String keyExistng :redissonClient.getKeys().getKeys()) {
+
+                    keyCount++;
+                }
+                LOG.info("{}", i);
+            }
         }
 
-        int keyCount =0;
-        for(String key :redissonClient.getKeys().getKeys()) {
-            keyCount++;
-        }
+
         LOG.info("[{}] DONE in [{}] [{}] ms / [{}] keys", toString(), System.currentTimeMillis() - start, System.currentTimeMillis() - jobStart, keyCount);
     }
 
