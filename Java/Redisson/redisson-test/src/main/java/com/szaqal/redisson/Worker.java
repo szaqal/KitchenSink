@@ -35,7 +35,7 @@ public class Worker implements Runnable {
     public void run() {
         int keyCount =0;
         long jobStart = System.currentTimeMillis();
-        RMap<Object, Object> map = redissonClient.getMap(UUID.randomUUID().toString());
+        RMap<Object, Object> map = redissonClient.getMap("Some-map");
         Map<Object, Object> all = null;
         for (int i = 0; i < Defaults.iterationsCount(); i++) {
             String key = UUID.randomUUID().toString();
@@ -43,7 +43,7 @@ public class Worker implements Runnable {
             byte[] generate = generate();
             RBucket<byte[]> bucket = redissonClient.getBucket(key);
             if (!bucket.isExists()) {
-                bucket.set(generate, 15, TimeUnit.SECONDS);
+                bucket.set(generate, 120, TimeUnit.SECONDS);
                 byte[] andDelete = bucket.get();
                 LOG.trace("{}",andDelete.length);
             }
@@ -63,7 +63,7 @@ public class Worker implements Runnable {
 
 
         LOG.info("MAP size :[{}]", all.keySet().size());
-        map.deleteAsync();
+        //map.deleteAsync();
 
         LOG.info("[{}] DONE in [{}] [{}] ms / [{}] keys", toString(), System.currentTimeMillis() - start, System.currentTimeMillis() - jobStart, keyCount);
     }
