@@ -5,7 +5,7 @@
     "pingTimeout":100,
     "password": "XXXXXX",
     "connectTimeout":5000,
-    "timeout":3000,
+    "timeout":1000,
     "retryAttempts":1,
     "retryInterval":100,
     "reconnectionTimeout":3000,

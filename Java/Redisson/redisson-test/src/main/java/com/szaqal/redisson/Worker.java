@@ -53,9 +53,10 @@ public class Worker implements Runnable {
 
             map.fastPutIfAbsent(key, generate);
 
+
             if (i % 100 == 0) {
                 // --- HEAVY STUFF
-                for (String keyExistng : keys.getKeys()) {
+                for (String keyExistng : keys.getKeysByPattern("aaa*bbb")) {
                     keyCount++;
                 }
                 RFuture<Map<Object, Object>> allAsync = map.getAllAsync(map.readAllKeySet());
