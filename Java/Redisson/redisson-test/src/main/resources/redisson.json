@@ -23,5 +23,5 @@
   "codec":{
     "class":"org.redisson.codec.SerializationCodec"
   },
-  "nettyThreads":1
+  "nettyThreads":0
 }
