@@ -18,7 +18,7 @@
 		<hsqldb.version>2.2.9</hsqldb.version>
 		<mybatis.version>3.1.1</mybatis.version>
 		<mybatis.spring.version>1.2.0</mybatis.spring.version>
-		<c3p0.version>0.9.2</c3p0.version>
+		<c3p0.version>0.9.5.4</c3p0.version>
 		<jcloverslf4.version>1.7.0</jcloverslf4.version>
 	</properties>
 
