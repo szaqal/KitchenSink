@@ -17,7 +17,7 @@
 		<spring.version>3.2.2.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<quartz.version>2.1.6</quartz.version>
-		<mysql.connector.version>5.1.10</mysql.connector.version>
+		<mysql.connector.version>8.0.16</mysql.connector.version>
 		<jdbc.url>jdbc:mysql://localhost:3306</jdbc.url>
 		<slf4j.version>1.7.2</slf4j.version>
 	</properties>
