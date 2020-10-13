@@ -15,7 +15,7 @@
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
 		<spring.version>3.2.2.RELEASE</spring.version>
-		<junit.version>4.11</junit.version>
+		<junit.version>4.13.1</junit.version>
 		<quartz.version>2.1.6</quartz.version>
 		<mysql.connector.version>5.1.10</mysql.connector.version>
 		<jdbc.url>jdbc:mysql://localhost:3306</jdbc.url>
