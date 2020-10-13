@@ -12,7 +12,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<junit.version>4.11</junit.version>
+		<junit.version>4.13.1</junit.version>
 		<org.springframework.version>4.0.2.RELEASE</org.springframework.version>
 		<jooq.version>3.2.3</jooq.version>
 		<mysql.connector.version>5.1.29</mysql.connector.version>
