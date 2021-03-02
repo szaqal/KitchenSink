@@ -15,3 +15,11 @@ value_group:
 .PHONY: accept
 accept:
 	cobc -x $@.cob
+
+.PHONY: move
+move:
+	cobc -x $@.cob
+
+.PHONY: compute
+compute:
+	cobc -x $@.cob
