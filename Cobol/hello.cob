@@ -1,6 +1,7 @@
        IDENTIFICATION DIVISION.
+      *
        PROGRAM-ID. hello.
-      * Some comment
+      *PROGRAMMER. Somebody
        PROCEDURE DIVISION.
            DISPLAY "Hello".
            STOP RUN.
