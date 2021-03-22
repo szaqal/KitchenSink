@@ -20,6 +20,10 @@ accept:
 move:
 	cobc -x $@.cob
 
+.PHONY: moveof
+moveof:
+	cobc -x $@.cob
+
 .PHONY: compute
 compute:
 	cobc -x $@.cob
