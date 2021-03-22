@@ -23,3 +23,7 @@ move:
 .PHONY: compute
 compute:
 	cobc -x $@.cob
+
+.PHONY: strings
+strings:
+	cobc -x $@.cob
