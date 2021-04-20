@@ -31,3 +31,7 @@ compute:
 .PHONY: strings
 strings:
 	cobc -x $@.cob
+
+.PHONY: picture_clauses
+picture_clauses:
+	cobc -x $@.cob
