@@ -8,6 +8,11 @@ hello:
 picture:
 	cobc -x $@.cob
 
+
+.PHONY: picture2
+picture2:
+	cobc -x $@.cob	
+
 .PHONY: value_group
 value_group:
 	cobc -x $@.cob

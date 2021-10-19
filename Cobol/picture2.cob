@@ -1,0 +1,14 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. testing.
+       
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       77 SOME-VALUE-1    PIC S9(05)V9(02)         VALUE "5389803.84".
+       77 SOME-VALUE-2    PIC S9(05)V99   COMP-5   VALUE "5389803.84".   
+       PROCEDURE DIVISION.          
+           DISPLAY "SOME-VALUE-1:   "  SOME-VALUE-1.
+           DISPLAY "SOME-VALUE-2:   "  SOME-VALUE-2.
+
+           MOVE SOME-VALUE-2 TO SOME-VALUE-1.
+
+           DISPLAY "SOME-VALUE-1:   "  SOME-VALUE-1.
