@@ -40,3 +40,7 @@ strings:
 .PHONY: picture_clauses
 picture_clauses:
 	cobc -x $@.cob
+
+.PHONY: perform
+perform:
+	cobc -x $@.cob
