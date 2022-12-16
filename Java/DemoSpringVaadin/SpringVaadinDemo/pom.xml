@@ -14,7 +14,7 @@
 		<maven.compiler.target>1.6</maven.compiler.target>
 
 		<vaadin.version>6.8.7</vaadin.version>
-		<spring.version>3.1.1.RELEASE</spring.version>
+		<spring.version>5.2.20.RELEASE</spring.version>
 		<aspectj.version>1.7.1</aspectj.version>
 		<cglib.version>2.2.2</cglib.version>
 
