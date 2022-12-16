@@ -14,7 +14,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
-		<spring.version>3.2.2.RELEASE</spring.version>
+		<spring.version>5.2.20.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<quartz.version>2.1.6</quartz.version>
 		<mysql.connector.version>5.1.10</mysql.connector.version>
