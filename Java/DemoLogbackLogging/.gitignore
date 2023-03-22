@@ -1,9 +1,0 @@
-**/*.classpath
-**/*.project
-**/*.class
-DemoLogback/target/**
-DemoLogback/bin/**
-DemoLogback/.externalToolBuilders/
-DemoLogback/.settings/**
-DemoLogback/maven-eclipse.xml
-
