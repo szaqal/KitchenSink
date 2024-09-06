@@ -13,22 +13,27 @@ public class CollectorsToMap {
   @Test
   public void test() {
     var list = List.of(
-        new Product(1, "Shirt"),
-        new Product(2, "Shirt"),
-        new Product(3, "Laptop"));
+        new Product(1, "Shirt", 10),
+        new Product(2, "Shirt", 10 ),
+        new Product(3, "Laptop", 100));
 
 
     var result = list.stream().collect(Collectors.toMap(Product::getId, Product::getName));
     System.out.println(result);
 
-    Map<String, Long> grouping = list.stream().collect(Collectors.groupingBy(Product::getName, Collectors.counting()));
+    var grouping = list.stream().collect(Collectors.groupingBy(Product::getName, Collectors.counting()));
     System.out.println(grouping);
+
+
+    var summarizing = list.stream().collect(Collectors.groupingBy(Product::getName, Collectors.summarizingInt(Product::getPrice)));
+    System.out.println(summarizing);
   }
 
   @Getter
   @AllArgsConstructor
   private static class Product {
-    private Integer id;
+    private int id;
     private String name;
+    private int price;
   }
 }
