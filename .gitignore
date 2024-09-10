@@ -98,3 +98,4 @@ bin/*
 Java/.DS_Store
 __pycache__
 .mvn
+*.iml
