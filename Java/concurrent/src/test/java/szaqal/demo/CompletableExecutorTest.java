@@ -3,25 +3,28 @@ package szaqal.demo;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorCompletionService;
-import java.util.concurrent.Executors;
-import java.util.stream.Stream;
+import java.util.concurrent.*;
 
-public class CompletableExecutor {
+public class CompletableExecutorTest {
+
+    Executor executor = Executors.newFixedThreadPool(5);
 
     @Test
     public void test() throws InterruptedException, ExecutionException {
-        var executor = Executors.newFixedThreadPool(5);
-        var completionService = new ExecutorCompletionService<>(executor);
-        List<Demo> demos = List.of(new Demo(1000), new Demo(1200), new Demo(4000));
-        demos.forEach(executor::submit);
+
+        var completionService = new ExecutorCompletionService<String>(executor);
+        List<Demo> demos = List.of(new Demo(1000), new Demo(1500), new Demo(3000));
+
+        for(var demo:demos) {
+            completionService.submit(demo);
+        }
+
         for (int i = demos.size(); i > 0; i--) {
-            var r = completionService.take().get();
+            String r = completionService.take().get();
             if (r != null) {
                 System.out.println(r);
             }
+
         }
     }
 
@@ -35,6 +38,7 @@ public class CompletableExecutor {
 
         @Override
         public String call() throws Exception {
+            System.out.println("HERE");
             Thread.sleep(timeout);
             return "Finished";
         }
