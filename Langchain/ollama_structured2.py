@@ -20,6 +20,7 @@ class FinalResponse(BaseModel):
 
 
 system = """You are a recepcionist working in a Clinic You can be ased for Clinic address details or appointment details.
+Patients can get messages from your clinic and may be responding
 
 Here are some examples:
 
@@ -36,7 +37,7 @@ example_user: Who is sending this ?
 example_assistant: {{"subject": "clinic_name"}}
 
 exaple_user: When is my appointment ?
-example_assistant:  {{"subject": "appointment" }}
+example_assistant:  {{"subject": "appointment_time" }}
 
 
 """
@@ -47,8 +48,9 @@ if __name__ == "__main__":
     structured_llm = llm.with_structured_output(FinalResponse)
     prompt = ChatPromptTemplate.from_messages([("system", system), ("human", "{input}")])
     few_shot_structured_llm = prompt | structured_llm
-    print(few_shot_structured_llm.invoke("When is the soonest upcoming appointment ?"))
-    print(few_shot_structured_llm.invoke("Where is the clinic ?"))
-    print(few_shot_structured_llm.invoke("What is the clinic address ?"))
-    print(few_shot_structured_llm.invoke("At what time is my appointment ?"))
-    print(few_shot_structured_llm.invoke("Who is sending this ?"))
+    print(few_shot_structured_llm.invoke({"input":"When is the soonest upcoming appointment ?"}))
+    print(few_shot_structured_llm.invoke({"Where is the clinic ?"}))
+    print(few_shot_structured_llm.invoke({"What is the clinic address ?"}))
+    print(few_shot_structured_llm.invoke({"input":"At what time is my appointment ?"}))
+    print(few_shot_structured_llm.invoke({"input":"Who is sending this ?"}))
+    print(few_shot_structured_llm.invoke({"input":"What time I should be there ?"}))
