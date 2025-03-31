@@ -21,4 +21,5 @@ if __name__ == "__main__":
          HumanMessage("Where is Your clinic ?")
 
     ]
-    print(llm.invoke(messages).content)
+    aa = llm.invoke(messages)
+    print(aa)
