@@ -1,0 +1,44 @@
+---
+
+- hosts: all 
+  tasks:
+    - name: 'Hadoop config'
+      become: true
+      template: src=core-site-slave.j2 dest={{ hadoop_root }}/etc/hadoop/core-site.xml mode=0644
+
+- hosts: slave-1
+  tasks:
+    - name: 'Change name'
+      become: true
+      shell: hostnamectl set-hostname 'slave-1'
+    - name: 'Slave1 hosts'
+      become: true
+      template: src=hosts-slave.j2 dest=/etc/hosts mode=0644
+      vars:
+        slave_ip: "{{ slave_1 }}" 
+        slave_name: 'slave-1'
+
+- hosts: slave-2
+  tasks:
+    - name: 'Change name'
+      become: true
+      shell: hostnamectl set-hostname 'slave-2'
+    - name: 'Slave2 hosts'
+      become: true
+      template: src=hosts-slave.j2 dest=/etc/hosts mode=0644
+      vars:
+        slave_ip: "{{ slave_2 }}"
+        slave_name: 'slave-2'
+
+- hosts: slave-3
+  tasks:
+    - name: 'Change name'
+      become: true
+      shell: hostnamectl set-hostname 'slave-3'
+    - name: 'Slave3 hosts'
+      become: true
+      template: src=hosts-slave.j2 dest=/etc/hosts mode=0644
+      vars:
+        slave_ip: "{{ slave_3 }}"
+        slave_name: 'slave-3'
+

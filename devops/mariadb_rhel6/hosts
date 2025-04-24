@@ -1,0 +1,3 @@
+[rhel6]
+rhel6-mariadb ansible_ssh_host=192.168.2.61 ansible_ssh_user=malczyk ansible_become_pass=abc123
+

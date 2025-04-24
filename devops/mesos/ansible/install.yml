@@ -1,0 +1,12 @@
+---
+- include: base_software.yml
+- include: base_configs.yml
+
+- hosts: master
+  tasks:
+    - name: 'Copy scripts'
+      become: true
+      copy: src=start_services_master.sh dest=/start_services_master.sh mode=0744
+    - name: 'Start services'
+      become: true
+      shell: /start_services_master.sh

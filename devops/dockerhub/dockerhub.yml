@@ -1,0 +1,19 @@
+---
+
+- hosts: all
+  tasks:
+    - name: 'APT Update'
+      become: true
+      apt: update_cache=yes
+    - name: 'Docker repo'
+      apt_repository: repo="deb  https://download.docker.com/linux/ubuntu xenial stable" state=present
+      become: true
+    - name: 'Add docker repo keys'
+      shell:  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+      become: true
+    - name: 'Docker'
+      apt: update_cache=yes name=docker-ce
+      become: true
+    - name: 'python-docker'
+      apt: update_cache=yes name=python-docker
+      become: true

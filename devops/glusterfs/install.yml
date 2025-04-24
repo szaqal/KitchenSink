@@ -1,0 +1,34 @@
+- hosts: gluster 
+  tasks:
+    - name : 'YUM updating packages'
+      become: true
+      yum: name='*' state=latest
+    - name: 'YUM install base software'
+      become: true
+      yum:
+        name: "{{ item }}" 
+        state: latest
+      with_items:
+        - yum-utils
+        - net-tools
+        - wget  
+        - vim  
+        - telnet  
+        - epel-release  
+        - glusterfs  
+        - glusterfs-cli  
+        - centos-release-gluster312  
+        - glusterfs-server  
+        - glusterfs-fuse
+    - name: 'enable server'
+      become: true
+      shell: systemctl enable glusterd
+    - name: 'Copying hosts setup script'
+      become: true
+      template: src=setup_hosts.sh.j2 dest=/setup_hosts.sh mode=0777
+    - name: 'Updating /etc/hosts'
+      become: true
+      shell: "/setup_hosts.sh"
+#    - name: 'SELinux disable'
+#      become: true
+#      shell: "setenforce 0"

@@ -1,0 +1,50 @@
+---
+
+- hosts: all
+  tasks:
+    - name: 'APT mesosphere repo'
+      shell: apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF 
+      become: true
+    - name: 'APT mesosphere repo'
+      shell: echo "deb http://repos.mesosphere.io/$(lsb_release -is | tr '[:upper:]' '[:lower:]') $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/mesosphere.list
+      become: true
+    - name: 'APT Update'
+      become: true
+      apt: update_cache=yes
+    - name: 'Java8'
+      become: true
+      apt: name=openjdk-8-jre-headless
+    - name: 'Docker repo'
+      apt_repository: repo="deb  https://download.docker.com/linux/ubuntu xenial stable" state=present
+      become: true
+    - name: 'Add docker repo keys'
+      shell:  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+      become: true
+    - name: 'Docker'
+      apt: update_cache=yes name=docker-ce
+      become: true
+    - name: 'python-docker'
+      apt: update_cache=yes name=python-docker
+      become: true
+    - name: 'mesos'
+      apt: update_cache=yes name=mesos
+      become: true
+    - name: 'marathon'
+      apt: update_cache=yes name=marathon
+      become: true
+
+- hosts: master
+  tasks:
+    - name: 'Zookeeper'
+      apt: name=zookeeper
+      become: true
+    - name: 'Zookeeperbin'
+      apt: name=zookeeper-bin
+      become: true
+    - name: 'Zookeeperd'
+      apt: name=zookeeperd
+      become: true
+    - name: 'Marathon'
+      apt: update_cache=yes name=marathon
+      become: true
+

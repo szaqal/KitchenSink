@@ -1,0 +1,16 @@
+---
+
+zk_host: 192.168.2.52
+zk_server_mesos: zk://192.168.2.52:2181/mesos
+zk_server_marathon: zk://192.168.2.52:2181/marathon
+
+master_ip: 192.168.2.52
+
+mesos_slave_1: 192.168.2.53
+mesos_slave_2: 192.168.2.54
+mesos_slave_3: 192.168.2.55
+mesos_slave_4: 192.168.2.56
+mesos_slave_5: 192.168.2.57
+
+phy_iface: ens3
+

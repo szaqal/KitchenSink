@@ -1,0 +1,12 @@
+---
+
+master_ip: 192.168.2.52
+
+mesos_slave_1: 192.168.2.53
+mesos_slave_2: 192.168.2.54
+mesos_slave_3: 192.168.2.55
+mesos_slave_4: 192.168.2.56
+mesos_slave_5: 192.168.2.57
+
+phy_iface: ens3
+

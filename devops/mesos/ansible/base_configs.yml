@@ -1,0 +1,93 @@
+---
+
+- hosts: all
+  tasks:
+    - name: 'Copy ZK config'
+      become: true
+      template: src=config/zk.j2 dest=/etc/mesos/zk mode=0644
+    - name: 'Master IP'
+      template: src=config/ip.j2 dest=/etc/mesos-master/ip mode=0644
+      become: true
+    - name: 'Master HostName'
+      template: src=config/hostname.j2 dest=/etc/mesos-master/hostname mode=0644
+      become: true
+
+- hosts: mesos-slave-1
+  tasks:
+    - name: 'Configuring slave 1'
+      become: true
+      template: src=config/slave1.j2 dest=/etc/mesos-slave/ip mode=0644
+    - name: 'Configuring slave 1'
+      become: true
+      template: src=config/slave1.j2 dest=/etc/mesos-slave/hostname mode=0644
+
+- hosts: mesos-slave-2
+  tasks:
+    - name: 'Configuring slave 2'
+      become: true
+      template: src=config/slave2.j2 dest=/etc/mesos-slave/ip mode=0644
+    - name: 'Configuring slave 2'
+      become: true
+      template: src=config/slave2.j2 dest=/etc/mesos-slave/hostname mode=0644
+
+- hosts: mesos-slave-3
+  tasks:
+    - name: 'Configuring slave 3'
+      become: true
+      template: src=config/slave3.j2 dest=/etc/mesos-slave/ip mode=0644
+    - name: 'Configuring slave 3'
+      become: true
+      template: src=config/slave3.j2 dest=/etc/mesos-slave/hostname mode=0644
+
+- hosts: mesos-slave-4
+  tasks:
+    - name: 'Configuring slave 4'
+      become: true
+      template: src=config/slave4.j2 dest=/etc/mesos-slave/ip mode=0644
+    - name: 'Configuring slave 4'
+      become: true
+      template: src=config/slave4.j2 dest=/etc/mesos-slave/hostname mode=0644
+
+
+- hosts: mesos-slave-5
+  tasks:
+    - name: 'Configuring slave 5'
+      become: true
+      template: src=config/slave5.j2 dest=/etc/mesos-slave/ip mode=0644
+    - name: 'Configuring slave 5'
+      become: true
+      template: src=config/slave5.j2 dest=/etc/mesos-slave/hostname mode=0644
+
+
+- hosts: master
+  tasks:
+    - name: 'Copy scripts'
+      become: true
+      copy: src=setup_marathon.sh dest=/setup_marathon.sh mode=0744
+    - name: 'Setup marathon'
+      become: true
+      shell: /setup_marathon.sh
+    - name: 'Setup marathon zk'
+      become: true
+      template: src=config/zk_marathon.j2 dest=/etc/marathon/conf/zk
+
+- hosts: slaves
+  tasks:
+    - name: 'Copy scripts'
+      become: true
+      copy: src=start_services_slave.sh dest=/start_services_slave.sh mode=0744
+    - name: 'Start services'
+      become: true
+      shell: /start_services_slave.sh
+    - name: 'Copy containerizers'
+      become: true
+      copy: src=config/containerizers dest=/etc/mesos-slave/containerizers
+    - name: 'Copy image providers'
+      become: true
+      copy: src=config/image_providers dest=/etc/mesos-slave/image_providers
+    - name: 'Copy resources'
+      become: true
+      copy: src=config/resources dest=/etc/mesos-slave/resources mode=0644
+    - name: 'Copy isolation'
+      become: true
+      copy: src=config/isolation dest=/etc/mesos-slave/isolation mode=0644

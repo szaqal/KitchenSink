@@ -1,0 +1,8 @@
+[master]
+mesos-master ansible_ssh_host=192.168.2.52  	ansible_ssh_user=malczyk ansible_become_pass=abc123
+
+[slaves]
+mesos-slave-1 ansible_ssh_host=192.168.2.53 	ansible_ssh_user=malczyk ansible_become_pass=abc123
+mesos-slave-2 ansible_ssh_host=192.168.2.54 	ansible_ssh_user=malczyk ansible_become_pass=abc123
+mesos-slave-3 ansible_ssh_host=192.168.2.55 	ansible_ssh_user=malczyk ansible_become_pass=abc123
+mesos-slave-4 ansible_ssh_host=192.168.2.56 	ansible_ssh_user=malczyk ansible_become_pass=abc123

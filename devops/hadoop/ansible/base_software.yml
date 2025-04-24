@@ -1,0 +1,27 @@
+---
+
+- hosts: all
+  tasks:
+    - name: 'APT Update'
+      become: true
+      apt: update_cache=yes
+    - name: 'Java8'
+      become: true
+      apt: name=openjdk-8-jre-headless
+    - name: 'Unzip'
+      become: true
+      apt: name=unzip
+- hosts: master
+  tasks:
+    - name: 'Zookeeper'
+      apt: name=zookeeper
+      become: true
+    - name: 'Zookeeperbin'
+      apt: name=zookeeper-bin
+      become: true
+    - name: 'Zookeeperd'
+      apt: name=zookeeperd
+      become: true
+    - name: 'Java8 JDK'
+      become: true
+      apt: name=openjdk-8-jdk-headless

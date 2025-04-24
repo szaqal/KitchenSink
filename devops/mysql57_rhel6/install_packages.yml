@@ -1,0 +1,32 @@
+- hosts: rhel6 
+  tasks:
+    - name : 'YUM updating packages'
+      become: true
+      yum: name='*' state=latest
+    - name: 'YUM installing yum-utils package'
+      become: true
+      yum: name='yum-utils' state=latest
+    - name: 'YUM installing yum-nettools package'
+      become: true
+      yum: name='net-tools' state=latest
+    - name: 'YUM installing wget'
+      become: true
+      yum: name='wget' state=latest
+    - name: 'YUM installing vim'
+      become: true
+      yum: name='vim' state=latest
+    - name: 'YUM installing telnet'
+      become: true
+      yum: name='telnet' state=latest
+    - name: 'YUM installing screen'
+      become: true
+      yum: name='screen' state=latest
+    - name: 'YUM installing mysql repository'
+      become: true
+      copy: src=Mysql.repo dest=/etc/yum.repos.d/ mode=0644
+    - name: 'YUM installing mysql-server'
+      become: true
+      yum: name='mysql-community-server' state=latest
+    - name: 'YUM installing mysql-client'
+      become: true
+      yum: name='mysql' state=latest

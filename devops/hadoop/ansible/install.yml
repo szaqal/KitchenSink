@@ -1,0 +1,4 @@
+---
+- include: base_software.yml
+- include: hadoop.yml
+

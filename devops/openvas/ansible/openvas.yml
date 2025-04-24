@@ -1,0 +1,42 @@
+---
+# Openvas requires random data generation on startup
+# Hence it may be required to produce some disk traffic
+
+- hosts: master
+  tasks:
+    - name: 'Adding OpenVAS repository'
+      apt_repository: 
+        repo: ppa:mrazavi/openvas
+        validate_certs: no
+      become: true
+    - name: 'Update'
+      apt:
+        update_cache: yes      
+      become: true
+    - name: 'Install rngtools'
+      apt:
+        name: rng-tools
+      become: true
+    - name: 'setup'
+      become: true
+      shell: echo "HRNGDEVICE=/dev/urandom" >> /etc/default/rng-tools
+    - name: 'enable rngtool'
+      become: true
+      shell: systemctl enable rng-tools
+    - name: 'stop rngtool'
+      become: true
+      shell: systemctl stop rng-tools
+    - name: 'start rngtool'
+      become: true
+      shell: systemctl start rng-tools
+    - name: 'Install OpenVAS'
+      apt:
+        name: openvas9      
+      become: true
+    - name: 'enable openvase-scanner'
+      become: true
+      shell: systemctl enable openvas-scanner
+    - name: 'enable openvase-scanner'
+      become: true
+      shell: systemctl enable openvas-manager
+

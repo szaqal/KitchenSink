@@ -1,0 +1,12 @@
+---
+
+- hosts: all
+  tasks:
+    - name: 'Install Hadoop'
+      become: true
+      unarchive: src={{ hadoop_url }} dest=/opt remote_src=True
+    - name: 'Set java_home'
+      become: true
+      action: lineinfile dest={{hadoop_root}}/etc/hadoop/hadoop-env.sh regexp='export JAVA_HOME.*' line='export JAVA_HOME={{ java_home }}'
+
+
