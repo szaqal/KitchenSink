@@ -1,0 +1,41 @@
+{
+    "variables": {
+        "cpu": "3",
+        "ram": "3048",
+        "name": "ubuntu18",
+        "iso_checksum_type": "sha256",
+        "iso_urls": "http://peja.home.wickedsoftware.pl/iso/ubuntu18-mini.iso",
+        "iso_checksum": "bed8a55ae2a657f8349fe3271097cff3a5b8c3d1048cf258568f1601976fa30d",
+        "headless": "true",
+        "ssh_username": "root",
+        "ssh_password": "abc123"
+    },
+    "builders": [
+        {
+            "name": "{{user `name`}}{{user `version`}}",
+            "type": "qemu",
+            "disk_size": "10000M",
+            "format": "qcow2",
+            "accelerator": "kvm",
+            "net_device": "virtio-net",
+            "disk_interface": "virtio",
+            "ssh_wait_timeout": "30m",
+            "ssh_username": "{{user `ssh_username`}}",
+            "ssh_password": "{{user `ssh_password`}}",
+            "iso_urls": "{{user `iso_urls`}}",
+            "iso_checksum": "{{user `iso_checksum`}}",
+            "boot_wait": "10s",
+            "headless": "{{user `headless`}}",
+            "output_directory": "image_ubuntu_18",
+            "http_directory": ".",
+            "shutdown_command": "echo '{{user `ssh_password`}}' | sudo -S shutdown -P now",
+            "boot_command": [
+                "<tab><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+                "net.ifnames=0 biosdevname=0 fb=false hostname={{user `name`}}{{user `version`}} locale=en_US ",
+                "console-keymaps-at/keymap=us console-setup/ask_detect=false ",
+                "console-setup/layoutcode=us keyboard-configuration/layout=USA keyboard-configuration/variant=USA ",
+                "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ubuntu1804-preseed.cfg <enter><wait>"
+              ]
+        }   
+    ]
+}
