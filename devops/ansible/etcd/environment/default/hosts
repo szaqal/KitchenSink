@@ -1,0 +1,11 @@
+[etcd:children]
+leader
+followers
+
+[leader]
+etcd_1 ansible_ssh_host=192.168.122.216 ansible_ssh_user=root ansible_become_pass=abc123 ansible_ssh_pass=abc123
+
+[followers]
+etcd_2 ansible_ssh_host=192.168.122.161 ansible_ssh_user=root ansible_become_pass=abc123 ansible_ssh_pass=abc123
+etcd_3 ansible_ssh_host=192.168.122.89 ansible_ssh_user=root ansible_become_pass=abc123 ansible_ssh_pass=abc123
+etcd_4 ansible_ssh_host=192.168.122.205 ansible_ssh_user=root ansible_become_pass=abc123 ansible_ssh_pass=abc123

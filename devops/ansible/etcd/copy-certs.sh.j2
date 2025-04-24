@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sshpass -p {{ hostvars['etcd_1'].ansible_ssh_pass }} scp -o StrictHostKeyChecking=no root@{{ hostvars['etcd_1'].ansible_ssh_host }}:{{etcd_certs_dir}}/ca.pem {{etcd_certs_dir}}
+sshpass -p {{ hostvars['etcd_1'].ansible_ssh_pass }} scp -o StrictHostKeyChecking=no root@{{ hostvars['etcd_1'].ansible_ssh_host }}:{{etcd_certs_dir}}/ca-key.pem {{etcd_certs_dir}}

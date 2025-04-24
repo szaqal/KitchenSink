@@ -1,0 +1,121 @@
+---
+- name: ETCD-CLUSTER
+  hosts: etcd
+  become: true
+
+  tasks:
+
+    - name:
+      set_fact:
+        ectd_values: []
+
+    - name:
+      set_fact:
+        hosts_detected: "{{ groups['etcd']}}"
+
+    - name:
+      set_fact:
+        ectd_values: "{{ectd_values}} + ['{{item}}=https://{{ hostvars[item].ansible_ssh_host}}:2380']"
+      with_items:
+        - "{{ hosts_detected }}"
+
+    - name: 'Cluster url'
+      set_fact:
+        cluster_url: "{{ectd_values|join(',')}}"
+
+
+    - name: 'Install software'
+      dnf:
+        name:
+          - unzip
+          - tar
+          - chrony
+          - vim #TODO remove
+          - net-tools #TODO remove
+
+              
+    - name: 'Start chrony'
+      systemd: name=chronyd enabled=yes state=started
+
+    - name: 'Stop firewalld'  #TODO add rules
+      systemd: name=firewalld enabled=no state=stopped
+
+    - name: 'Pull cfssl'
+      get_url: url="{{item.url}}" dest='/opt' checksum="{{item.checksum}}" mode=0744
+      loop:
+        - { url: '{{cfssl_download_url}}/v{{cfssl_version}}/cfssl_{{cfssl_version}}_linux_amd64', checksum: "md5:212fc80b19cd3182bb54882c9f7c5f61" }
+        - { url: '{{cfssl_download_url}}/v{{cfssl_version}}/cfssljson_{{cfssl_version}}_linux_amd64', checksum: "md5:2d4e4fa8b44e12da6b19c0aba1cb65d5" }
+
+    - name: "Pull etcd"
+      get_url:
+        url: '{{google_url}}/{{etcd_version}}/etcd-{{etcd_version}}-linux-amd64.tar.gz'
+        dest: "{{ ansible_env.HOME }}"
+        checksum: md5:8107d61ea56d32f4c90581bb3a22e021
+
+
+    - name: 'Unarchive etcd'
+      unarchive: src={{ ansible_env.HOME }}/etcd-{{etcd_version}}-linux-amd64.tar.gz dest=/opt remote_src=yes
+
+    - name: 'symlinks'
+      file: src="{{item.src}}" dest="{{item.dest}}" state=link
+      loop:
+        - { src: '/opt/etcd-{{etcd_version}}-linux-amd64', dest: "/opt/etcd" }
+        - { src: '/opt/etcd/etcd', dest: "/usr/bin/etcd" }
+        - { src: '/opt/etcd/etcdctl', dest: "/usr/bin/etcdctl" }
+        - { src: '/opt/cfssl_{{cfssl_version}}_linux_amd64', dest: "/usr/bin/cfssl" }
+        - { src: '/opt/cfssljson_{{cfssl_version}}_linux_amd64', dest: "/usr/bin/cfssljson" }
+
+    - name: 'etcd work dirs'
+      file: path={{item.path}} state=directory
+      loop:
+        - {path: '{{etcd_data_dir}}'}
+        - {path: '{{etcd_wal_dir}}'}
+        - {path: '{{etcd_certs_dir}}'}
+
+    - name: 'etcd service template'
+      template: src='{{item.src}}' dest='{{item.dest}}' mode=0744
+      loop:
+        - {src: 'etcd.service.j2', dest: '/etc/systemd/system/etcd.service'}
+
+- name: 'ca-gen'
+  hosts: leader
+  tasks:
+    - name: 'CA root templates'
+      template: src='{{item.src}}' dest='{{item.dest}}' mode=0744
+      loop:
+        - {src: 'ca-csr.json.j2', dest: '{{etcd_certs_dir}}/ca-csr.json'}
+        - {src: 'ca-gen.sh.j2', dest: '/tmp/ca-gen.sh'}
+        
+    - name: 'CA gen cert'
+      command: '/tmp/ca-gen.sh'        
+
+- name: 'copy-ca script'
+  hosts: followers
+  become: true
+  tasks:
+    - name: 'CA node templates'
+      template: src='{{item.src}}' dest='{{item.dest}}' mode=0744
+      loop:
+        - {src: 'ca-csr.json.j2', dest: '{{etcd_certs_dir}}/ca-csr.json'}
+        - {src: 'copy-certs.sh.j2', dest: '/tmp/copy-certs.sh'}
+    - name: 'Copy CA certs'
+      command: '/tmp/copy-certs.sh'    
+    
+- name: 'certgen'
+  hosts: etcd
+  become: true
+  tasks:
+    - name: 'templates'
+      template: src='{{item.src}}' dest='{{item.dest}}' mode=0744
+      loop:
+        - {src: 'ca-config.json.j2', dest: '{{etcd_certs_dir}}/ca-config.json'}
+        - {src: 'cert-gen.sh.j2', dest: '/tmp/cert-gen.sh'}
+
+    - name: 'Generate node certs'
+      command: '/tmp/cert-gen.sh'
+
+- name: 'Start etcd'
+  hosts: etcd
+  become: true
+  tasks:
+    - systemd: name=etcd enabled=yes state=started

@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+
+cfssl gencert -ca {{etcd_certs_dir}}/ca.pem  -ca-key {{etcd_certs_dir}}/ca-key.pem -config {{etcd_certs_dir}}/ca-config.json  {{etcd_certs_dir}}/ca-csr.json | cfssljson -bare {{etcd_certs_dir}}/node

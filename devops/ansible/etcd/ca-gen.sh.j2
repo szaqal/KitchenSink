@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+cfssl gencert -initca {{etcd_certs_dir}}/ca-csr.json | cfssljson -bare {{etcd_certs_dir}}/ca;

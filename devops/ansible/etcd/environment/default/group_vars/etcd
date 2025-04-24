@@ -1,0 +1,12 @@
+google_url: https://storage.googleapis.com/etcd
+github_url: https://github.com/etcd-io/etcd/releases/download
+etcd_version: v3.4.16
+etcd_certs_dir: /etc/etcd_certs
+etcd_data_dir: /var/run/etcd/data
+etcd_wal_dir: /var/run/etcd/wal
+etcd_cluster_token: dummy
+etcd_expiry_duration: 876000h
+
+cfssl_download_url: https://github.com/cloudflare/cfssl/releases/download/
+cfssl_version: 1.5.0
+
