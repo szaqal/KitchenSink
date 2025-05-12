@@ -3,6 +3,7 @@ package szaqal.alg.demo;
 import java.util.List;
 
 //https://www.hackerrank.com/challenges/pairs
+//TODO: too slow
 public class Pairs {
     public static int pairs(int k, List<Integer> list) {
         Integer[] arr = list.toArray(new Integer[list.size()]);
