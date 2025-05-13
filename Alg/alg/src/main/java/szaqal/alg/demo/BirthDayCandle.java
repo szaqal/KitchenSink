@@ -9,9 +9,8 @@ import java.util.stream.Collectors;
 public class BirthDayCandle {
   public static int birthdayCakeCandles( List<Integer> candles ) {
 
-    Optional<Long> max = candles.stream()
+    return candles.stream()
         .collect(Collectors.groupingBy(x -> x, Collectors.counting()))
-        .values().stream().max(Long::compareTo);
-    return max.map(Long::intValue).orElseThrow();
+        .values().stream().max(Long::compareTo).map(Long::intValue).orElseThrow();
   }
 }
