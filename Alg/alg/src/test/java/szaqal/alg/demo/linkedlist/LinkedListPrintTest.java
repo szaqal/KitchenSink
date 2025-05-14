@@ -6,7 +6,7 @@ import java.util.List;
 
 import static szaqal.alg.demo.linkedlist.InsertTail.insertNodeAtTail;
 
-public class ReversePrintTest {
+public class LinkedListPrintTest {
 
   @Test
   public void test() {
@@ -16,6 +16,17 @@ public class ReversePrintTest {
       SinglyLinkedListNode llist_head = insertNodeAtTail(llist.head, i);
       llist.head = llist_head;
     }
-    ReversePrint.reversePrint(llist.head);
+    LinkedListPrint.reversePrint(llist.head);
+  }
+
+  @Test
+  public void test2() {
+    SinglyLinkedList llist = new SinglyLinkedList();
+    List<Integer> integers = List.of(141, 302, 164, 530, 474);
+    for (Integer i : integers) {
+      SinglyLinkedListNode llist_head = insertNodeAtTail(llist.head, i);
+      llist.head = llist_head;
+    }
+    LinkedListPrint.printLinkedList(llist.head);
   }
 }
