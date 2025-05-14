@@ -1,27 +1,11 @@
-package szaqal.alg.demo;
+package szaqal.alg.demo.linkedlist;
 
 
 //https://www.hackerrank.com/challenges/insert-a-node-at-the-tail-of-a-linked-list
 public class InsertTail {
 
-  static class SinglyLinkedListNode {
-    public int data;
-    public SinglyLinkedListNode next;
 
-    public SinglyLinkedListNode( int nodeData ) {
-      this.data = nodeData;
-      this.next = null;
-    }
-  }
 
-  static class SinglyLinkedList {
-    public SinglyLinkedListNode head;
-
-    public SinglyLinkedList() {
-      this.head = null;
-    }
-
-  }
 
   static SinglyLinkedListNode insertNodeAtTail(
       SinglyLinkedListNode head,

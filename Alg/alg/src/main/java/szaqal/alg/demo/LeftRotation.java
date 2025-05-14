@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+//Array left rotation
 public class LeftRotation {
   public static List<Integer> rotateLeft(
       int shift,
