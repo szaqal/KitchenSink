@@ -1,16 +1,6 @@
-package szaqal.alg.demo;
+package szaqal.alg.demo.tree;
 
-class Node {
-  Node left;
-  Node right;
-  int data;
 
-  Node( int data ) {
-    this.data = data;
-    left = null;
-    right = null;
-  }
-}
 
 //https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/
 public class TreeHeight {

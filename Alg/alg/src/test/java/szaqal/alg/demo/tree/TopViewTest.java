@@ -1,4 +1,4 @@
-package szaqal.alg.demo;
+package szaqal.alg.demo.tree;
 
 import org.junit.jupiter.api.Test;
 
