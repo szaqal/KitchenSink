@@ -17,7 +17,7 @@
 		
 		<!-- Dependency versions -->
 		<junit.version>4.13.2</junit.version>
-		<jsch.version>0.1.82</jsch.version>
+		<jsch.version>0.1.55</jsch.version>
 		<commons-io.version>2.11.0</commons-io.version>
 		
 		<!-- Plugin versions -->
