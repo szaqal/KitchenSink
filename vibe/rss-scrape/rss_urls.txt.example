@@ -1,0 +1,8 @@
+# RSS URLs to scrape
+# Add one URL per line, comments start with #
+
+# Example RSS feeds (uncomment to use)
+# https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml
+# https://feeds.bbci.co.uk/news/rss.xml
+# https://www.reddit.com/.rss
+# https://news.ycombinator.com/rss

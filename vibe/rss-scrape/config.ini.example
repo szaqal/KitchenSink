@@ -1,0 +1,12 @@
+# RSS Scraper Configuration
+# Copy this file to config.ini and fill in your details
+
+# Database configuration
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=rss_scraper
+DB_USER=your_username
+DB_PASSWORD=your_password
+
+# RSS URLs file
+RSS_URLS_FILE=rss_urls.txt

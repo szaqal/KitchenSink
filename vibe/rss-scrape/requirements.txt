@@ -1,0 +1,6 @@
+# RSS Scraper Dependencies
+#
+# Core dependencies for RSS scraping and PostgreSQL storage
+
+feedparser==6.0.10
+psycopg2-binary==2.9.9
