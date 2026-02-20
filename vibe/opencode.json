@@ -1,0 +1,16 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "zenek": {
+      "mode": "primary",
+      "prompt": "{file:./prompt.txt}"
+    },
+    "czesiek": {
+      "mode": "primary",
+      "permission": {
+        "edit": "ask",
+        "bash": "ask"
+      }
+    }
+  }
+}
