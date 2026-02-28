@@ -16,7 +16,7 @@ win95-boot:
 		-drive file=$(DISK_BOOT),format=raw,if=floppy \
 		-cdrom $(DISK_CD) \
 		-boot order=a \
-		-device sb16 \
+		-device es1370 \
 		-m 128 \
 		-cpu pentium \
 		-vga cirrus
@@ -24,9 +24,10 @@ win95-boot:
 win95-start:
 	qemu-system-i386 -drive file=$(DISK_PATH),format=raw \
 		-boot order=c \
+		-cdrom $(DISK_CD) \
 		-vga cirrus \
-		-icount shift=3,sleep=on \
+		-icount shift=5,sleep=on \
 		-device sb16 \
 		-m 128 \
-		-cpu 486 \
+		-cpu pentium \
 		-M pc
