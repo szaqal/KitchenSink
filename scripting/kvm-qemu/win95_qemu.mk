@@ -12,20 +12,21 @@ img-create:
 
 
 win95-boot:
-	qemu-system-i386 -enable-kvm -drive file=$(DISK_PATH),format=raw \
+	qemu-system-i386 -drive file=$(DISK_PATH),format=raw \
 		-drive file=$(DISK_BOOT),format=raw,if=floppy \
 		-cdrom $(DISK_CD) \
 		-boot order=a \
 		-device sb16 \
 		-m 128 \
-		-cpu host \
+		-cpu pentium \
 		-vga cirrus
 
 win95-start:
-	qemu-system-i386 -enable-kvm -drive file=$(DISK_PATH),format=raw \
-		-boot order=a \
+	qemu-system-i386 -drive file=$(DISK_PATH),format=raw \
+		-boot order=c \
 		-vga cirrus \
+		-icount shift=3,sleep=on \
 		-device sb16 \
 		-m 128 \
-		-smp 4 \
-		-cpu host  
+		-cpu 486 \
+		-M pc
