@@ -1,29 +1,31 @@
 # Proc list
 # 	qemu-system-i386 -cpu help
 
+export BOXES_PATH := $(HOME)/boxes
+export DISK_PATH := $(BOXES_PATH)/win95.img
+export DISK_BOOT=$(BOXES_PATH)/windows95/boot_disk/disk01.img
+export DISK_CD=$(BOXES_PATH)/windows95/windows95b.iso
 
 img-create:
-	qemu-img create -f qcow2 ~/disk.img 1024M 
+	qemu-img create -f raw $(DISK_PATH) 1024M 
 
 
-win95-%: export DISK_PATH=~/win95.img
-win95-boot: DISK_BOOT=~/Windows/boot_disk/disk01.img 
-win95-boot: DISK_CD=~/Windows/windows95b.iso
+
 win95-boot:
-	qemu-system-i386  -hda $(DISK_PATH) \
-		-fda $(DISK_BOOT) \
+	qemu-system-i386 -enable-kvm -drive file=$(DISK_PATH),format=raw \
+		-drive file=$(DISK_BOOT),format=raw,if=floppy \
 		-cdrom $(DISK_CD) \
-		-boot a -soundhw pcspk \
-		-soundhw sb16 \
-		-m 64 \
-		-cpu pentium \
+		-boot order=a \
+		-device sb16 \
+		-m 128 \
+		-cpu host \
 		-vga cirrus
 
 win95-start:
-	qemu-system-i386  -hda $(DISK_PATH) \
-		-boot a \
+	qemu-system-i386 -enable-kvm -drive file=$(DISK_PATH),format=raw \
+		-boot order=a \
 		-vga cirrus \
-		-soundhw sb16 \
+		-device sb16 \
 		-m 128 \
 		-smp 4 \
-		-cpu pentium  
+		-cpu host  
