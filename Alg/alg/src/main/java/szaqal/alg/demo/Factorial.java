@@ -1,5 +1,7 @@
 package szaqal.alg.demo;
 
+import java.math.BigInteger;
+
 /**
  * https://www.hackerrank.com/challenges/extra-long-factorials/problem?isFullScreen=true
  */
@@ -9,11 +11,13 @@ public class Factorial {
         System.out.println(factorial(n));
     }
 
-    public static long factorial(int n) {
+    public static BigInteger factorial(int n) {
         if(n == 1) {
-            return 1;
+            return BigInteger.ONE;
         }
-        return n * factorial(n-1);
+
+
+        return factorial(n-1).multiply(BigInteger.valueOf(n));
     }
 
     public static void main(String[] args) {

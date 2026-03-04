@@ -12,7 +12,7 @@ public class FactorialTest {
     @ParameterizedTest
     @MethodSource("argumentsList")
     public void test(int count, int expected) {
-        Assertions.assertEquals(expected, Factorial.factorial(count));
+        Assertions.assertEquals(expected, Factorial.factorial(count).longValue());
     }
 
     private static List<Arguments> argumentsList () {
