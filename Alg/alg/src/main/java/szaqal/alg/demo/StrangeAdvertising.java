@@ -1,5 +1,8 @@
 package szaqal.alg.demo;
 
+/**
+ * https://www.hackerrank.com/challenges/strange-advertising/problem?isFullScreen=true
+ */
 public class StrangeAdvertising {
 
     public static int viralAdvertising(int n) {
