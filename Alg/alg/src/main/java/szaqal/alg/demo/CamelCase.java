@@ -2,7 +2,14 @@ package szaqal.alg.demo;
 
 import java.util.stream.IntStream;
 
+/**
+ * https://www.hackerrank.com/challenges/camelcase/problem
+ */
 public class CamelCase {
+
+  /**
+   * s=oneTwoTree => 3
+   */
   public static int camelCase( String s ) {
     char[] charArray = s.toCharArray();
     int found = 1;//first start with lower always
@@ -16,8 +23,9 @@ public class CamelCase {
   }
 
   public static int camelCase2( String s ) {
-    return (int) IntStream.rangeClosed(0, s.length() - 1).filter(x -> Character.isUpperCase(s.charAt(x))).count() + 1;
-
+    return (int) IntStream.rangeClosed(0, s.length() - 1)
+            .filter(x -> Character.isUpperCase(s.charAt(x)))
+            .count() + 1;
   }
 
   public static int camelCase3( String s ) {

@@ -1,12 +1,20 @@
 package szaqal.alg.demo;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-//Hackerrank min-max sum
+/**
+ * https://www.hackerrank.com/challenges/mini-max-sum/problem?isFullScreen=true
+ */
 public class MinMaxSum {
-  public static void miniMaxSum( List<Integer> arr ) {
 
+  /**
+   * arr = [1,3,5,7,9]
+   *
+   * 1+3+5+7 = 16
+   * 3,5,7,9 = 25
+   * @param arr
+   */
+  public static void miniMaxSum( List<Integer> arr ) {
     int min = arr.stream().min(Integer::compare).orElse(0);
     int max = arr.stream().max(Integer::compare).orElse(0);
     var sumMin = arr.stream().filter(x -> x < max).mapToLong(x -> x).sum();

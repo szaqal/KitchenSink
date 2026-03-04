@@ -2,6 +2,9 @@ package szaqal.alg.demo;
 
 import java.util.List;
 
+/**
+ * https://www.hackerrank.com/challenges/plus-minus/problem?isFullScreen=true
+ */
 public class PlusMinus {
   public static void plusMinus( List<Integer> arr ) {
     int size = arr.size();

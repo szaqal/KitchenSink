@@ -3,11 +3,21 @@ package szaqal.alg.demo;
 import java.util.List;
 
 /**
- * https://www.hackerrank.com/challenges/diagonal-difference/problem?isFullScreen=true
+ * https://www.hackerrank.com/challenges/diagonal-difference/problem
  */
 public class DiagonalDifference {
+
+  /**
+   * <pre>
+   *     1 2 3
+   *     4 5 6
+   *     9 8 9
+   * </pre>
+   *
+   * (1+5+9) - (3+5+9)
+   */
   public static int diagonalDifference( List<List<Integer>> arr ) {
-    Integer count = arr.size();
+    int count = arr.size();
     int diag1 = 0;
     int diag2 = 0;
     for (int i=0;i<count;i++) {
