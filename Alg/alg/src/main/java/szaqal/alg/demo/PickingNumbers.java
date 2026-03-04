@@ -13,30 +13,21 @@ public class PickingNumbers {
         Map<Integer, Long> collect = a.stream()
                 .collect(Collectors.groupingBy(x -> x, Collectors.counting()));
 
-        Long max = collect.values()
-                .stream()
-                .max(Long::compareTo)
-                .orElse(Long.MIN_VALUE);
+        List<Integer> sortedValues = collect.keySet().stream().sorted().collect(Collectors.toList());
 
-        List<Integer> dominants = collect.entrySet()
-                .stream()
-                .filter(x->x.getValue().equals(max))
-                .map(Map.Entry::getKey)
-                .collect(Collectors.toList());
-
-
-        int size = max.intValue();
-
-        int result = 0;
-        for(var dominant : dominants) {
-            int nb1 = Optional.ofNullable(collect.get(dominant - 1)).map(Long::intValue).orElse(0);
-            int nb2 = Optional.ofNullable(collect.get(dominant + 1)).map(Long::intValue).orElse(0);
-            var candidate = Math.max(size+nb1, size+nb2);
-            if(candidate> result) {
-                result = candidate;
+        int size=0;
+        for(int value : sortedValues) {
+            int l = collect.get(value).intValue();
+            int l1 = Optional.ofNullable(collect.get(value - 1)).map(Long::intValue).orElse(0);
+            int l2 = Optional.ofNullable(collect.get(value + 1)).map(Long::intValue).orElse(0);
+            int candSize = Math.max(l+l1, l+l2);
+            if(candSize > size) {
+                size=candSize;
             }
+
         }
-        return result;
+
+        return size;
     }
 
 }
