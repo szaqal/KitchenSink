@@ -8,9 +8,9 @@ import java.util.stream.Collectors;
  */
 public class PickingNumbers {
 
-    public static int pickingNumbers(List<Integer> input) {
+    public static int pickingNumbers(List<Integer> a) {
 
-        Map<Integer, Long> collect = input.stream()
+        Map<Integer, Long> collect = a.stream()
                 .collect(Collectors.groupingBy(x -> x, Collectors.counting()));
 
         Long max = collect.values()
@@ -18,19 +18,25 @@ public class PickingNumbers {
                 .max(Long::compareTo)
                 .orElse(Long.MIN_VALUE);
 
-        int dominant = collect.entrySet()
+        List<Integer> dominants = collect.entrySet()
                 .stream()
                 .filter(x->x.getValue().equals(max))
-                .findFirst().map(Map.Entry::getKey).orElseThrow();
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
 
 
         int size = max.intValue();
 
-
-        int nb1 = Optional.ofNullable(collect.get(dominant - 1)).map(Long::intValue).orElse(0);
-        int nb2 = Optional.ofNullable(collect.get(dominant + 1)).map(Long::intValue).orElse(0);
-
-        return Math.max(size+nb1, size+nb2);
+        int result = 0;
+        for(var dominant : dominants) {
+            int nb1 = Optional.ofNullable(collect.get(dominant - 1)).map(Long::intValue).orElse(0);
+            int nb2 = Optional.ofNullable(collect.get(dominant + 1)).map(Long::intValue).orElse(0);
+            var candidate = Math.max(size+nb1, size+nb2);
+            if(candidate> result) {
+                result = candidate;
+            }
+        }
+        return result;
     }
 
 }
