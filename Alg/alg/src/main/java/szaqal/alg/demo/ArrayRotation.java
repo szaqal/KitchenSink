@@ -1,5 +1,6 @@
 package szaqal.alg.demo;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,21 +14,24 @@ public class ArrayRotation {
       int k,
       List<Integer> queries ) {
     int size = list.size();
-    int lastIdx = size -1;
-
+    int lastIdx = size - 1;
+    int[] answer = list.stream().mapToInt(i -> i).toArray();  //perfomance requirement using list.get list.set was to slow
 
     //1,2,3
     //3,1,2
     //2,3,1
-    for (int i=0;i<k;i++) {
-      int last = list.get(lastIdx);
-      for(int idx = size-1;idx>0;idx--) {
-        list.set(idx, list.get(idx-1));
+    for (int i = 0; i < k; i++) {
+      int last = answer[lastIdx];
+      for (int idx = size - 1; idx > 0; idx--) {
+        answer[idx] = answer[idx - 1];
       }
-      list.set(0, last);
+      answer[0] = last;
     }
 
-
-    return queries.stream().map(list::get).collect(Collectors.toList());
+    List<Integer> list1 = new ArrayList<>();
+    for (int i = 0; i < queries.size(); i++) {
+      list1.add(answer[queries.get(i)]);
+    }
+    return list1;
   }
 }
