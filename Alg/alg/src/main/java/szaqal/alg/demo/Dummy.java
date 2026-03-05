@@ -2,6 +2,7 @@ package szaqal.alg.demo;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Dummy {
 
@@ -36,6 +37,15 @@ public class Dummy {
       chars2.add(str2Arr[i]);
     }
     return chars1.equals(chars2);
+  }
 
+  public static int vovelsCount(String message) {
+        char[] chars = message.toCharArray(); //No Arrays.stream(char[] ) exists
+    List<Character> characters = new ArrayList<>();
+    for (var chr : chars) {
+      characters.add(chr);
+    }
+
+    return (int) characters.stream().filter(x -> Set.of('a', 'e', 'i', 'o', 'u').contains(x)).count();
   }
 }

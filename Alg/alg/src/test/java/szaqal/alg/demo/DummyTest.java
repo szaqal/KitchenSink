@@ -28,4 +28,9 @@ public class DummyTest {
     assertTrue(Dummy.isAnagram("a", "a"));
     assertFalse(Dummy.isAnagram("sleep", "slep"));
   }
+
+  @Test
+  public void testVovels() {
+    assertEquals(1, Dummy.vovelsCount("Hi"));
+  }
 }
