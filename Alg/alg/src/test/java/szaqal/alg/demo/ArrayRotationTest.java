@@ -13,7 +13,6 @@ import static szaqal.alg.demo.ArrayRotation.circularArrayRotation;
 
 public class ArrayRotationTest {
 
-    @Disabled
     @ParameterizedTest
     @MethodSource("argumentsList")
     public void test( List<Integer> input, int count, List<Integer> queries, List<Integer> expected) {
