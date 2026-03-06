@@ -30,6 +30,8 @@ public class SherlockTest {
         return List.of(
                 Arguments.of("abcdefghhgfedecba", "YES"),
                 Arguments.of("abc", "YES"),
+                Arguments.of("abbcc", "YES"),
+                Arguments.of("aaabb", "YES"),
                 Arguments.of("abccc", "NO"),
                 Arguments.of("aaabbbcccc", "YES"),
                 Arguments.of("aabbccddeefghi", "NO")

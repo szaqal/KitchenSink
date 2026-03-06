@@ -13,6 +13,14 @@ public class Sherlock {
                 .mapToObj(x -> (char) x)
                 .collect(Collectors.groupingBy(x -> x, Collectors.counting()));
 
+        long count = list.values().stream().filter(x -> x == 1L).count();
+
+        //TODO: do it better here
+        Set<Long> collect = list.values().stream().collect(Collectors.toSet());
+        if (count ==1 && collect.size() == 2 && collect.contains(1L)) {
+            return "YES";
+        }
+
         int allowedChange = 1;
         long prevCount = 0;
         for (Map.Entry<Character, Long> entries : list.entrySet()) {
@@ -21,7 +29,7 @@ public class Sherlock {
             } else {
                 if (prevCount != entries.getValue()) {
                     long numberOfChangeRequired = Math.abs(entries.getValue() - prevCount);
-                    allowedChange-= (int) numberOfChangeRequired;
+                    allowedChange -= (int) numberOfChangeRequired;
                 }
             }
             if (allowedChange < 0) {
