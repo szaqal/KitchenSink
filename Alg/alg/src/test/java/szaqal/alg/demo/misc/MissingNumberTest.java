@@ -1,7 +1,8 @@
-package szaqal.alg.demo;
+package szaqal.alg.demo.misc;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import szaqal.alg.demo.misc.MissingNumbers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ public class MissingNumberTest {
     public void test1() {
         var arr =  new ArrayList<>(List.of(203,204, 205, 206, 207, 208, 203, 204, 205, 206));
         var brr =  new ArrayList<>(List.of(203, 204, 204, 205, 206, 207, 205, 208, 203, 206, 205, 206, 204));
-        Assertions.assertEquals(List.of(204,205,206),MissingNumbers.missingNumbers(arr, brr));
+        Assertions.assertEquals(List.of(204,205,206), MissingNumbers.missingNumbers(arr, brr));
     }
 
     @Test

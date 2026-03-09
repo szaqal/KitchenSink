@@ -1,4 +1,4 @@
-package szaqal.alg.demo;
+package szaqal.alg.demo.recursion;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
