@@ -11,7 +11,10 @@ public class FindDigits {
 
         char[] charArray = String.valueOf(n).toCharArray();
         for (char x : charArray) {
-            //Integer.parseInt(String.valueOf(x)) is expensive
+            /*
+            This creates unnecessary object allocations:
+                - char → String → Integer.parseInt()
+             */
             int i = Character.getNumericValue(x);
             if (i!=0 && n % i == 0) {
                 found++;
