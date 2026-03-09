@@ -1,6 +1,7 @@
-package szaqal.alg.demo;
+package szaqal.alg.demo.misc;
 
 import org.junit.jupiter.api.Test;
+import szaqal.alg.demo.misc.Dummy;
 
 import java.util.List;
 
