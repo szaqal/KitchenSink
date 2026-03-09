@@ -1,4 +1,4 @@
-package szaqal.alg.demo;
+package szaqal.alg.demo.misc;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static szaqal.alg.demo.DiagonalDifference.diagonalDifference;
+import static szaqal.alg.demo.misc.DiagonalDifference.diagonalDifference;
 
 public class DiagonalDifferenceTest {
 

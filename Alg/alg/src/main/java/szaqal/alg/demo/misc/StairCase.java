@@ -1,4 +1,4 @@
-package szaqal.alg.demo;
+package szaqal.alg.demo.misc;
 
 //https://www.hackerrank.com/challenges/staircase
 public class StairCase {

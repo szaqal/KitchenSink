@@ -1,4 +1,4 @@
-package szaqal.alg.demo;
+package szaqal.alg.demo.misc;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class DiagonalDifference {
    *     4 5 6
    *     9 8 9
    * </pre>
-   *
+   Single pass - O(n) time, O(1) space
    * (1+5+9) - (3+5+9)
    */
   public static int diagonalDifference( List<List<Integer>> arr ) {

@@ -1,7 +1,8 @@
-package szaqal.alg.demo;
+package szaqal.alg.demo.misc;
 
 public class ReverseString {
 
+  //Classic in-place swap - optimal O(n) time, O(1) space
   public static String reverse( String input ) {
     char[] charArray = input.toCharArray();
     for (int i = 0; i < charArray.length / 2; i++) {

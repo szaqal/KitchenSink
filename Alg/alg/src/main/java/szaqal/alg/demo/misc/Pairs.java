@@ -1,4 +1,4 @@
-package szaqal.alg.demo;
+package szaqal.alg.demo.misc;
 
 import java.util.HashSet;
 import java.util.List;
@@ -17,11 +17,11 @@ public class Pairs {
     //TODO compare per set with array.containes
     Set<Integer> set = new HashSet<>(arr);
     int count = 0;
-    for (int i = 0; i < arr.size(); i++) {
-      if (set.contains(arr.get(i) + k)) {
-        count++;
+      for (Integer integer : arr) {
+          if (set.contains(integer + k)) {
+              count++;
+          }
       }
-    }
     return count;
   }
 }

@@ -1,4 +1,4 @@
-package szaqal.alg.demo;
+package szaqal.alg.demo.misc;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -9,7 +9,7 @@ public class ReverseStringTest {
 
   @Test
   public void test() {
-    assertEquals("cba", ReverseString.reverse("abc"));
+    Assertions.assertEquals("cba", ReverseString.reverse("abc"));
     assertEquals("dcba", ReverseString.reverse("abcd"));
   }
 }

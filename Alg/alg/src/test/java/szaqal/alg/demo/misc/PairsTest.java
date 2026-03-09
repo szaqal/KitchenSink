@@ -1,7 +1,7 @@
-package szaqal.alg.demo;
+package szaqal.alg.demo.misc;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import szaqal.alg.demo.misc.Pairs;
 
 import java.util.ArrayList;
 import java.util.List;
