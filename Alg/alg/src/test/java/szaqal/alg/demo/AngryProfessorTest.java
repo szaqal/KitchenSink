@@ -7,12 +7,15 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class AngryProfessorTest {
 
     @ParameterizedTest
     @MethodSource("argumentsList")
     public void test(List<Integer> input, Integer expectedCount, String expectedResult) {
-        Assertions.assertEquals(expectedResult, AngryProfessor.angryProfessor(expectedCount, input));
+        assertEquals(expectedResult, AngryProfessor.angryProfessor(expectedCount, input));
+        assertEquals(expectedResult, AngryProfessor.angryProfessorOptimized(expectedCount, input));
     }
 
     private static List<Arguments> argumentsList() {
