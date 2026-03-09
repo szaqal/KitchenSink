@@ -1,12 +1,12 @@
-package szaqal.alg.demo;
+package szaqal.alg.demo.misc;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static szaqal.alg.demo.BirthDayCandle.birthdayCakeCandles;
-import static szaqal.alg.demo.BirthDayCandle.birthdayCakeCandlesOptimized;
+import static szaqal.alg.demo.misc.BirthDayCandle.birthdayCakeCandles;
+import static szaqal.alg.demo.misc.BirthDayCandle.birthdayCakeCandlesOptimized;
 
 public class BirthDayCandleTest {
 

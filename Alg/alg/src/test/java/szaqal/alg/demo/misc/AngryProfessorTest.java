@@ -1,4 +1,4 @@
-package szaqal.alg.demo;
+package szaqal.alg.demo.misc;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -14,7 +14,7 @@ public class AngryProfessorTest {
     @ParameterizedTest
     @MethodSource("argumentsList")
     public void test(List<Integer> input, Integer expectedCount, String expectedResult) {
-        assertEquals(expectedResult, AngryProfessor.angryProfessor(expectedCount, input));
+        Assertions.assertEquals(expectedResult, AngryProfessor.angryProfessor(expectedCount, input));
         assertEquals(expectedResult, AngryProfessor.angryProfessorOptimized(expectedCount, input));
     }
 
