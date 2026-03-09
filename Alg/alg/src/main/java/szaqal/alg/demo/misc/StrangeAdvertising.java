@@ -1,4 +1,4 @@
-package szaqal.alg.demo;
+package szaqal.alg.demo.misc;
 
 /**
  * https://www.hackerrank.com/challenges/strange-advertising/problem?isFullScreen=true
@@ -11,7 +11,7 @@ public class StrangeAdvertising {
         int cumlative = 0;
         for (int day = 1; day <= n; day++) {
             shared = (day == 1) ? shared : liked * 3;
-            liked = (int) Math.floor((double) shared / 2);
+            liked = (int) (double) shared / 2;
             cumlative += liked;
             //System.out.println("%d %d %d %d".formatted(day, shared, liked, cumlative));
         }
