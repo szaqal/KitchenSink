@@ -1,5 +1,6 @@
 package szaqal.alg.demo;
 
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
@@ -20,6 +21,14 @@ public class CamelCase {
       }
     }
     return found;
+  }
+
+  public static int camelCase4(String s) {
+    long result = s.chars()
+            .mapToObj(x -> (char) x)
+            .filter(Character::isUpperCase)
+            .count();
+    return (int) result + 1;
   }
 
   public static int camelCase2( String s ) {

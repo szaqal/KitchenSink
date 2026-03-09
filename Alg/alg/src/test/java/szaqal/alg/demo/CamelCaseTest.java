@@ -9,5 +9,6 @@ public class CamelCaseTest {
         Assertions.assertEquals(CamelCase.camelCase("saveChangesInTheEditor"), 5);
         Assertions.assertEquals(CamelCase.camelCase3("saveChangesInTheEditor"), 5);
         Assertions.assertEquals(CamelCase.camelCase2("saveChangesInTheEditor"), 5);
+        Assertions.assertEquals(CamelCase.camelCase4("saveChangesInTheEditor"), 5);
     }
 }
