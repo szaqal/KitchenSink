@@ -55,12 +55,9 @@ public class Dummy {
   }
 
   public static int vovelsCount(String message) {
-        char[] chars = message.toCharArray(); //No Arrays.stream(char[] ) exists
-    List<Character> characters = new ArrayList<>();
-    for (var chr : chars) {
-      characters.add(chr);
-    }
-
-    return (int) characters.stream().filter(x -> Set.of('a', 'e', 'i', 'o', 'u').contains(x)).count();
+    return (int) message.chars()
+            .mapToObj(x->(char)x)
+            .filter(x -> Set.of('a', 'e', 'i', 'o', 'u').contains(x))
+            .count();
   }
 }
