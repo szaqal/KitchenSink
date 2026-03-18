@@ -36,6 +36,12 @@ public class CamelCaseTest {
     }
 
     @ParameterizedTest
+    @MethodSource("camelCase4Arguments")
+    public void testCamelCase5(String input, int expected) {
+        Assertions.assertEquals(expected, camelCase5(input));
+    }
+
+    @ParameterizedTest
     @MethodSource("camelCaseOptimizedArguments")
     public void testCamelCaseOptimized(String input, int expected) {
         Assertions.assertEquals(expected, camelCaseOptimized(input));

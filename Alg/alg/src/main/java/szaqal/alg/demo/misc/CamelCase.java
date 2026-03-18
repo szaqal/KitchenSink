@@ -60,6 +60,10 @@ public class CamelCase {
             .count() + 1;
   }
 
+  public static int camelCase5(String s) {
+    return (int) s.chars().filter(Character::isUpperCase).count()+1;
+  }
+
   /**
    * Direct iteration - most efficient approach.
    * 
