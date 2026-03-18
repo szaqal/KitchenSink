@@ -15,6 +15,17 @@ public class Dummy {
         .map(Map.Entry::getKey).toList();
   }
 
+  public static String reverse(String str1) {
+    Stack<Character> charStack = new Stack<>();
+    str1.chars().mapToObj(x->(char)x).forEach(charStack::push);
+    StringBuilder builder = new StringBuilder();
+
+    while(!charStack.isEmpty()) {
+      builder.append(charStack.pop());
+    }
+    return builder.toString();
+  }
+
   public static boolean isAnagram(String str1, String str2) {
 
     if(str1.length() != str2.length()) {

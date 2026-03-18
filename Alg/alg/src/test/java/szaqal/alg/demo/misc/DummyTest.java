@@ -17,6 +17,11 @@ public class DummyTest {
   }
 
   @Test
+  public void testReverse() {
+    assertEquals("cba", Dummy.reverse("abc"));
+  }
+
+  @Test
   public void testAnagram() {
     assertTrue(Dummy.isAnagram("word", "wrdo"));
     assertTrue(Dummy.isAnagram("mary", "army"));
