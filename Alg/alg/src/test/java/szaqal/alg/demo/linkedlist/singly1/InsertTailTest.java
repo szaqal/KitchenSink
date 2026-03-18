@@ -1,10 +1,12 @@
-package szaqal.alg.demo.linkedlist;
+package szaqal.alg.demo.linkedlist.singly1;
 
 import org.junit.jupiter.api.Test;
+import szaqal.alg.demo.linkedlist.singly1.SinglyLinkedList;
+import szaqal.alg.demo.linkedlist.singly1.SinglyLinkedListNode;
 
 import java.util.List;
 
-import static szaqal.alg.demo.linkedlist.InsertTail.insertNodeAtTail;
+import static szaqal.alg.demo.linkedlist.singly1.InsertTail.insertNodeAtTail;
 
 public class InsertTailTest {
 

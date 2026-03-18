@@ -1,4 +1,4 @@
-package szaqal.alg.demo.linkedlist;
+package szaqal.alg.demo.linkedlist.singly1;
 
 //https://www.hackerrank.com/challenges/insert-a-node-at-the-tail-of-a-linked-list
 public class InsertTail {

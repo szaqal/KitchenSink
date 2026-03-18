@@ -20,6 +20,7 @@ public class Dummy {
     str1.chars().mapToObj(x->(char)x).forEach(charStack::push);
     StringBuilder builder = new StringBuilder();
 
+    // Not best but possible charStack.stream().map(String::valueOf).collect(Collectors.joining());
     while(!charStack.isEmpty()) {
       builder.append(charStack.pop());
     }

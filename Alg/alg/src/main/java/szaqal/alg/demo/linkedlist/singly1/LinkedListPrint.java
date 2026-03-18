@@ -1,4 +1,4 @@
-package szaqal.alg.demo.linkedlist;
+package szaqal.alg.demo.linkedlist.singly1;
 
 //https://www.hackerrank.com/challenges/print-the-elements-of-a-linked-list-in-reverse/problem?isFullScreen=true
 public class LinkedListPrint {
