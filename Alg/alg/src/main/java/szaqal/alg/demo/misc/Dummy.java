@@ -7,13 +7,7 @@ import java.util.stream.Stream;
 public class Dummy {
 
   public static List<Character> characterDups(String aa) {
-    char[] chars = aa.toCharArray(); //No Arrays.stream(char[] ) exists
-    List<Character> characters = new ArrayList<>();
-    for (var chr : chars) {
-      characters.add(chr);
-    }
-
-    return characters.stream()
+    return aa.chars().mapToObj(x-> (char) x)
         .collect(Collectors.groupingBy(x -> x, Collectors.counting()))
         .entrySet()
         .stream()
