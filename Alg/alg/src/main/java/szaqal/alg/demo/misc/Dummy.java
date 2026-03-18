@@ -17,20 +17,41 @@ public class Dummy {
 
   public static boolean isAnagram(String str1, String str2) {
 
-    Set<Character> chars1 = new HashSet<>();
-    Set<Character> chars2 = new HashSet<>();
     if(str1.length() != str2.length()) {
       return false;
     }
 
-    char[] str1Arr = str1.toCharArray();
-    char[] str2Arr = str2.toCharArray();
+    Map<Character, Long> chars1 = str1
+            .chars()
+            .mapToObj(x->(char)x)
+            .collect(Collectors.groupingBy(x->x, Collectors.counting()));
 
-    for (int i=0;i < str1.length();i++) {
-      chars1.add(str1Arr[i]);
-      chars2.add(str2Arr[i]);
-    }
+    Map<Character, Long> chars2 = str2
+            .chars()
+            .mapToObj(x->(char)x)
+            .collect(Collectors.groupingBy(x->x, Collectors.counting()));
+
+
     return chars1.equals(chars2);
+  }
+
+  public static boolean isAnagram2(String str1, String str2) {
+    if (str1.length() != str2.length()) {
+      return false;
+    }
+
+    int[] count = new int[256];
+    for (int i = 0; i < str1.length(); i++) {
+      count[str1.charAt(i)]++;
+      count[str2.charAt(i)]--;
+    }
+
+    for (int c : count) {
+      if (c != 0) {
+        return false;
+      }
+    }
+    return true;
   }
 
   public static int vovelsCount(String message) {

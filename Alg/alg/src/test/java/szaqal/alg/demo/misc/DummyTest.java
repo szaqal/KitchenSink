@@ -28,6 +28,19 @@ public class DummyTest {
     assertFalse(Dummy.isAnagram("ccc", "ccccccc"));
     assertTrue(Dummy.isAnagram("a", "a"));
     assertFalse(Dummy.isAnagram("sleep", "slep"));
+    assertFalse(Dummy.isAnagram("aab", "abb"));
+
+    assertTrue(Dummy.isAnagram2("word", "wrdo"));
+    assertTrue(Dummy.isAnagram2("mary", "army"));
+    assertTrue(Dummy.isAnagram2("stop", "tops"));
+    assertTrue(Dummy.isAnagram2("boat", "btoa"));
+    assertFalse(Dummy.isAnagram2("pure", "in"));
+    assertFalse(Dummy.isAnagram2("fill", "fil"));
+    assertFalse(Dummy.isAnagram2("b", "bbb"));
+    assertFalse(Dummy.isAnagram2("ccc", "ccccccc"));
+    assertTrue(Dummy.isAnagram2("a", "a"));
+    assertFalse(Dummy.isAnagram2("sleep", "slep"));
+    assertFalse(Dummy.isAnagram2("aab", "abb"));
   }
 
   @Test
