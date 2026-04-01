@@ -4,13 +4,14 @@ import org.junit.jupiter.api.Assertions.assertNull
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
+import kotlin.test.assertTrue
 
 class KotlinDemoTest {
     @Test
     fun aaa() {
         // TODO: ==, != - equality operators  (equals)
         // TODO: ===, !== - referential equality operators.
-        
+
 
 
         val kotlinDemo = KotlinDemo()
@@ -25,5 +26,6 @@ class KotlinDemoTest {
 
         assertNull(kotlinDemo.optional("d"))
         assertNotNull(kotlinDemo.optional("1"))
+        assertTrue(kotlinDemo.equality())
     }
 }

@@ -52,4 +52,6 @@ class KotlinDemo {
     }
 
     fun optional(str:String):Int? = str.toIntOrNull();
+
+    fun equality():Boolean = 2==2 && 2===2;
 }
