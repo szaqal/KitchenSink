@@ -9,7 +9,10 @@ public class ReverseStringTest {
 
   @Test
   public void test() {
-    Assertions.assertEquals("cba", ReverseString.reverse("abc"));
+    assertEquals("cba", ReverseString.reverse("abc"));
     assertEquals("dcba", ReverseString.reverse("abcd"));
+
+    assertEquals("cba", ReverseString.reverseStack("abc"));
+    assertEquals("dcba", ReverseString.reverseStack("abcd"));
   }
 }
