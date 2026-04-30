@@ -19,7 +19,7 @@ public class JumpingTheClouds {
         }
         int next = c.get(nextPointer);
         boolean longJumpThunder = next==1;
-        boolean longJumpSafe = (nextPointer+2 < size && next==0 && c.get(nextPointer+1) ==0);
+        boolean longJumpSafe = (nextPointer+2 <= size && next==0 && c.get(nextPointer+1) ==0);
         if(longJumpThunder || longJumpSafe) {
           pointer+=2;
         } else {

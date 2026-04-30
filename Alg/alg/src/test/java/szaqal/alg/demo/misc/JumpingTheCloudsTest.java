@@ -19,7 +19,9 @@ public class JumpingTheCloudsTest {
     private static List<Arguments> argumentsList() {
         return List.of(
                 Arguments.of(List.of(0,0,1,0,0,1,0), 4),
-                Arguments.of(List.of(0, 0, 0, 1, 0, 0), 3)
+                Arguments.of(List.of(0, 0, 0, 1, 0, 0), 3),
+                Arguments.of(List.of(0,1,0,0,0,0,0,1,0,1,0,0,0,1,0,0,1,0,1,0,0,0,0,1,0,0,1,0,0,1,0,1,0,1,0,1,0,0,0,1,0,1,0,0,0,1,0,1,0,1,0,0,0,1,0,1,0,0,0,1,0,1,0,0,0,1,0,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,0,1,0,1,0,1,0,1,0,0,0,0,0,0,1,0,0,0), 53)
         );
     }
 }
+
