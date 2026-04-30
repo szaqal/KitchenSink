@@ -4,9 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static szaqal.alg.demo.linkedlist.singly1.Operations.insertNodeAtPosition;
 import static szaqal.alg.demo.linkedlist.singly1.Operations.insertNodeAtTail;
 
-public class LinkedListPrintTest {
+public class OperationsTest {
 
   @Test
   public void test() {
@@ -16,17 +17,21 @@ public class LinkedListPrintTest {
       SinglyLinkedListNode llist_head = insertNodeAtTail(llist.head, i);
       llist.head = llist_head;
     }
-    LinkedListPrint.reversePrint(llist.head);
+
+    System.out.println(llist);
+
   }
 
   @Test
   public void test2() {
     SinglyLinkedList llist = new SinglyLinkedList();
     List<Integer> integers = List.of(141, 302, 164, 530, 474);
+    SinglyLinkedListNode llist_head = null;
     for (Integer i : integers) {
-      SinglyLinkedListNode llist_head = insertNodeAtTail(llist.head, i);
+      llist_head = insertNodeAtTail(llist.head, i);
       llist.head = llist_head;
     }
-    LinkedListPrint.printLinkedList(llist.head);
+    SinglyLinkedListNode singlyLinkedListNode = insertNodeAtPosition(llist.head, -10, 1);
+    System.out.println(singlyLinkedListNode);
   }
 }
