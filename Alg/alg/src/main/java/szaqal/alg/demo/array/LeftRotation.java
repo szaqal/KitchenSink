@@ -1,10 +1,12 @@
-package szaqal.alg.demo;
+package szaqal.alg.demo.array;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-//Array left rotation
+/**
+ * https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
+ */
 public class LeftRotation {
   public static List<Integer> rotateLeft(
       int shift,
