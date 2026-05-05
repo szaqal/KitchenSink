@@ -87,6 +87,25 @@ public class Dummy {
     return true;
   }
 
+  //------------------- Count integers
+  // has a performance issue: mapToInt(x -> x) creates an unnecessary Integer-to-int boxing/unboxing operation.
+
+  public static int simpleArraySum( List<Integer> ar ) {
+    return ar.stream().mapToInt(Integer::intValue).sum();
+  }
+
+  public static int simpleArraySum2( List<Integer> ar ) {
+    return ar.stream().reduce(0, Integer::sum);
+  }
+
+  public static int simpleArraySum3( List<Integer> ar ) {
+    return ar.stream().reduce(0, (x,y) -> x+y); // equivalent Integer::sum
+  }
+
+  public static int simpleArraySum(int[] ar) {
+    return Arrays.stream(ar).sum();
+  }
+
   // -------------------
 
   public static int vovelsCount(String message) {

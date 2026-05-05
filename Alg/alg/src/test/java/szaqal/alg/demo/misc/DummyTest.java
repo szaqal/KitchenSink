@@ -1,11 +1,13 @@
 package szaqal.alg.demo.misc;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import szaqal.alg.demo.misc.Dummy;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static szaqal.alg.demo.misc.Dummy.*;
 
 public class DummyTest {
 
@@ -53,5 +55,14 @@ public class DummyTest {
   @Test
   public void testVovels() {
     assertEquals(1, Dummy.vovelsCount("Hi"));
+  }
+
+  @Test
+  public void test() {
+    Assertions.assertEquals(9, simpleArraySum(List.of(2, 3, 4)));
+    Assertions.assertEquals(9, simpleArraySum2(List.of(2, 3, 4)));
+    Assertions.assertEquals(9, simpleArraySum3(List.of(2, 3, 4)));
+
+    assertEquals(9, simpleArraySum(new int[] { 2, 3, 4 }));
   }
 }
