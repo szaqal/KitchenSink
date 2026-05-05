@@ -19,6 +19,8 @@ public class DummyTest {
   @Test
   public void testReverse() {
     assertEquals("cba", Dummy.reverse("abc"));
+    assertEquals("cba", Dummy.reverse2("abc"));
+    assertEquals("cba", Dummy.reverse3("abc"));
   }
 
   @Test

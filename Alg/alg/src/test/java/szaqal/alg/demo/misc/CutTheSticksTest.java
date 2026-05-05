@@ -16,6 +16,13 @@ public class CutTheSticksTest {
         Assertions.assertEquals(expected, CutTheSticks.cutTheSticks(input));
     }
 
+
+    @ParameterizedTest
+    @MethodSource("argumentsList")
+    public void test2(List<Integer> input, List<Integer> expected) {
+        Assertions.assertEquals(expected, CutTheSticks.cutTheSticks2(input));
+    }
+
     private static List<Arguments> argumentsList () {
         return List.of(
                 Arguments.of(new ArrayList<>(List.of(1,2,3)), List.of(3,2,1)),
