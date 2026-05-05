@@ -9,16 +9,13 @@ import java.util.stream.Collectors;
 public class BillSplit {
 
     /**
-     *
-     * @param bill
-     * @param annaDidntEat an integer representing the zero-based index of the item Anna doesn't eat
+     * @param annaDidntEatBillItem an integer representing the zero-based index of the item Anna doesn't eat
      * @param brianCharged the amount of money that Anna contributed to the bill
-     * @return
      */
-    public static String bonAppetit(List<Integer> bill, int annaDidntEat, int brianCharged) {
-        int total = bill.stream().mapToInt(x -> x).sum();
-        int subs = bill.get(annaDidntEat);
-        int annaToCharge = (total - subs)/2;
+    public static String bonAppetit(List<Integer> bill, int annaDidntEatBillItem, int brianCharged) {
+        int totalBillCharge = bill.stream().mapToInt(x -> x).sum();
+        int annaDidntEatBillPrice = bill.get(annaDidntEatBillItem);
+        int annaToCharge = (totalBillCharge - annaDidntEatBillPrice)/2;
 
         if(annaToCharge == brianCharged) {
             String s = "Bon Appetit";

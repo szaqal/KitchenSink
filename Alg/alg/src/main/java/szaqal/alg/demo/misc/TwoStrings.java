@@ -1,4 +1,4 @@
-package szaqal.alg.demo;
+package szaqal.alg.demo.misc;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -17,6 +17,7 @@ public class TwoStrings {
       }
       return "NO";
     }
+
 
     public static String tooSlow(String s1, String s2) {
       for(char x : s1.toCharArray()) {

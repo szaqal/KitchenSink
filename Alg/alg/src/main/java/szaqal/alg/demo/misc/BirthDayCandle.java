@@ -4,6 +4,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 //https://www.hackerrank.com/challenges/birthday-cake-candles
+/**
+ * <ol>
+ *   <li>one candle for each year of their total age</li>
+ *   <li>Your task is to count how many candles are the tallest</li>
+ *   <li>Example: candles = [4,4,1,3] returns 2 (max is 4, appears 2 times)</li>
+ * </ol>
+ */
 public class BirthDayCandle {
 
   /**
@@ -47,6 +54,8 @@ public class BirthDayCandle {
   public static int birthdayCakeCandlesOptimized( List<Integer> candles ) {
     int maxHeight = 0;
     int maxCount = 0;
+
+
     
     for (int height : candles) {
       if (height > maxHeight) {

@@ -1,4 +1,4 @@
-package szaqal.alg.demo;
+package szaqal.alg.demo.misc;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -14,6 +14,7 @@ public class VeryLongSumTest {
     @MethodSource("argumentsList")
     public void test(List<Long> input, long expected) {
         assertEquals(expected, VeryLongSum.aVeryBigSum(input));
+        assertEquals(expected, VeryLongSum.aVeryBigSum1(input));
     }
 
     private static List<Arguments> argumentsList () {
