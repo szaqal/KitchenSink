@@ -13,8 +13,9 @@ public class FindDigitsTest {
     @MethodSource("argumentsList")
     public void test(int input, int expected) {
         Assertions.assertEquals(expected, FindDigits.findDigits(input));
-    }
+        Assertions.assertEquals(expected, FindDigits.findDigits2(input));
 
+    }
     private static List<Arguments> argumentsList() {
         return List.of(
                 Arguments.of(124, 3)

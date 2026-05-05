@@ -1,6 +1,7 @@
 package szaqal.alg.demo.misc;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -56,12 +57,12 @@ public class Dummy {
     Map<Character, Long> chars1 = str1
             .chars()
             .mapToObj(x->(char)x)
-            .collect(Collectors.groupingBy(x->x, Collectors.counting()));
+            .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
     Map<Character, Long> chars2 = str2
             .chars()
             .mapToObj(x->(char)x)
-            .collect(Collectors.groupingBy(x->x, Collectors.counting()));
+            .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
 
     return chars1.equals(chars2);
@@ -85,6 +86,8 @@ public class Dummy {
     }
     return true;
   }
+
+  // -------------------
 
   public static int vovelsCount(String message) {
     return (int) message.chars()
