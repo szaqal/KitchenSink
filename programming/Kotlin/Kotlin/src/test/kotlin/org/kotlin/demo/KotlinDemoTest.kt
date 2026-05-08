@@ -28,4 +28,6 @@ class KotlinDemoTest {
         assertNotNull(kotlinDemo.optional("1"))
         assertTrue(kotlinDemo.equality())
     }
+
+    @Test fun `ensure everything works`() { /*...*/ }
 }
