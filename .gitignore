@@ -100,3 +100,4 @@ __pycache__
 .mvn
 *.iml
 *class
+.factorypath
