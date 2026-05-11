@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 public class FileReadJob implements Callable<List<ParsedQuery>> {
 
-  private List<ParsedQuery> queries = new ArrayList<>();
+  private final List<ParsedQuery> queries = new ArrayList<>();
 
   private static final Logger logger = Logger.getLogger("Read");
 
@@ -27,10 +27,11 @@ public class FileReadJob implements Callable<List<ParsedQuery>> {
       String line = null;
       while ( (line = reader.readLine()) != null ) {
         //logger.finest(line);
-        if (linesCompleted % 10_000 == 0) {
+        if (linesCompleted % 100_000 == 0) {
           logger.info("%s %s lines completed".formatted(Thread.currentThread().getName(), linesCompleted));
-          queries.add(parse(line));
         }
+        queries.add(parse(line));
+
         linesCompleted++;
       }
 
