@@ -21,7 +21,8 @@ public class Main {
       statistics.aggregate(parsed);
     }
 
-    statistics.dump();
+    statistics.dumpByDomain();
+    statistics.dumpByClient();
 
 
     log.info(">> Loaded " + read.size());
